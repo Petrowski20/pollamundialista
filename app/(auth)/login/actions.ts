@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 
-export async function login(formData: FormData) {
+export async function login(formData: FormData): Promise<{ error: string } | undefined> {
   const supabase = await createClient()
 
   const email = formData.get('email') as string
@@ -13,17 +13,16 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword({ email, password })
 
   if (error) {
-    redirect('/login?error=' + encodeURIComponent('Credenciales incorrectas'))
+    return { error: 'Credenciales incorrectas' }
   }
 
   revalidatePath('/', 'layout')
   redirect('/')
 }
 
-export async function signup(formData: FormData) {
+export async function signup(formData: FormData): Promise<{ error: string } | { message: string } | undefined> {
   const supabase = await createClient()
 
-  // Capturamos todos los campos nuevos del formulario
   const email = formData.get('email') as string
   const password = formData.get('password') as string
   const confirmPassword = formData.get('confirmPassword') as string
@@ -31,17 +30,15 @@ export async function signup(formData: FormData) {
   const birthDate = formData.get('birthDate') as string
   const favoriteTeamId = formData.get('favoriteTeamId') as string
 
-  // Validación de contraseñas idénticas
   if (password !== confirmPassword) {
-    redirect('/login?error=' + encodeURIComponent('Las contraseñas no coinciden') + '&view=register')
+    return { error: 'Las contraseñas no coinciden' }
   }
 
-  // Validación de edad mínima (16 años)
   if (birthDate) {
     const today = new Date()
     const limitDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate())
     if (new Date(birthDate) > limitDate) {
-      redirect('/login?error=' + encodeURIComponent('Debes tener al menos 16 años para participar') + '&view=register')
+      return { error: 'Debes tener al menos 16 años para participar' }
     }
   }
 
@@ -49,18 +46,17 @@ export async function signup(formData: FormData) {
     email,
     password,
     options: {
-      // Pasamos los datos extra aquí para que el Trigger de SQL los cace
       data: {
-        nickname: nickname,
+        nickname,
         birth_date: birthDate,
-        favorite_team_id: favoriteTeamId ? parseInt(favoriteTeamId) : null
-      }
-    }
+        favorite_team_id: favoriteTeamId ? parseInt(favoriteTeamId) : null,
+      },
+    },
   })
 
   if (error) {
-    redirect('/login?error=' + encodeURIComponent(error.message) + '&view=register')
+    return { error: error.message }
   }
 
-  redirect('/login?message=' + encodeURIComponent('Revisa tu correo para confirmar tu cuenta'))
+  return { message: 'Revisa tu correo para confirmar tu cuenta' }
 }
