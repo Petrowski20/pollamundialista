@@ -59,6 +59,7 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
 
   const { theme, setTheme } = useTheme()
   const [lang, setLang] = useState<Lang>('es')
+  const [mounted, setMounted] = useState(false)
 
   const [showPwModal,  setShowPwModal]  = useState(false)
   const [newPw,        setNewPw]        = useState('')
@@ -70,6 +71,8 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
     const l = localStorage.getItem('pm_lang') as Lang | null
     if (l) setLang(l)
   }, [])
+
+  useEffect(() => { setMounted(true) }, [])
 
   // ── Preferencias ──────────────────────────────────────────
   const handleTheme = (t: string) => {
@@ -274,24 +277,28 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
             {/* Tema */}
             <div className="flex items-center justify-between px-5 py-3.5">
               <span className="text-sm text-gray-600 dark:text-gray-400">Tema</span>
-              <div className="flex gap-1.5">
-                {([['light', '☀️', 'Claro'], ['system', '⚙️', 'Automático'], ['dark', '🌙', 'Oscuro']] as [string, string, string][]).map(
-                  ([t, icon, label]) => (
-                    <button
-                      key={t}
-                      onClick={() => handleTheme(t)}
-                      title={label}
-                      className={`w-9 h-9 rounded-lg text-base border transition-all flex items-center justify-center ${
-                        theme === t
-                          ? 'bg-blue-600 border-blue-600 shadow-sm'
-                          : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
-                      }`}
-                    >
-                      {icon}
-                    </button>
-                  )
-                )}
-              </div>
+              {!mounted ? (
+                <div className="h-9 w-[116px] bg-gray-100 dark:bg-slate-800 rounded-lg animate-pulse" />
+              ) : (
+                <div className="flex gap-1.5">
+                  {([['light', '☀️', 'Claro'], ['system', '⚙️', 'Automático'], ['dark', '🌙', 'Oscuro']] as [string, string, string][]).map(
+                    ([t, icon, label]) => (
+                      <button
+                        key={t}
+                        onClick={() => handleTheme(t)}
+                        title={label}
+                        className={`w-9 h-9 rounded-lg text-base border transition-all flex items-center justify-center ${
+                          theme === t
+                            ? 'bg-blue-600 border-blue-600 shadow-sm'
+                            : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
+                        }`}
+                      >
+                        {icon}
+                      </button>
+                    )
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

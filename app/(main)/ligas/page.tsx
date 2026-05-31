@@ -1,6 +1,5 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
 import LeagueManager from '@/components/LeagueManager'
 import CopyButton from '@/components/CopyButton'
 
@@ -35,18 +34,10 @@ export default async function LigasPage() {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      {/* Botón Volver */}
-      <Link
-        href="/perfil"
-        className="inline-flex items-center text-sm font-medium text-brand-blue hover:text-brand-teal mb-6 transition-colors"
-      >
-        ← Volver a mi perfil
-      </Link>
-
       {/* Cabecera */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Mis Ligas Privadas</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Mis Ligas Privadas</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
           Crea una liga para competir con tus amigos o únete con un código.
         </p>
       </div>
@@ -56,12 +47,12 @@ export default async function LigasPage() {
 
       {/* Lista de ligas actuales */}
       <div className="mt-8">
-        <h2 className="text-base font-semibold text-gray-700 mb-4">
+        <h2 className="text-base font-semibold text-gray-700 dark:text-gray-300 mb-4">
           {leagues.length === 0 ? 'Aún no perteneces a ninguna liga' : `Tus ligas (${leagues.length})`}
         </h2>
 
         {leagues.length === 0 ? (
-          <div className="bg-white rounded-xl border border-dashed border-gray-200 py-12 flex flex-col items-center gap-2 text-gray-400">
+          <div className="bg-white dark:bg-slate-900 rounded-xl border border-dashed border-[#FFD6D1] dark:border-slate-700 py-12 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
             <span className="text-4xl">🏆</span>
             <p className="text-sm">Crea la primera o únete con un código.</p>
           </div>
@@ -76,11 +67,11 @@ export default async function LigasPage() {
               return (
                 <div
                   key={league.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
+                  className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#FFD6D1] dark:border-slate-800 p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
                 >
                   {/* Nombre + badge propietario */}
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-bold text-gray-900 text-base leading-tight">
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base leading-tight">
                       {league.name}
                     </h3>
                     {isOwner && (
@@ -92,14 +83,14 @@ export default async function LigasPage() {
 
                   {/* Descripción */}
                   {league.description && (
-                    <p className="text-sm text-gray-500 leading-snug">{league.description}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-snug">{league.description}</p>
                   )}
 
                   {/* Código de unión */}
                   {league.join_code && (
-                    <div className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2">
-                      <span className="text-xs text-gray-400 shrink-0">Código:</span>
-                      <span className="font-mono font-bold text-gray-900 tracking-widest text-sm flex-1">
+                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-slate-800 rounded-lg px-3 py-2">
+                      <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0">Código:</span>
+                      <span className="font-mono font-bold text-gray-900 dark:text-gray-100 tracking-widest text-sm flex-1">
                         {league.join_code}
                       </span>
                       <CopyButton
@@ -110,7 +101,7 @@ export default async function LigasPage() {
                   )}
 
                   {/* Footer: fecha */}
-                  <div className="flex items-center justify-end text-xs text-gray-400 pt-1 border-t border-gray-50">
+                  <div className="flex items-center justify-end text-xs text-gray-400 dark:text-gray-500 pt-1 border-t border-gray-50 dark:border-slate-800/50">
                     <span>Desde {joinedDate}</span>
                   </div>
                 </div>

@@ -93,14 +93,14 @@ export default async function ClasificacionPage() {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Clasificación</h1>
-        <p className="text-sm text-gray-500 mt-1">{leagueName}</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Clasificación</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{leagueName}</p>
       </div>
 
       <LeagueSelector leagues={leagues} activeLeagueId={activeLeagueId} />
 
       {/* Legend */}
-      <div className="bg-gray-50 dark:bg-slate-800/50 p-4 rounded-xl mb-4 border border-gray-100 dark:border-slate-800">
+      <div className="bg-[#FFD6D1]/30 dark:bg-slate-800/50 p-4 rounded-xl mb-4 border border-[#FFD6D1] dark:border-slate-800">
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gray-500 dark:text-gray-400">
           <span>🎯 <strong className="text-gray-700 dark:text-gray-300">ME</strong> Marcador exacto</span>
           <span>✅ <strong className="text-gray-700 dark:text-gray-300">AR</strong> Acierto de resultado</span>
@@ -109,7 +109,7 @@ export default async function ClasificacionPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#FFD6D1] dark:border-slate-800 overflow-hidden">
         {ranking.length === 0 ? (
           <p className="text-center text-gray-500 text-sm py-12">
             Aún no hay datos para esta clasificación.
@@ -117,7 +117,7 @@ export default async function ClasificacionPage() {
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase tracking-wider text-gray-500">
+              <tr className="bg-[#FFD6D1]/30 dark:bg-slate-800/50 border-b border-[#FFD6D1] dark:border-slate-800 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
                 <th className="px-4 py-3 text-center w-12">Pos.</th>
                 <th className="px-4 py-3 text-left">Usuario</th>
                 <th className="px-3 py-3 text-center">ME</th>
@@ -133,14 +133,14 @@ export default async function ClasificacionPage() {
                 return (
                   <tr
                     key={row.profileId}
-                    className={`border-b border-gray-50 last:border-0 transition-colors ${
-                      isMe ? 'bg-blue-50' : 'hover:bg-gray-50'
+                    className={`border-b border-gray-50 dark:border-slate-800/50 last:border-0 transition-colors ${
+                      isMe ? 'bg-blue-50 dark:bg-blue-900/20' : 'hover:bg-gray-50 dark:hover:bg-slate-800/50'
                     }`}
                   >
-                    <td className="px-4 py-3 text-center font-bold text-gray-500 w-12">
+                    <td className="px-4 py-3 text-center font-bold text-gray-500 dark:text-gray-400 w-12">
                       {medals[row.position] ?? row.position}
                     </td>
-                    <td className="px-4 py-3 font-medium text-gray-800">
+                    <td className="px-4 py-3 font-medium text-gray-800 dark:text-gray-100">
                       <Link
                         href={`/jugador/${row.profileId}`}
                         className="hover:text-blue-600 hover:underline transition-colors"
@@ -151,13 +151,13 @@ export default async function ClasificacionPage() {
                         <span className="ml-2 text-xs text-blue-500 font-normal">(Tú)</span>
                       )}
                     </td>
-                    <td className="px-3 py-3 text-center text-gray-600">{row.me}</td>
-                    <td className="px-3 py-3 text-center text-gray-600">{row.ar}</td>
-                    <td className="px-3 py-3 text-center text-gray-600 hidden sm:table-cell">{row.ta}</td>
-                    <td className="px-3 py-3 text-center text-gray-600 hidden sm:table-cell">{row.pi}</td>
-                    <td className="px-4 py-3 text-right pr-6 font-bold text-blue-600">
+                    <td className="px-3 py-3 text-center text-gray-600 dark:text-gray-400">{row.me}</td>
+                    <td className="px-3 py-3 text-center text-gray-600 dark:text-gray-400">{row.ar}</td>
+                    <td className="px-3 py-3 text-center text-gray-600 dark:text-gray-400 hidden sm:table-cell">{row.ta}</td>
+                    <td className="px-3 py-3 text-center text-gray-600 dark:text-gray-400 hidden sm:table-cell">{row.pi}</td>
+                    <td className="px-4 py-3 text-right pr-6 font-bold text-blue-600 dark:text-blue-400">
                       {row.pts}
-                      <span className="ml-1 text-xs text-gray-400 font-normal">pts</span>
+                      <span className="ml-1 text-xs text-gray-400 dark:text-gray-500 font-normal">pts</span>
                     </td>
                   </tr>
                 )

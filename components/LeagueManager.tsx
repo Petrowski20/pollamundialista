@@ -58,9 +58,9 @@ export default function LeagueManager() {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#FFD6D1] dark:border-slate-800 overflow-hidden">
       {/* Pestañas */}
-      <div className="flex border-b border-gray-100">
+      <div className="flex border-b border-[#FFD6D1] dark:border-slate-800">
         {([ ['create', '➕ Crear Liga'], ['join', '🔗 Unirse con Código'] ] as [Tab, string][]).map(
           ([tab, label]) => (
             <button
@@ -68,8 +68,8 @@ export default function LeagueManager() {
               onClick={() => setActiveTab(tab)}
               className={`flex-1 py-3 text-sm font-semibold transition-colors ${
                 activeTab === tab
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/30'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 bg-[#FFD6D1]/20 dark:bg-slate-800/50'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800/50'
               }`}
             >
               {label}
@@ -83,7 +83,7 @@ export default function LeagueManager() {
         {activeTab === 'create' && (
           <form onSubmit={handleCreate} className="flex flex-col gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Nombre <span className="text-red-400">*</span>
               </label>
               <input
@@ -92,12 +92,12 @@ export default function LeagueManager() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Ej: Los del Bar, Peñeta 2026…"
                 maxLength={60}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Descripción{' '}
                 <span className="text-xs font-normal text-gray-400">(opcional)</span>
               </label>
@@ -107,7 +107,7 @@ export default function LeagueManager() {
                 placeholder="¿De qué va esta liga?"
                 rows={2}
                 maxLength={200}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full border border-gray-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none placeholder:text-gray-400 dark:placeholder:text-gray-500"
               />
             </div>
 
@@ -124,7 +124,7 @@ export default function LeagueManager() {
         {/* ──── Formulario Unirse ──── */}
         {activeTab === 'join' && (
           <form onSubmit={handleJoin} className="flex flex-col items-center gap-5">
-            <p className="text-sm text-gray-500 text-center">
+            <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
               Pide el código de 6 caracteres al creador de la liga e introdúcelo aquí.
             </p>
 
@@ -136,7 +136,7 @@ export default function LeagueManager() {
               maxLength={8}
               spellCheck={false}
               autoComplete="off"
-              className="w-48 text-center text-3xl font-bold tracking-[0.3em] uppercase border-2 border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder:tracking-normal placeholder:text-gray-300 placeholder:text-2xl"
+              className="w-48 text-center text-3xl font-bold tracking-[0.3em] uppercase border-2 border-gray-200 dark:border-slate-700 rounded-xl px-4 py-4 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder:tracking-normal placeholder:text-gray-300 dark:placeholder:text-gray-600 placeholder:text-2xl"
             />
 
             <button

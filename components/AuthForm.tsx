@@ -16,7 +16,6 @@ type Props = {
   isRegister: boolean
   maxBirthDate: string
   errorInicial?: string
-  messageInicial?: string
 }
 
 function EyeOpen() {
@@ -37,22 +36,19 @@ function EyeOff() {
   )
 }
 
-export default function AuthForm({ isRegister, maxBirthDate, errorInicial, messageInicial }: Props) {
+export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Props) {
   const [showPassword, setShowPassword] = useState(false)
   const [formError, setFormError] = useState(errorInicial)
-  const [formMessage, setFormMessage] = useState(messageInicial)
   const passwordRef = useRef<HTMLInputElement>(null)
   const confirmPasswordRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     setFormError(errorInicial)
-    setFormMessage(messageInicial)
-  }, [isRegister, errorInicial, messageInicial])
+  }, [isRegister, errorInicial])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setFormError(undefined)
-    setFormMessage(undefined)
 
     const formData = new FormData(e.currentTarget)
     const result = isRegister ? await signup(formData) : await login(formData)
@@ -61,8 +57,6 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial, messa
       setFormError(result.error)
       if (passwordRef.current) passwordRef.current.value = ''
       if (confirmPasswordRef.current) confirmPasswordRef.current.value = ''
-    } else if (result && 'message' in result) {
-      setFormMessage(result.message)
     }
   }
 
@@ -208,11 +202,6 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial, messa
       {formError && (
         <p className="p-3 bg-red-50 text-red-600 text-center text-xs rounded-lg border border-red-100 mt-2 font-medium">
           ⚠️ {formError}
-        </p>
-      )}
-      {formMessage && (
-        <p className="p-3 bg-green-50 text-green-600 text-center text-xs rounded-lg border border-green-100 mt-2 font-medium">
-          📩 {formMessage}
         </p>
       )}
     </form>

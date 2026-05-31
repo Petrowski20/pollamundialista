@@ -4,9 +4,9 @@ import AuthForm from '@/components/AuthForm'
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ message?: string; error?: string; view?: string }>
+  searchParams: Promise<{ error?: string; view?: string }>
 }) {
-  const { message, error, view } = await searchParams
+  const { error, view } = await searchParams
   const isRegister = view === 'register'
 
   const today = new Date()
@@ -35,7 +35,6 @@ export default async function LoginPage({
         isRegister={isRegister}
         maxBirthDate={maxBirthDate}
         errorInicial={error}
-        messageInicial={message}
       />
     </div>
   )

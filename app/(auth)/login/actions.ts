@@ -20,7 +20,7 @@ export async function login(formData: FormData): Promise<{ error: string } | und
   redirect('/')
 }
 
-export async function signup(formData: FormData): Promise<{ error: string } | { message: string } | undefined> {
+export async function signup(formData: FormData): Promise<{ error: string } | undefined> {
   const supabase = await createClient()
 
   const email = formData.get('email') as string
@@ -58,5 +58,6 @@ export async function signup(formData: FormData): Promise<{ error: string } | { 
     return { error: error.message }
   }
 
-  return { message: 'Revisa tu correo para confirmar tu cuenta' }
+  revalidatePath('/', 'layout')
+  redirect('/')
 }
