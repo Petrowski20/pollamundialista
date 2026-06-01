@@ -99,13 +99,8 @@ export async function saveMatchResultAction(
 
   if (profile?.role !== 'ADMIN') return { error: 'Acceso denegado: se requiere rol ADMIN' }
 
-  const { error: updateError } = await supabase
-    .from('matches')
-    .update({ home_goals: homeGoals, away_goals: awayGoals, status: 'FINISHED' })
-    .eq('id', matchId)
-
-  if (updateError) return { error: updateError.message }
-
+  // El RPC actualiza el marcador y status del partido internamente (SECURITY DEFINER),
+  // además de calcular puntos y recalcular rankings. No se necesita un UPDATE previo.
   const { error: rpcError } = await supabase.rpc('calculate_match_points', {
     p_match_id: matchId,
     p_home_goals: homeGoals,

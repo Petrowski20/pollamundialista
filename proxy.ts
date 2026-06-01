@@ -1,6 +1,12 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const PUBLIC_PATHS = ['/login']
+
+function isPublicPath(pathname: string) {
+  return PUBLIC_PATHS.some(p => pathname.startsWith(p))
+}
+
 export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
@@ -16,23 +22,38 @@ export async function proxy(request: NextRequest) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({ request })
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)  
+            supabaseResponse.cookies.set(name, value, options)
           )
         },
       },
     }
   )
 
-  // Refresca el token de sesión en cada request.
-  // No redirige; la protección de rutas la sigue haciendo el layout de (main).
-  await supabase.auth.getUser()
+  // getUser() valida el token contra el servidor de Supabase Auth en cada request.
+  // Si el usuario fue eliminado o el token está revocado, devuelve user=null.
+  // No colocar ninguna lógica entre createServerClient y getUser().
+  const { data: { user }, error } = await supabase.auth.getUser()
+
+  if ((error || !user) && !isPublicPath(request.nextUrl.pathname)) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/login'
+    const redirectResponse = NextResponse.redirect(url)
+
+    // Borra las cookies de sesión de Supabase para evitar sesiones fantasma en el navegador.
+    request.cookies.getAll().forEach(cookie => {
+      if (cookie.name.startsWith('sb-')) {
+        redirectResponse.cookies.delete(cookie.name)
+      }
+    })
+
+    return redirectResponse
+  }
 
   return supabaseResponse
 }
 
 export const config = {
   matcher: [
-    // Aplica a todo excepto archivos estáticos e imágenes optimizadas
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }

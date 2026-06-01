@@ -1,4 +1,5 @@
 import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { Toaster } from 'sonner';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
@@ -21,6 +22,7 @@ export default async function MainLayout({
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {children}
       </main>
+      <Footer />
       <Toaster position="bottom-center" richColors />
     </>
   );
