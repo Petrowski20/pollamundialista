@@ -404,6 +404,31 @@ export default function AdminMatchManager({
   teams: TeamOption[]
 }) {
   const [showAddModal, setShowAddModal] = useState(false)
+  const [isExporting, setIsExporting] = useState(false)
+
+  async function handleExport() {
+    setIsExporting(true)
+    try {
+      const res = await fetch('/api/export')
+      if (!res.ok) {
+        toast.error('Error al generar el reporte')
+        return
+      }
+      const data = await res.json()
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'reporte_mundial.json'
+      a.click()
+      URL.revokeObjectURL(url)
+      toast.success('Reporte descargado ✅')
+    } catch {
+      toast.error('Error inesperado al generar el reporte')
+    } finally {
+      setIsExporting(false)
+    }
+  }
 
   const pending  = initialMatches.filter(m => m.status !== 'FINISHED' && m.status !== 'CANCELLED').length
   const finished = initialMatches.filter(m => m.status === 'FINISHED').length
@@ -433,6 +458,16 @@ export default function AdminMatchManager({
             <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{finished}</p>
             <p className="text-xs text-emerald-600 dark:text-emerald-500">Finalizados</p>
           </div>
+
+          {/* Botón Descargar Reporte */}
+          <button
+            onClick={handleExport}
+            disabled={isExporting}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all active:scale-95 disabled:opacity-60 disabled:cursor-wait"
+          >
+            <span>📊</span>
+            {isExporting ? 'Generando…' : 'Descargar Reporte JSON'}
+          </button>
 
           {/* Botón Añadir Partido */}
           <button

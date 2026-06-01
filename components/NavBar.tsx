@@ -66,6 +66,9 @@ export default async function NavBar() {
 <Link href="/clasificacion" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
                 Clasificación
               </Link>
+              <Link href="/supuestos" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
+                Mi Mundial
+              </Link>
               <Link href="/ligas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
                 Ligas Privadas
               </Link>
