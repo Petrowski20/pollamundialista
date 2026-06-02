@@ -3,13 +3,17 @@
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 
-export async function savePredictionAction(matchId: number, homeGoals: number, awayGoals: number) {
+export async function savePredictionAction(
+  matchId: number,
+  homeGoals: number,
+  awayGoals: number,
+  clientAdvancingId: number | null = null,
+) {
   const supabase = await createClient()
 
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return { error: 'No estás autenticado' }
 
-  // Validación server-side de los valores de goles
   if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) {
     return { error: 'Los goles deben ser números enteros' }
   }
@@ -17,10 +21,9 @@ export async function savePredictionAction(matchId: number, homeGoals: number, a
     return { error: 'Valor de goles fuera de rango (0–99)' }
   }
 
-  // Verificación server-side de la ventana de tiempo (60 minutos antes del partido)
   const { data: match, error: matchError } = await supabase
     .from('matches')
-    .select('match_date, status')
+    .select('match_date, status, stage, home_team_id, away_team_id')
     .eq('id', matchId)
     .single()
 
@@ -35,6 +38,28 @@ export async function savePredictionAction(matchId: number, homeGoals: number, a
     return { error: 'El plazo para predecir ha cerrado (se cierra 1 hora antes del partido)' }
   }
 
+  // ── Sanitización del clasificado (anti-trampa) ──────────────
+  let pred_advancing_team_id: number | null = null
+
+  if (match.stage !== 'GROUP') {
+    if (homeGoals > awayGoals) {
+      // El servidor fuerza el clasificado independientemente del cliente
+      pred_advancing_team_id = match.home_team_id
+    } else if (awayGoals > homeGoals) {
+      pred_advancing_team_id = match.away_team_id
+    } else {
+      // Empate real: solo aquí se acepta la elección del cliente
+      if (!clientAdvancingId) {
+        return { error: 'En eliminatoria con empate debes seleccionar quién clasifica por penaltis' }
+      }
+      if (clientAdvancingId !== match.home_team_id && clientAdvancingId !== match.away_team_id) {
+        return { error: 'El equipo seleccionado no pertenece a este partido' }
+      }
+      pred_advancing_team_id = clientAdvancingId
+    }
+  }
+  // ────────────────────────────────────────────────────────────
+
   const { error } = await supabase
     .from('predictions')
     .upsert({
@@ -42,6 +67,7 @@ export async function savePredictionAction(matchId: number, homeGoals: number, a
       match_id: matchId,
       pred_home_goals: homeGoals,
       pred_away_goals: awayGoals,
+      pred_advancing_team_id,
       updated_at: new Date().toISOString(),
     }, {
       onConflict: 'profile_id, match_id',

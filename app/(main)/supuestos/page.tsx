@@ -37,6 +37,30 @@ interface TeamStanding {
   dg: number
 }
 
+function FlagCell({ flagEmoji, name }: { flagEmoji: string | null; name: string }) {
+  const url = getFlagUrl(flagEmoji ?? '');
+  if (!url) {
+    return (
+      <span
+        className="w-7 h-7 flex items-center justify-center text-base shrink-0 select-none"
+        title={name}
+        role="img"
+        aria-label={name}
+      >
+        {flagEmoji || '🏳'}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={url}
+      alt={name}
+      title={name}
+      className="w-7 h-7 rounded-full object-cover shrink-0 border border-gray-200/60 dark:border-slate-700"
+    />
+  );
+}
+
 function calcStandings(
   matches: Match[],
   predMap: Map<number, Prediction>,
@@ -204,12 +228,7 @@ export default async function SupuestosPage() {
                     >
                       <td className="px-3 py-2.5">
                         <div className="flex items-center gap-1.5">
-                          <img
-                            src={getFlagUrl(team.flag ?? '')}
-                            alt={team.name}
-                            title={team.name}
-                            className="w-7 h-7 rounded-full object-cover shrink-0 border border-gray-200/60 dark:border-slate-700"
-                          />
+                          <FlagCell flagEmoji={team.flag} name={team.name} />
                           {isBestThird && (
                             <span className="shrink-0 text-[10px] font-semibold text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/40 px-1 py-0.5 rounded leading-none">
                               Mejor 3º

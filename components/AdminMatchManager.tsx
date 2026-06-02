@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
 import { saveMatchResultAction, createMatchAction } from '@/app/(main)/admin/actions'
 import { getFlagUrl } from '@/utils/getFlagUrl'
@@ -18,6 +18,9 @@ export interface AdminMatch {
   status: string
   home_goals: number | null
   away_goals: number | null
+  home_team_id: number | null
+  away_team_id: number | null
+  advancing_team_id: number | null
   home_team: Team | null
   away_team: Team | null
 }
@@ -249,11 +252,23 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
 }
 
 function MatchRow({ match }: { match: AdminMatch }) {
-  const [homeGoals, setHomeGoals] = useState(match.home_goals?.toString() ?? '')
-  const [awayGoals, setAwayGoals] = useState(match.away_goals?.toString() ?? '')
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [homeGoals, setHomeGoals]           = useState(match.home_goals?.toString() ?? '')
+  const [awayGoals, setAwayGoals]           = useState(match.away_goals?.toString() ?? '')
+  const [advancingTeamId, setAdvancingTeamId] = useState<number | null>(match.advancing_team_id ?? null)
+  const [isSubmitting, setIsSubmitting]     = useState(false)
 
-  const isFinished = match.status === 'FINISHED'
+  const isFinished  = match.status === 'FINISHED'
+  const isKnockout  = match.stage !== 'GROUP'
+  const isTied      = homeGoals !== '' && awayGoals !== '' && homeGoals === awayGoals
+  const needsAdvancing = isKnockout && isTied && !isFinished
+
+  // Auto-reset cuando los goles rompen el empate
+  useEffect(() => {
+    if (!isKnockout) return
+    const h = parseInt(homeGoals, 10)
+    const a = parseInt(awayGoals, 10)
+    if (!isNaN(h) && !isNaN(a) && h !== a) setAdvancingTeamId(null)
+  }, [homeGoals, awayGoals, isKnockout])
 
   const handleSave = async () => {
     const home = parseInt(homeGoals, 10)
@@ -263,9 +278,18 @@ function MatchRow({ match }: { match: AdminMatch }) {
       toast.error('Introduce un resultado válido (ambos campos, número ≥ 0)')
       return
     }
+    if (needsAdvancing && advancingTeamId === null) {
+      toast.error('En eliminatoria con empate debes seleccionar el equipo que avanza')
+      return
+    }
 
     setIsSubmitting(true)
-    const result = await saveMatchResultAction(match.id, home, away)
+    const result = await saveMatchResultAction(
+      match.id,
+      home,
+      away,
+      isKnockout ? advancingTeamId : null,
+    )
     setIsSubmitting(false)
 
     if (result.error) {
@@ -301,9 +325,9 @@ function MatchRow({ match }: { match: AdminMatch }) {
       {/* Partido */}
       <td className="px-4 py-3">
         <div className="flex items-center gap-2 text-sm">
-          {match.home_team?.flag_emoji && (
-            <img src={getFlagUrl(match.home_team.flag_emoji)} alt={match.home_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
-          )}
+          {match.home_team?.flag_emoji && getFlagUrl(match.home_team.flag_emoji)
+            ? <img src={getFlagUrl(match.home_team.flag_emoji)} alt={match.home_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
+            : null}
           <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
             {match.home_team?.name}
           </span>
@@ -311,9 +335,9 @@ function MatchRow({ match }: { match: AdminMatch }) {
           <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
             {match.away_team?.name}
           </span>
-          {match.away_team?.flag_emoji && (
-            <img src={getFlagUrl(match.away_team.flag_emoji)} alt={match.away_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
-          )}
+          {match.away_team?.flag_emoji && getFlagUrl(match.away_team.flag_emoji)
+            ? <img src={getFlagUrl(match.away_team.flag_emoji)} alt={match.away_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
+            : null}
         </div>
         <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
           {STAGE_LABELS[match.stage] ?? match.stage}
@@ -343,36 +367,74 @@ function MatchRow({ match }: { match: AdminMatch }) {
             ? 'Cancelado'
             : 'Pendiente'}
         </span>
+        {/* Ganador por penaltis — solo en eliminatorias finalizadas en empate */}
+        {isFinished && isKnockout && match.home_goals === match.away_goals && match.advancing_team_id !== null && (
+          <span className="block mt-1 text-[10px] font-semibold text-blue-600 dark:text-blue-400">
+            🏆 Pen.: {match.advancing_team_id === match.home_team_id
+              ? match.home_team?.name
+              : match.away_team?.name}
+          </span>
+        )}
       </td>
 
       {/* Inputs resultado */}
       <td className="px-4 py-3">
-        <div className="flex items-center justify-center gap-2">
-          <input
-            type="number"
-            min={0}
-            max={99}
-            value={homeGoals}
-            onChange={(e) => setHomeGoals(e.target.value)}
-            onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
-            onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
-            disabled={isSubmitting}
-            placeholder="—"
-            className={inputBase}
-          />
-          <span className="text-gray-300 dark:text-slate-600 font-bold text-sm select-none">–</span>
-          <input
-            type="number"
-            min={0}
-            max={99}
-            value={awayGoals}
-            onChange={(e) => setAwayGoals(e.target.value)}
-            onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
-            onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
-            disabled={isSubmitting}
-            placeholder="—"
-            className={inputBase}
-          />
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
+            <input
+              type="number"
+              min={0}
+              max={99}
+              value={homeGoals}
+              onChange={(e) => setHomeGoals(e.target.value)}
+              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
+              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
+              disabled={isSubmitting}
+              placeholder="—"
+              className={inputBase}
+            />
+            <span className="text-gray-300 dark:text-slate-600 font-bold text-sm select-none">–</span>
+            <input
+              type="number"
+              min={0}
+              max={99}
+              value={awayGoals}
+              onChange={(e) => setAwayGoals(e.target.value)}
+              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
+              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
+              disabled={isSubmitting}
+              placeholder="—"
+              className={inputBase}
+            />
+          </div>
+
+          {/* Selector de clasificado por penaltis — solo en eliminatorias empatadas */}
+          {needsAdvancing && (
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-[9px] uppercase tracking-widest font-bold text-amber-600 dark:text-amber-400">
+                ¿Quién avanza?
+              </p>
+              <div className="flex gap-1.5">
+                {([
+                  { tid: match.home_team_id, name: match.home_team?.name ?? '?' },
+                  { tid: match.away_team_id, name: match.away_team?.name ?? '?' },
+                ] as const).map(({ tid, name }) => (
+                  <button
+                    key={tid}
+                    onClick={() => tid !== null && setAdvancingTeamId(tid)}
+                    disabled={isSubmitting || tid === null}
+                    className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border-2 transition-all ${
+                      advancingTeamId === tid
+                        ? 'border-blue-600 bg-blue-600 text-white'
+                        : 'border-gray-200 dark:border-slate-600 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500'
+                    }`}
+                  >
+                    {name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </td>
 
@@ -380,10 +442,12 @@ function MatchRow({ match }: { match: AdminMatch }) {
       <td className="px-4 py-3 text-center">
         <button
           onClick={handleSave}
-          disabled={isSubmitting || isFinished}
+          disabled={isSubmitting || isFinished || (needsAdvancing && advancingTeamId === null)}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all active:scale-95 whitespace-nowrap ${
             isFinished
               ? 'bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-slate-700 dark:text-slate-500'
+              : needsAdvancing && advancingTeamId === null
+              ? 'bg-amber-100 text-amber-600 cursor-not-allowed dark:bg-amber-900/30 dark:text-amber-400'
               : isSubmitting
               ? 'opacity-70 cursor-wait bg-gradient-to-r from-brand-blue to-brand-teal text-white'
               : 'bg-gradient-to-r from-brand-blue to-brand-teal text-white hover:opacity-90 shadow-sm'

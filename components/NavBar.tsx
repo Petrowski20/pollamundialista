@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/utils/supabase/server';
 import UserDropdown from '@/components/UserDropdown';
+import MobileMenu from '@/components/MobileMenu';
 
 export default async function NavBar() {
   const supabase = await createClient();
@@ -72,6 +73,9 @@ export default async function NavBar() {
               <Link href="/ligas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
                 Ligas Privadas
               </Link>
+              <Link href="/reglas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
+                Cómo jugar
+              </Link>
               {isAdmin && (
                 <Link href="/admin" className="text-sm font-semibold text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 px-3 py-2 rounded-md transition-colors">
                   🛡️ Admin
@@ -80,8 +84,8 @@ export default async function NavBar() {
             </div>
           </div>
 
-          {/* Lado Derecho: Perfil */}
-          <div className="flex items-center space-x-4">
+          {/* Lado Derecho: Perfil + Hamburguesa */}
+          <div className="flex items-center space-x-2">
             {user ? (
               <UserDropdown avatarUrl={avatarUrl} nickname={nickname} role={role} />
             ) : (
@@ -92,6 +96,7 @@ export default async function NavBar() {
                 Iniciar Sesión
               </Link>
             )}
+            <MobileMenu isAdmin={isAdmin} />
           </div>
 
         </div>

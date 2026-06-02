@@ -84,7 +84,8 @@ export async function createMatchAction(
 export async function saveMatchResultAction(
   matchId: number,
   homeGoals: number,
-  awayGoals: number
+  awayGoals: number,
+  clientAdvancingId: number | null = null,
 ): Promise<{ success?: true; error?: string }> {
   const supabase = await createClient()
 
@@ -99,8 +100,45 @@ export async function saveMatchResultAction(
 
   if (profile?.role !== 'ADMIN') return { error: 'Acceso denegado: se requiere rol ADMIN' }
 
-  // El RPC actualiza el marcador y status del partido internamente (SECURITY DEFINER),
-  // además de calcular puntos y recalcular rankings. No se necesita un UPDATE previo.
+  // Obtener stage y team IDs para la sanitización
+  const { data: match, error: matchError } = await supabase
+    .from('matches')
+    .select('stage, home_team_id, away_team_id')
+    .eq('id', matchId)
+    .single()
+
+  if (matchError || !match) return { error: 'Partido no encontrado' }
+
+  // ── Sanitización del clasificado (misma lógica que jugador) ─
+  let advancing_team_id: number | null = null
+
+  if (match.stage !== 'GROUP') {
+    if (homeGoals > awayGoals) {
+      advancing_team_id = match.home_team_id
+    } else if (awayGoals > homeGoals) {
+      advancing_team_id = match.away_team_id
+    } else {
+      if (!clientAdvancingId) {
+        return { error: 'En eliminatoria con empate debes seleccionar el equipo que avanza' }
+      }
+      if (clientAdvancingId !== match.home_team_id && clientAdvancingId !== match.away_team_id) {
+        return { error: 'El equipo seleccionado no pertenece a este partido' }
+      }
+      advancing_team_id = clientAdvancingId
+    }
+  }
+  // ────────────────────────────────────────────────────────────
+
+  // Persistir el clasificado antes de llamar al RPC de puntos
+  if (advancing_team_id !== null) {
+    const { error: updateError } = await supabase
+      .from('matches')
+      .update({ advancing_team_id })
+      .eq('id', matchId)
+    if (updateError) return { error: updateError.message }
+  }
+
+  // El RPC actualiza marcador, status y calcula puntos (SECURITY DEFINER)
   const { error: rpcError } = await supabase.rpc('calculate_match_points', {
     p_match_id: matchId,
     p_home_goals: homeGoals,
