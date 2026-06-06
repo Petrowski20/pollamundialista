@@ -33,9 +33,9 @@ export default async function ClasificacionPage() {
   const rankingPromise = activeLeagueId
     ? supabase
         .from('v_ranking_by_league')
-        .select('position, nickname, league_points, profile_id, league_name')
+        .select('profile_id, nickname, total_points, league_name')
         .eq('league_id', activeLeagueId)
-        .order('position', { ascending: true })
+        .order('total_points', { ascending: false })
         .limit(100)
     : supabase
         .from('v_ranking_global')
@@ -53,20 +53,15 @@ export default async function ClasificacionPage() {
       .select('profile_id, points_earned, matches!inner(status)'),
   ])
 
+  if (rankingError) console.error('[clasificacion] ranking error:', rankingError)
+  if (predsError) console.error('[clasificacion] predictions error:', predsError)
 
-  const baseRanking: BaseRow[] = activeLeagueId
-    ? (rankingData ?? []).map((r: any) => ({
-        position: r.position,
-        nickname: r.nickname,
-        pts: r.league_points,
-        profileId: r.profile_id,
-      }))
-    : (rankingData ?? []).map((r: any, i: number) => ({
-        position: i + 1,
-        nickname: r.nickname,
-        pts: r.total_points,
-        profileId: r.profile_id,
-      }))
+  const baseRanking: BaseRow[] = (rankingData ?? []).map((r: any, i: number) => ({
+    position: i + 1,
+    nickname: r.nickname,
+    pts: r.total_points,
+    profileId: r.profile_id,
+  }))
 
   if (activeLeagueId) {
     leagueName = (rankingData as any)?.[0]?.league_name ?? 'Liga privada'

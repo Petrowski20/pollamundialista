@@ -38,24 +38,26 @@ export default async function HomePage() {
   let rankingTitle = 'Top 5 - Global';
 
   if (activeLeagueId) {
-    const { data: leagueData } = await supabase
+    const { data: leagueData, error: leagueError } = await supabase
       .from('v_ranking_by_league')
-      .select('position, nickname, league_points, profile_id, league_name')
+      .select('profile_id, nickname, total_points, league_name')
       .eq('league_id', activeLeagueId)
-      .order('position', { ascending: true })
+      .order('total_points', { ascending: false })
       .limit(5);
-    top5 = (leagueData ?? []).map((r: any) => ({
-      position: r.position, nickname: r.nickname, pts: r.league_points, profileId: r.profile_id,
+    if (leagueError) console.error('[home] league ranking error:', leagueError)
+    top5 = (leagueData ?? []).map((r: any, i: number) => ({
+      position: i + 1, nickname: r.nickname, pts: r.total_points, profileId: r.profile_id,
     }));
     rankingTitle = `Top 5 - ${leagueData?.[0]?.league_name ?? 'Liga'}`;
   } else {
-    const { data: globalData } = await supabase
+    const { data: globalData, error: globalError } = await supabase
       .from('v_ranking_global')
-      .select('position, nickname, total_points, id')
-      .order('position', { ascending: true })
+      .select('profile_id, nickname, total_points')
+      .order('total_points', { ascending: false })
       .limit(5);
-    top5 = (globalData ?? []).map((r: any) => ({
-      position: r.position, nickname: r.nickname, pts: r.total_points, profileId: r.id,
+    if (globalError) console.error('[home] global ranking error:', globalError)
+    top5 = (globalData ?? []).map((r: any, i: number) => ({
+      position: i + 1, nickname: r.nickname, pts: r.total_points, profileId: r.profile_id,
     }));
   }
 
