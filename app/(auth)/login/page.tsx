@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import AuthForm from '@/components/AuthForm'
+import { getServerLang, tServer } from '@/utils/i18n-server'
 
 export default async function LoginPage({
   searchParams,
@@ -12,6 +13,9 @@ export default async function LoginPage({
   const today = new Date()
   const maxDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate())
   const maxBirthDate = maxDate.toISOString().split('T')[0]
+
+  const lang = await getServerLang()
+  const subtitle = tServer(lang, isRegister ? 'login.creaCuenta' : 'login.iniciaSesion')
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 mx-auto mt-10 mb-20">
@@ -26,9 +30,7 @@ export default async function LoginPage({
           unoptimized
           priority
         />
-        <p className="text-sm text-gray-500">
-          {isRegister ? 'Crea tu cuenta de jugador' : 'Inicia sesión para predecir'}
-        </p>
+        <p className="text-sm text-gray-500">{subtitle}</p>
       </div>
 
       <AuthForm

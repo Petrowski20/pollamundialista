@@ -1,19 +1,268 @@
 {
   "nav": {
     "home": "Inicio",
-    "ranking": "Clasificación",
-    "leagues": "Ligas Privadas"
+    "clasificacion": "Clasificación",
+    "miMundial": "Mi Mundial",
+    "ligasPrivadas": "Ligas Privadas",
+    "comoJugar": "Cómo jugar",
+    "iniciarSesion": "Iniciar Sesión"
+  },
+  "mobile": {
+    "navegacion": "Navegación"
+  },
+  "dropdown": {
+    "miPerfil": "Mi Perfil",
+    "tema": "Tema",
+    "idioma": "Idioma",
+    "claro": "Claro",
+    "auto": "Auto",
+    "oscuro": "Oscuro",
+    "cerrarSesion": "Cerrar Sesión"
+  },
+  "home": {
+    "title": "Jornada Actual",
+    "subtitle": "Fase de Grupos - Fecha 1",
+    "predictions": {
+      "title": "Tus Predicciones",
+      "completado": "¡Completado!",
+      "faltan": "Faltan {n}",
+      "completadas": "Completadas",
+      "hint": "Recuerda que puedes editar hasta 1 hora antes del pitido inicial."
+    },
+    "ranking": {
+      "global": "Top 5 - Global",
+      "liga": "Top 5 - {name}",
+      "sinDatos": "Sin datos aún.",
+      "verCompleto": "Ver clasificación completa"
+    }
+  },
+  "clasificacion": {
+    "title": "Clasificación",
+    "sinDatos": "Aún no hay datos para esta clasificación.",
+    "yo": "(Tú)",
+    "cols": {
+      "pos": "Pos.",
+      "usuario": "Usuario",
+      "total": "Total"
+    },
+    "legend": {
+      "me": "Marcador exacto",
+      "ar": "Acierto de resultado",
+      "ta": "Total de aciertos",
+      "pi": "Pronósticos incorrectos",
+      "me_abbr": "ME",
+      "ar_abbr": "AR",
+      "ta_abbr": "TA",
+      "pi_abbr": "PI"
+    }
+  },
+  "ligas": {
+    "title": "Mis Ligas Privadas",
+    "subtitle": "Crea una liga para competir con tus amigos o únete con un código.",
+    "myLeagues": "Tus ligas ({n})",
+    "noLeagues": "Aún no perteneces a ninguna liga",
+    "noLeaguesHint": "Crea la primera o únete con un código.",
+    "admin": "Admin",
+    "code": "Código:",
+    "desde": "Desde {date}",
+    "ereCreador": "Eres el creador"
+  },
+  "leagueManager": {
+    "tabCrear": "➕ Crear Liga",
+    "tabUnirse": "🔗 Unirse con Código",
+    "nombre": "Nombre",
+    "descripcion": "Descripción",
+    "opcional": "(opcional)",
+    "creando": "Creando…",
+    "crear": "Crear Liga",
+    "joinHint": "Pide el código de 6 caracteres al creador de la liga e introdúcelo aquí.",
+    "uniendome": "Uniéndome…",
+    "unirseBtn": "Unirse a la Liga",
+    "errors": {
+      "nombreObligatorio": "El nombre es obligatorio",
+      "codigoObligatorio": "Introduce un código de liga"
+    },
+    "created": "Liga creada. Comparte el código: {code}",
+    "joined": "¡Te has unido a \"{name}\"!"
+  },
+  "leagueSelector": {
+    "label": "Ver clasificación de:",
+    "global": "🌍 Global",
+    "guardando": "Guardando...",
+    "error": "Error al cambiar la liga: "
+  },
+  "leaveLeague": {
+    "confirmar": "¿Seguro que quieres abandonar la liga \"{name}\"?",
+    "saliendo": "Saliendo…",
+    "abandonar": "🚪 Abandonar",
+    "success": "Has abandonado la liga \"{name}\""
+  },
+  "matchCard": {
+    "stages": {
+      "finished": "FINALIZADO",
+      "group": "GRUPO {group}",
+      "round16": "OCTAVOS",
+      "quarter": "CUARTOS",
+      "semi": "SEMIFINAL",
+      "third": "3.er PUESTO",
+      "final": "GRAN FINAL"
+    },
+    "referee": "Árbitro por asignar",
+    "stadium": "Estadio por definir",
+    "penaltis": "¿Quién pasa por penaltis?",
+    "pasa": "Pasa:",
+    "tuPred": "Tu pred:",
+    "bloqueado": "🔒 Bloqueado",
+    "guardando": "⏳ Guardando…",
+    "guardar": "💾 Guardar",
+    "seleccionaClasificado": "Selecciona clasificado",
+    "guardado": "✓ Guardado",
+    "sinPrediccion": "Sin predicción",
+    "partidoFinalizado": "Partido finalizado",
+    "prediccionesCerradas": "Predicciones cerradas",
+    "errors": {
+      "rellenagoles": "Rellena ambos goles",
+      "seleccionapenaltis": "Selecciona quién clasifica por penaltis",
+      "errorPrefix": "Error: "
+    },
+    "success": "¡Predicción guardada! ⚽"
   },
   "auth": {
-    "login": "Iniciar Sesión",
-    "register": "Crear Cuenta",
     "email": "Correo Electrónico",
-    "password": "Contraseña",
-    "confirmPassword": "Confirmar Contraseña",
+    "emailPlaceholder": "tu@email.com",
     "nickname": "Nickname (Único)",
+    "nicknamePlaceholder": "Ej: Petrowski",
     "birthDate": "Fecha de Nacimiento",
-    "favoriteTeam": "Selección Favorita",
-    "noAccount": "¿No tienes cuenta? Regístrate aquí",
-    "hasAccount": "¿Ya tienes cuenta? Inicia sesión"
+    "birthDateHint": "Debes tener al menos 16 años para participar.",
+    "seleccion": "Selección Favorita",
+    "seleccionPlaceholder": "Selecciona tu país...",
+    "password": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirmar Contraseña",
+    "crearCuenta": "Crear Cuenta",
+    "iniciarSesion": "Iniciar Sesión",
+    "yaRegistrado": "¿Ya tienes cuenta? Inicia sesión",
+    "noRegistrado": "¿No tienes cuenta? Regístrate aquí",
+    "mostrar": "Mostrar contraseña",
+    "ocultar": "Ocultar contraseña"
+  },
+  "login": {
+    "creaCuenta": "Crea tu cuenta de jugador",
+    "iniciaSesion": "Inicia sesión para predecir"
+  },
+  "profile": {
+    "estadisticas": "Estadísticas",
+    "puntosTotales": "Puntos totales",
+    "rol": "Rol",
+    "preferencias": "Preferencias",
+    "idioma": "Idioma",
+    "tema": "Tema",
+    "cuenta": "Cuenta",
+    "misLigas": "Mis Ligas Privadas",
+    "cambiarPassword": "Cambiar contraseña",
+    "cerrarSesion": "Cerrar sesión",
+    "cambiarFoto": "Cambiar foto de perfil",
+    "claro": "Claro",
+    "automatico": "Automático",
+    "oscuro": "Oscuro",
+    "temaToast": "Tema: {label}",
+    "idiomaToast": "Idioma: {lang}",
+    "avatar": {
+      "success": "Foto de perfil actualizada",
+      "error": "Error al subir la imagen: {msg}",
+      "bucketError": "El contenedor de imágenes no existe en la base de datos. Avisa al administrador.",
+      "formatError": "Formato no permitido. Usa JPEG, PNG o WebP",
+      "sizeError": "La imagen es demasiado pesada (máx. 5 MB)"
+    },
+    "password": {
+      "title": "Cambiar contraseña",
+      "nueva": "Nueva contraseña",
+      "confirmar": "Confirmar contraseña",
+      "nuevaPlaceholder": "Mínimo 6 caracteres",
+      "confirmarPlaceholder": "Repite la contraseña",
+      "cancelar": "Cancelar",
+      "guardar": "Guardar",
+      "guardando": "Guardando…",
+      "min6": "Mínimo 6 caracteres",
+      "noCoinciden": "Las contraseñas no coinciden",
+      "success": "Contraseña actualizada"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 POLLAMUNDIAL. Creado por el pueblo y para el pueblo.",
+    "calendario": "Calendario FIFA",
+    "simulador": "Simulador",
+    "rtve": "RTVE Play",
+    "alternativa": "Alternativa"
+  },
+  "notFound": {
+    "title": "¡Fuera de juego!",
+    "desc": "El árbitro ha anulado esta página o el partido que buscas ya no existe.",
+    "volver": "Volver al terreno de juego"
+  },
+  "supuestos": {
+    "title": "Mi Mundial Virtual",
+    "subtitle": "Así quedarían los grupos según tus predicciones",
+    "basado": "Basado en {n} de {total} predicciones de fase de grupos",
+    "sinPrediccion0": "Los partidos sin predicción se cuentan como 0 – 0",
+    "clasificacionDirecta": "Clasificación directa (1º y 2º)",
+    "mejorTercero": "Mejor tercero (8 de 12)",
+    "noPartidos": "No hay partidos de fase de grupos disponibles.",
+    "grupo": "Grupo {letter}",
+    "mejor3": "Mejor 3º",
+    "cols": {
+      "equipo": "Equipo",
+      "pts": "Pts"
+    }
+  },
+  "reglas": {
+    "title": "Cómo jugar",
+    "subtitle": "Todo lo que necesitas saber para ganar la polla.",
+    "scoring": {
+      "title": "⚽ Sistema de puntuación",
+      "exact":      { "label": "Resultado exacto",          "desc": "Aciertas el marcador exacto del partido. Ej: predices 2–1 y el resultado final es 2–1." },
+      "winnerDiff": { "label": "Ganador y diferencia exacta","desc": "Aciertas el equipo ganador (o el empate) y la diferencia de goles exacta, pero fallas el marcador. Ej: predices 2–0, el resultado es 3–1 (ganó el local por 2 goles)." },
+      "winner":     { "label": "Ganador correcto",           "desc": "Aciertas quién gana (o que habrá empate) pero no el marcador ni la diferencia. Ej: predices 2–0, el resultado es 3–0." },
+      "noAcierto":  { "label": "Sin acierto",                "desc": "El ganador que predijiste no coincide con el resultado real." },
+      "noPrediccion":{ "label": "Sin predicción",            "desc": "Si no registras una predicción antes del inicio del partido, no sumas puntos en ese partido." }
+    },
+    "examples": {
+      "title": "📋 Ejemplos — Fase de Grupos",
+      "predices": "Predices",
+      "real": "Real:",
+      "localGana": "(local gana, dif. +{n})"
+    },
+    "knockout": {
+      "title": "⚡ Fases Eliminatorias",
+      "badge": "Dieciseisavos en adelante",
+      "intro": "En eliminación directa aplica la regla del Ganador Absoluto. La escala de puntos (+3, +2, +1) funciona igual que en grupos, pero solo si primero aciertas quién pasa de ronda.",
+      "ties":       { "title": "Empates en 120 min",                    "desc": "Si predices un empate, la app te pedirá que elijas qué equipo avanza a la siguiente ronda (como si fuera a penaltis o prórroga). Esa elección forma parte de tu predicción." },
+      "goldenRule": { "title": "La Regla de Oro: el clasificado manda",  "desc1": "Si fallas qué equipo pasa de ronda,", "penalty": "recibes 0 puntos automáticamente", "desc2": ", sin importar cuántos goles hayas acertado en el marcador." },
+      "ifCorrect":  { "title": "Si aciertas el clasificado…",            "desc": "Se aplica la escala normal (+3 exacto · +2 diferencia · +1 solo clasificado) comparando tus goles con el marcador real en los 90/120 minutos." },
+      "examples": {
+        "title": "Ejemplos",
+        "predices": "Predices",
+        "real": "Real:",
+        "pasaEquipoA": "(pasa Equipo A)",
+        "pasaEquipoB": "(pasa Equipo B)",
+        "failNote": "Fallaste el clasificado → penalización total",
+        "plus2Note": "Clasificado ✓ · diferencia (0 = 0) ✓ · marcador exacto ✗"
+      }
+    },
+    "tiebreak": {
+      "title": "🏆 Criterios de desempate",
+      "intro": "Si dos o más jugadores tienen los mismos puntos totales, el desempate se aplica en este orden:",
+      "r1": { "title": "Mayor número de resultados exactos (+3)",  "desc": "Quien acertó más marcadores exactos a lo largo del torneo." },
+      "r2": { "title": "Mayor número de ganadores correctos (+1)", "desc": "Quien acertó más veces el signo del partido (1X2)." },
+      "r3": { "title": "Goles predichos más cercanos al total real","desc": "Se suma la diferencia absoluta entre los goles predichos y los reales en todos los partidos. Menos diferencia = mejor posición." },
+      "r4": { "title": "Orden de inscripción",                     "desc": "A igualdad absoluta, tiene prioridad quien se registró antes en la plataforma." }
+    },
+    "phases": {
+      "title": "📅 Fases del torneo",
+      "disclaimer": "El plazo para registrar o modificar una predicción vence en el momento exacto del pitido inicial de cada partido.",
+      "p1": { "fase": "Fase de Grupos",              "desc": "Predice los resultados de los 48 partidos de la primera fase." },
+      "p2": { "fase": "Octavos de Final",             "desc": "Los 32 clasificados se enfrentan en rondas de eliminación directa." },
+      "p3": { "fase": "Cuartos, Semifinales y Final", "desc": "Las predicciones valen igual pero el impacto en la clasificación es mayor." }
+    }
   }
 }

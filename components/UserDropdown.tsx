@@ -5,8 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { createClient } from '@/utils/supabase/client'
-
-type Lang = 'es' | 'en'
+import { useLang } from '@/contexts/LangContext'
+import type { Lang } from '@/contexts/LangContext'
 
 interface Props {
   avatarUrl: string | null
@@ -16,9 +16,9 @@ interface Props {
 
 export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
   const [isOpen, setIsOpen] = useState(false)
-  const [lang, setLang] = useState<Lang>('es')
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { lang, setLang, t } = useLang()
 
   useEffect(() => { setMounted(true) }, [])
 
@@ -56,13 +56,11 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
 
       {isOpen && (
         <>
-          {/* Overlay invisible para cerrar al hacer clic fuera */}
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
 
-          {/* Menú desplegable */}
           <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl shadow-lg z-50 border border-gray-100 dark:border-slate-800 p-2">
 
-            {/* Header: avatar + info */}
+            {/* Header */}
             <div className="flex items-center gap-3 px-3 py-2.5 mb-1">
               <div className="relative w-10 h-10 rounded-full overflow-hidden bg-blue-100 dark:bg-blue-900 border-2 border-blue-200 dark:border-blue-700 flex items-center justify-center shrink-0">
                 {avatarUrl ? (
@@ -90,29 +88,31 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
               className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
             >
               <span className="text-base">👤</span>
-              Mi Perfil
+              {t('dropdown.miPerfil')}
             </Link>
 
             <div className="my-1.5 border-t border-gray-100 dark:border-slate-800" />
 
             {/* Tema */}
             <div className="px-3 py-2">
-              <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">Tema</p>
+              <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">
+                {t('dropdown.tema')}
+              </p>
               {!mounted ? (
                 <div className="h-8 w-full bg-gray-100 dark:bg-slate-800 rounded-lg animate-pulse" />
               ) : (
                 <div className="flex gap-1.5">
                   {([
-                    ['light',  '☀️', 'Claro'],
-                    ['system', '⚙️', 'Auto'],
-                    ['dark',   '🌙', 'Oscuro'],
-                  ] as [string, string, string][]).map(([t, icon, label]) => (
+                    ['light',  '☀️', t('dropdown.claro')],
+                    ['system', '⚙️', t('dropdown.auto')],
+                    ['dark',   '🌙', t('dropdown.oscuro')],
+                  ] as [string, string, string][]).map(([val, icon, label]) => (
                     <button
-                      key={t}
-                      onClick={() => setTheme(t)}
+                      key={val}
+                      onClick={() => setTheme(val)}
                       title={label}
                       className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${
-                        theme === t
+                        theme === val
                           ? 'bg-blue-600 text-white border-blue-600'
                           : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
                       }`}
@@ -127,7 +127,9 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
 
             {/* Idioma */}
             <div className="px-3 py-2">
-              <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">Idioma</p>
+              <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">
+                {t('dropdown.idioma')}
+              </p>
               <div className="flex gap-1.5">
                 {(['es', 'en'] as Lang[]).map((l) => (
                   <button
@@ -153,7 +155,7 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
               className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
             >
               <span className="text-base">🚪</span>
-              Cerrar Sesión
+              {t('dropdown.cerrarSesion')}
             </button>
 
           </div>

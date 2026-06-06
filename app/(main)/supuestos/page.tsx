@@ -1,5 +1,6 @@
 import { createClient } from '@/utils/supabase/server'
 import { getFlagUrl } from '@/utils/getFlagUrl'
+import { getServerLang, tServer } from '@/utils/i18n-server'
 
 interface Team {
   name: string
@@ -106,13 +107,15 @@ function calcStandings(
   }
 
   return Array.from(standings.values())
-    .map(t => ({ ...t, dg: t.gf - t.gc }))
+    .map(team => ({ ...team, dg: team.gf - team.gc }))
     .sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf)
 }
 
 export default async function SupuestosPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
+  const lang = await getServerLang()
+  const t = (key: string, vars?: Record<string, string | number>) => tServer(lang, key, vars)
 
   const [matchesRes, predsRes] = await Promise.all([
     supabase
@@ -149,13 +152,12 @@ export default async function SupuestosPage() {
       standings: calcStandings(groupMatches, predMap),
     }))
 
-  // Best third-place teams: extract 3rd from each group, sort, take top 8
   const allThirds = groups
     .map(g => g.standings[2])
     .filter((t): t is TeamStanding => t !== undefined)
     .sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf)
 
-  const bestThirdsIds = new Set(allThirds.slice(0, 8).map(t => t.id))
+  const bestThirdsIds = new Set(allThirds.slice(0, 8).map(team => team.id))
 
   const groupMatchIds = new Set(matches.map(m => m.id))
   const predCount = preds.filter(p => groupMatchIds.has(p.match_id)).length
@@ -163,29 +165,23 @@ export default async function SupuestosPage() {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Mi Mundial Virtual</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          Así quedarían los grupos según tus predicciones
-        </p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t('supuestos.title')}</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{t('supuestos.subtitle')}</p>
       </div>
 
       <div className="bg-[#FFD6D1]/30 dark:bg-slate-800/50 p-4 rounded-xl mb-6 border border-[#FFD6D1] dark:border-slate-800">
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gray-500 dark:text-gray-400">
           <span>
-            Basado en{' '}
-            <strong className="text-gray-700 dark:text-gray-300">{predCount}</strong>{' '}
-            de{' '}
-            <strong className="text-gray-700 dark:text-gray-300">{matches.length}</strong>{' '}
-            predicciones de fase de grupos
+            {t('supuestos.basado', { n: predCount, total: matches.length })}
           </span>
-          <span>•  Los partidos sin predicción se cuentan como <strong className="text-gray-700 dark:text-gray-300">0 – 0</strong></span>
-          <span>•  <span className="inline-block w-2.5 h-2.5 rounded-sm bg-green-200 dark:bg-green-800 mr-1 align-middle" />Clasificación directa (1º y 2º)</span>
-          <span>•  <span className="inline-block w-2.5 h-2.5 rounded-sm bg-lime-200 dark:bg-lime-800/60 mr-1 align-middle" />Mejor tercero (8 de 12)</span>
+          <span>• {t('supuestos.sinPrediccion0')}</span>
+          <span>• <span className="inline-block w-2.5 h-2.5 rounded-sm bg-green-200 dark:bg-green-800 mr-1 align-middle" />{t('supuestos.clasificacionDirecta')}</span>
+          <span>• <span className="inline-block w-2.5 h-2.5 rounded-sm bg-lime-200 dark:bg-lime-800/60 mr-1 align-middle" />{t('supuestos.mejorTercero')}</span>
         </div>
       </div>
 
       {groups.length === 0 ? (
-        <p className="text-center text-gray-500 text-sm py-12">No hay partidos de fase de grupos disponibles.</p>
+        <p className="text-center text-gray-500 text-sm py-12">{t('supuestos.noPartidos')}</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
           {groups.map(({ letter, standings }) => (
@@ -195,14 +191,14 @@ export default async function SupuestosPage() {
             >
               <div className="bg-[#FFD6D1]/30 dark:bg-slate-800/50 px-4 py-3 border-b border-[#FFD6D1] dark:border-slate-800">
                 <h2 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                  Grupo {letter}
+                  {t('supuestos.grupo', { letter })}
                 </h2>
               </div>
 
               <table className="w-full text-xs">
                 <thead>
                   <tr className="border-b border-gray-100 dark:border-slate-800/80 text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-                    <th className="px-3 py-2 text-left">Equipo</th>
+                    <th className="px-3 py-2 text-left">{t('supuestos.cols.equipo')}</th>
                     <th className="px-1.5 py-2 text-center w-7">PJ</th>
                     <th className="px-1.5 py-2 text-center w-7">PG</th>
                     <th className="px-1.5 py-2 text-center w-7">PE</th>
@@ -210,7 +206,7 @@ export default async function SupuestosPage() {
                     <th className="px-1.5 py-2 text-center w-7">GF</th>
                     <th className="px-1.5 py-2 text-center w-7">GC</th>
                     <th className="px-1.5 py-2 text-center w-9">DG</th>
-                    <th className="px-2 py-2 text-center w-10 font-bold text-gray-600 dark:text-gray-300">Pts</th>
+                    <th className="px-2 py-2 text-center w-10 font-bold text-gray-600 dark:text-gray-300">{t('supuestos.cols.pts')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -222,33 +218,33 @@ export default async function SupuestosPage() {
                         ? 'bg-lime-50/70 dark:bg-lime-900/15 hover:bg-lime-50 dark:hover:bg-lime-900/25'
                         : 'hover:bg-gray-50 dark:hover:bg-slate-800/30'
                     return (
-                    <tr
-                      key={team.id}
-                      className={`border-b border-gray-50 dark:border-slate-800/50 last:border-0 transition-colors ${rowClass}`}
-                    >
-                      <td className="px-3 py-2.5">
-                        <div className="flex items-center gap-1.5">
-                          <FlagCell flagEmoji={team.flag} name={team.name} />
-                          {isBestThird && (
-                            <span className="shrink-0 text-[10px] font-semibold text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/40 px-1 py-0.5 rounded leading-none">
-                              Mejor 3º
-                            </span>
-                          )}
-                        </div>
-                      </td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pj}</td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pg}</td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pe}</td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pp}</td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.gf}</td>
-                      <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.gc}</td>
-                      <td className="px-1.5 py-2.5 w-9 shrink-0 text-center text-gray-500 dark:text-gray-400">
-                        {team.dg > 0 ? `+${team.dg}` : team.dg}
-                      </td>
-                      <td className="px-2 py-2.5 w-10 shrink-0 text-center font-bold text-blue-600 dark:text-blue-400">
-                        {team.pts}
-                      </td>
-                    </tr>
+                      <tr
+                        key={team.id}
+                        className={`border-b border-gray-50 dark:border-slate-800/50 last:border-0 transition-colors ${rowClass}`}
+                      >
+                        <td className="px-3 py-2.5">
+                          <div className="flex items-center gap-1.5">
+                            <FlagCell flagEmoji={team.flag} name={team.name} />
+                            {isBestThird && (
+                              <span className="shrink-0 text-[10px] font-semibold text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/40 px-1 py-0.5 rounded leading-none">
+                                {t('supuestos.mejor3')}
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pj}</td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pg}</td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pe}</td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pp}</td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.gf}</td>
+                        <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.gc}</td>
+                        <td className="px-1.5 py-2.5 w-9 shrink-0 text-center text-gray-500 dark:text-gray-400">
+                          {team.dg > 0 ? `+${team.dg}` : team.dg}
+                        </td>
+                        <td className="px-2 py-2.5 w-10 shrink-0 text-center font-bold text-blue-600 dark:text-blue-400">
+                          {team.pts}
+                        </td>
+                      </tr>
                     )
                   })}
                 </tbody>

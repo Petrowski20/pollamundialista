@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { login, signup } from '@/app/(auth)/login/actions'
 import { SELECCIONES } from '@/utils/data/selecciones'
+import { useLang } from '@/contexts/LangContext'
 
 const ESPANA_ID = '20'
 
@@ -37,6 +38,7 @@ function EyeOff() {
 }
 
 export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Props) {
+  const { t } = useLang()
   const [showPassword, setShowPassword] = useState(false)
   const [formError, setFormError] = useState(errorInicial)
   const passwordRef = useRef<HTMLInputElement>(null)
@@ -68,37 +70,36 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
       {/* Email */}
       <div className="flex flex-col gap-1">
         <label className="text-xs font-semibold text-gray-600" htmlFor="email">
-          Correo Electrónico
+          {t('auth.email')}
         </label>
         <input
           id="email"
           className={inputClass}
           name="email"
-          placeholder="tu@email.com"
+          placeholder={t('auth.emailPlaceholder')}
           required
           type="email"
         />
       </div>
 
-      {/* Campos exclusivos de registro */}
       {isRegister && (
         <>
           <div className="flex flex-col gap-1">
             <label className="text-xs font-semibold text-gray-600" htmlFor="nickname">
-              Nickname (Único)
+              {t('auth.nickname')}
             </label>
             <input
               id="nickname"
               className={inputClass}
               name="nickname"
-              placeholder="Ej: Petrowski"
+              placeholder={t('auth.nicknamePlaceholder')}
               required
             />
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="text-xs font-semibold text-gray-600" htmlFor="birthDate">
-              Fecha de Nacimiento
+              {t('auth.birthDate')}
             </label>
             <input
               id="birthDate"
@@ -108,12 +109,12 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
               max={maxBirthDate}
               required
             />
-            <p className="text-xs text-gray-400">Debes tener al menos 16 años para participar.</p>
+            <p className="text-xs text-gray-400">{t('auth.birthDateHint')}</p>
           </div>
 
           <div className="flex flex-col gap-1">
             <label className="text-xs font-semibold text-gray-600" htmlFor="favoriteTeamId">
-              Selección Favorita
+              {t('auth.seleccion')}
             </label>
             <select
               id="favoriteTeamId"
@@ -122,7 +123,7 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
               defaultValue={ESPANA_ID}
               required
             >
-              <option value="">Selecciona tu país...</option>
+              <option value="">{t('auth.seleccionPlaceholder')}</option>
               {SELECCIONES.map((team) => (
                 <option key={team.id} value={team.id}>
                   {team.emoji} {team.name}
@@ -136,7 +137,7 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
       {/* Contraseña */}
       <div className="flex flex-col gap-1">
         <label className="text-xs font-semibold text-gray-600" htmlFor="password">
-          Contraseña
+          {t('auth.password')}
         </label>
         <div className="relative">
           <input
@@ -145,14 +146,14 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
             className={passwordInputClass}
             type={showPassword ? 'text' : 'password'}
             name="password"
-            placeholder="••••••••"
+            placeholder={t('auth.passwordPlaceholder')}
             required
           />
           <button
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             tabIndex={-1}
-            aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+            aria-label={showPassword ? t('auth.ocultar') : t('auth.mostrar')}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             {showPassword ? <EyeOff /> : <EyeOpen />}
@@ -160,11 +161,10 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
         </div>
       </div>
 
-      {/* Confirmar contraseña (solo registro) */}
       {isRegister && (
         <div className="flex flex-col gap-1">
           <label className="text-xs font-semibold text-gray-600" htmlFor="confirmPassword">
-            Confirmar Contraseña
+            {t('auth.confirmPassword')}
           </label>
           <div className="relative">
             <input
@@ -173,32 +173,29 @@ export default function AuthForm({ isRegister, maxBirthDate, errorInicial }: Pro
               className={passwordInputClass}
               type={showPassword ? 'text' : 'password'}
               name="confirmPassword"
-              placeholder="••••••••"
+              placeholder={t('auth.passwordPlaceholder')}
               required
             />
           </div>
         </div>
       )}
 
-      {/* Botón principal */}
       <button
         type="submit"
         className="bg-gradient-to-r from-brand-blue to-brand-teal hover:from-brand-cyan hover:to-brand-mint rounded-lg px-4 py-2.5 text-white font-semibold text-sm mt-2 shadow-md transition-all"
       >
-        {isRegister ? 'Crear Cuenta' : 'Iniciar Sesión'}
+        {isRegister ? t('auth.crearCuenta') : t('auth.iniciarSesion')}
       </button>
 
-      {/* Interruptor de vista */}
       <div className="text-center mt-2">
         <a
           href={isRegister ? '/login' : '/login?view=register'}
           className="text-xs text-brand-blue hover:underline"
         >
-          {isRegister ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Regístrate aquí'}
+          {isRegister ? t('auth.yaRegistrado') : t('auth.noRegistrado')}
         </a>
       </div>
 
-      {/* Feedback */}
       {formError && (
         <p className="p-3 bg-red-50 text-red-600 text-center text-xs rounded-lg border border-red-100 mt-2 font-medium">
           ⚠️ {formError}

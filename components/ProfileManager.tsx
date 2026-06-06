@@ -6,8 +6,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { createClient } from '@/utils/supabase/client'
-
-type Lang = 'es' | 'en'
+import { useLang } from '@/contexts/LangContext'
+import type { Lang } from '@/contexts/LangContext'
 
 interface Profile {
   id: string
@@ -22,7 +22,6 @@ interface Props {
   userEmail: string
 }
 
-// ─── Fila clickable reutilizable ──────────────────────────────
 function SettingsRow({ icon, label, onClick, href }: {
   icon: string; label: string
   onClick?: () => void; href?: string
@@ -30,15 +29,15 @@ function SettingsRow({ icon, label, onClick, href }: {
   const inner = (
     <div className="flex items-center gap-3 flex-1">
       <span className="text-lg w-6 text-center">{icon}</span>
-      <span className="text-sm font-medium text-gray-800">{label}</span>
+      <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{label}</span>
     </div>
   )
   const chevron = (
-    <svg className="w-4 h-4 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-4 h-4 text-gray-300 dark:text-slate-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   )
-  const cls = 'flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 transition-colors'
+  const cls = 'flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors'
 
   if (href) return (
     <Link href={href} className={cls}>{inner}{chevron}</Link>
@@ -48,15 +47,14 @@ function SettingsRow({ icon, label, onClick, href }: {
   )
 }
 
-// ─── Componente principal ─────────────────────────────────────
 export default function ProfileManager({ initialProfile, userEmail }: Props) {
   const fileRef = useRef<HTMLInputElement>(null)
+  const { lang, setLang, t } = useLang()
 
   const [avatarUrl, setAvatarUrl] = useState<string | null>(initialProfile.avatar_url)
   const [isUploading, setIsUploading] = useState(false)
 
   const { theme, setTheme } = useTheme()
-  const [lang, setLang] = useState<Lang>('es')
   const [mounted, setMounted] = useState(false)
 
   const [showPwModal,  setShowPwModal]  = useState(false)
@@ -64,41 +62,36 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
   const [confirmPw,    setConfirmPw]    = useState('')
   const [isChangingPw, setIsChangingPw] = useState(false)
 
-  // Recuperar idioma de localStorage
-  useEffect(() => {
-    const l = localStorage.getItem('pm_lang') as Lang | null
-    if (l) setLang(l)
-  }, [])
-
   useEffect(() => { setMounted(true) }, [])
 
-  // ── Preferencias ──────────────────────────────────────────
-  const handleTheme = (t: string) => {
-    setTheme(t)
-    const labels: Record<string, string> = { light: 'Claro', system: 'Automático', dark: 'Oscuro' }
-    toast.success(`Tema: ${labels[t] ?? t}`)
+  const handleTheme = (themeVal: string) => {
+    setTheme(themeVal)
+    const labels: Record<string, string> = {
+      light: t('profile.claro'),
+      system: t('profile.automatico'),
+      dark: t('profile.oscuro'),
+    }
+    toast.success(t('profile.temaToast', { label: labels[themeVal] ?? themeVal }))
   }
 
   const handleLang = (l: Lang) => {
     setLang(l)
-    localStorage.setItem('pm_lang', l)
-    toast.success(`Idioma: ${l.toUpperCase()}`)
+    toast.success(t('profile.idiomaToast', { lang: l.toUpperCase() }))
   }
 
-  // ── Subir avatar ──────────────────────────────────────────
   const handleUploadPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
 
     const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp']
     if (!ALLOWED_TYPES.includes(file.type)) {
-      toast.error('Formato no permitido. Usa JPEG, PNG o WebP')
+      toast.error(t('profile.avatar.formatError'))
       setIsUploading(false)
       return
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      toast.error('La imagen es demasiado pesada (máx. 5 MB)')
+      toast.error(t('profile.avatar.sizeError'))
       setIsUploading(false)
       return
     }
@@ -115,9 +108,9 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
     if (uploadError) {
       console.error('Error de subida:', uploadError)
       if (uploadError.message.includes('Bucket not found')) {
-        toast.error('El contenedor de imágenes no existe en la base de datos. Avisa al administrador.')
+        toast.error(t('profile.avatar.bucketError'))
       } else {
-        toast.error('Error al subir la imagen: ' + uploadError.message)
+        toast.error(t('profile.avatar.error', { msg: uploadError.message }))
       }
       setIsUploading(false)
       return
@@ -131,23 +124,21 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
       .eq('id', initialProfile.id)
 
     if (updateError) {
-      toast.error('Error al guardar el avatar: ' + updateError.message)
+      toast.error(t('profile.avatar.error', { msg: updateError.message }))
       setIsUploading(false)
       return
     }
 
-    // Param de cache-busting solo para la sesión actual
     setAvatarUrl(`${publicUrl}?t=${Date.now()}`)
-    toast.success('Foto de perfil actualizada')
+    toast.success(t('profile.avatar.success'))
     setIsUploading(false)
     if (fileRef.current) fileRef.current.value = ''
   }
 
-  // ── Cambiar contraseña ────────────────────────────────────
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (newPw.length < 6) { toast.error('Mínimo 6 caracteres'); return }
-    if (newPw !== confirmPw) { toast.error('Las contraseñas no coinciden'); return }
+    if (newPw.length < 6) { toast.error(t('profile.password.min6')); return }
+    if (newPw !== confirmPw) { toast.error(t('profile.password.noCoinciden')); return }
 
     setIsChangingPw(true)
     const supabase = createClient()
@@ -156,7 +147,7 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
 
     if (error) { toast.error(error.message); return }
 
-    toast.success('Contraseña actualizada')
+    toast.success(t('profile.password.success'))
     setShowPwModal(false)
     setNewPw('')
     setConfirmPw('')
@@ -174,22 +165,21 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
     <>
       <div className="w-full max-w-sm mx-auto flex flex-col gap-4 pb-10">
 
-        {/* ── Header: avatar + info ── */}
+        {/* Header: avatar + info */}
         <div className="flex flex-col items-center gap-3 pt-2 pb-1">
           <button
             onClick={() => fileRef.current?.click()}
             disabled={isUploading}
             className="relative group cursor-pointer"
-            aria-label="Cambiar foto de perfil"
+            aria-label={t('profile.cambiarFoto')}
           >
-            <div className="relative w-24 h-24 rounded-full overflow-hidden bg-blue-100 border-4 border-white shadow-lg flex items-center justify-center">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden bg-blue-100 dark:bg-blue-900 border-4 border-white dark:border-slate-800 shadow-lg flex items-center justify-center">
               {avatarUrl ? (
                 <Image src={avatarUrl} alt="Avatar" fill sizes="96px" className="object-cover" />
               ) : (
-                <span className="text-4xl font-black text-blue-600">{initial}</span>
+                <span className="text-4xl font-black text-blue-600 dark:text-blue-400">{initial}</span>
               )}
             </div>
-            {/* Overlay editar */}
             <div className="absolute inset-0 rounded-full bg-black/25 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               {isUploading ? (
                 <svg className="w-6 h-6 text-white animate-spin" fill="none" viewBox="0 0 24 24">
@@ -214,30 +204,30 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
           />
 
           <div className="text-center">
-            <p className="font-bold text-xl text-gray-900 leading-tight">{initialProfile.nickname}</p>
-            {userEmail && <p className="text-sm text-gray-400 mt-0.5">{userEmail}</p>}
+            <p className="font-bold text-xl text-gray-900 dark:text-white leading-tight">{initialProfile.nickname}</p>
+            {userEmail && <p className="text-sm text-gray-400 dark:text-slate-500 mt-0.5">{userEmail}</p>}
           </div>
         </div>
 
-        {/* ── Estadísticas ── */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-3 border-b border-gray-50">
-            Estadísticas
+        {/* Estadísticas */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+          <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider px-5 py-3 border-b border-gray-50 dark:border-slate-800">
+            {t('profile.estadisticas')}
           </p>
-          <div className="divide-y divide-gray-50">
+          <div className="divide-y divide-gray-50 dark:divide-slate-800">
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span className="text-sm text-gray-600">Puntos totales</span>
-              <span className="font-black text-blue-600 text-lg">
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('profile.puntosTotales')}</span>
+              <span className="font-black text-blue-600 dark:text-blue-400 text-lg">
                 {initialProfile.total_points}
-                <span className="text-xs font-normal text-gray-400 ml-1">pts</span>
+                <span className="text-xs font-normal text-gray-400 dark:text-slate-500 ml-1">pts</span>
               </span>
             </div>
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span className="text-sm text-gray-600">Rol</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('profile.rol')}</span>
               <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
                 initialProfile.role === 'ADMIN'
-                  ? 'bg-red-100 text-red-700'
-                  : 'bg-gray-100 text-gray-600'
+                  ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400'
+                  : 'bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-400'
               }`}>
                 {initialProfile.role}
               </span>
@@ -245,18 +235,18 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
           </div>
         </div>
 
-        {/* ── Preferencias ── */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-3 border-b border-gray-50">
-            Preferencias
+        {/* Preferencias */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+          <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider px-5 py-3 border-b border-gray-50 dark:border-slate-800">
+            {t('profile.preferencias')}
           </p>
-          <div className="divide-y divide-gray-50">
+          <div className="divide-y divide-gray-50 dark:divide-slate-800">
 
             {/* Idioma */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span className="text-sm text-gray-600">Idioma</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('profile.idioma')}</span>
               {!mounted ? (
-                <div className="h-7 w-[72px] bg-gray-100 rounded-lg animate-pulse" />
+                <div className="h-7 w-[72px] bg-gray-100 dark:bg-slate-800 rounded-lg animate-pulse" />
               ) : (
                 <div className="flex gap-1.5">
                   {(['es', 'en'] as Lang[]).map((l) => (
@@ -266,7 +256,7 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
                       className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
                         lang === l
                           ? 'bg-blue-600 text-white border-blue-600'
-                          : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
+                          : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
                       }`}
                     >
                       {l.toUpperCase()}
@@ -278,67 +268,69 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
 
             {/* Tema */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Tema</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400">{t('profile.tema')}</span>
               {!mounted ? (
                 <div className="h-9 w-[116px] bg-gray-100 dark:bg-slate-800 rounded-lg animate-pulse" />
               ) : (
                 <div className="flex gap-1.5">
-                  {([['light', '☀️', 'Claro'], ['system', '⚙️', 'Automático'], ['dark', '🌙', 'Oscuro']] as [string, string, string][]).map(
-                    ([t, icon, label]) => (
-                      <button
-                        key={t}
-                        onClick={() => handleTheme(t)}
-                        title={label}
-                        className={`w-9 h-9 rounded-lg text-base border transition-all flex items-center justify-center ${
-                          theme === t
-                            ? 'bg-blue-600 border-blue-600 shadow-sm'
-                            : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
-                        }`}
-                      >
-                        {icon}
-                      </button>
-                    )
-                  )}
+                  {([
+                    ['light',  '☀️', t('profile.claro')],
+                    ['system', '⚙️', t('profile.automatico')],
+                    ['dark',   '🌙', t('profile.oscuro')],
+                  ] as [string, string, string][]).map(([val, icon, label]) => (
+                    <button
+                      key={val}
+                      onClick={() => handleTheme(val)}
+                      title={label}
+                      className={`w-9 h-9 rounded-lg text-base border transition-all flex items-center justify-center ${
+                        theme === val
+                          ? 'bg-blue-600 border-blue-600 shadow-sm'
+                          : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
+                      }`}
+                    >
+                      {icon}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
           </div>
         </div>
 
-        {/* ── Cuenta ── */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider px-5 py-3 border-b border-gray-50">
-            Cuenta
+        {/* Cuenta */}
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden">
+          <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider px-5 py-3 border-b border-gray-50 dark:border-slate-800">
+            {t('profile.cuenta')}
           </p>
-          <div className="divide-y divide-gray-50">
-            <SettingsRow icon="🏆" label="Mis Ligas Privadas"  href="/ligas" />
-            <SettingsRow icon="🔒" label="Cambiar contraseña"  onClick={() => setShowPwModal(true)} />
+          <div className="divide-y divide-gray-50 dark:divide-slate-800">
+            <SettingsRow icon="🏆" label={t('profile.misLigas')}        href="/ligas" />
+            <SettingsRow icon="🔒" label={t('profile.cambiarPassword')} onClick={() => setShowPwModal(true)} />
           </div>
         </div>
 
-        {/* ── Cerrar sesión ── */}
+        {/* Cerrar sesión */}
         <button
           onClick={handleLogout}
-          className="w-full py-3 text-sm font-semibold text-red-600 bg-white hover:bg-red-50 border border-gray-100 rounded-2xl shadow-sm transition-colors"
+          className="w-full py-3 text-sm font-semibold text-red-600 dark:text-red-400 bg-white dark:bg-slate-900 hover:bg-red-50 dark:hover:bg-red-900/20 border border-gray-100 dark:border-slate-800 rounded-2xl shadow-sm transition-colors"
         >
-          Cerrar sesión
+          {t('profile.cerrarSesion')}
         </button>
 
       </div>
 
-      {/* ── Modal contraseña ── */}
+      {/* Modal contraseña */}
       {showPwModal && (
         <>
           <div
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
             onClick={() => setShowPwModal(false)}
           />
-          <div className="fixed inset-x-4 bottom-0 sm:inset-auto sm:left-1/2 sm:-translate-x-1/2 sm:top-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-sm z-50 bg-white rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 animate-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200">
+          <div className="fixed inset-x-4 bottom-0 sm:inset-auto sm:left-1/2 sm:-translate-x-1/2 sm:top-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-sm z-50 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 sm:border rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 animate-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200">
             <div className="flex items-center justify-between mb-5">
-              <h3 className="font-bold text-gray-900">Cambiar contraseña</h3>
+              <h3 className="font-bold text-gray-900 dark:text-white">{t('profile.password.title')}</h3>
               <button
                 onClick={() => setShowPwModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-2xl leading-none w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-2xl leading-none w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
               >
                 ×
               </button>
@@ -346,28 +338,28 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
 
             <form onSubmit={handleChangePassword} className="flex flex-col gap-3">
               <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1.5">
-                  Nueva contraseña
+                <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
+                  {t('profile.password.nueva')}
                 </label>
                 <input
                   type="password"
                   value={newPw}
                   onChange={(e) => setNewPw(e.target.value)}
-                  placeholder="Mínimo 6 caracteres"
+                  placeholder={t('profile.password.nuevaPlaceholder')}
                   autoFocus
-                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-slate-500"
                 />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1.5">
-                  Confirmar contraseña
+                <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
+                  {t('profile.password.confirmar')}
                 </label>
                 <input
                   type="password"
                   value={confirmPw}
                   onChange={(e) => setConfirmPw(e.target.value)}
-                  placeholder="Repite la contraseña"
-                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder={t('profile.password.confirmarPlaceholder')}
+                  className="w-full border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-slate-500"
                 />
               </div>
 
@@ -375,16 +367,16 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
                 <button
                   type="button"
                   onClick={() => { setShowPwModal(false); setNewPw(''); setConfirmPw('') }}
-                  className="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+                  className="flex-1 py-2.5 border border-gray-200 dark:border-slate-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  Cancelar
+                  {t('profile.password.cancelar')}
                 </button>
                 <button
                   type="submit"
                   disabled={isChangingPw}
                   className="flex-1 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
                 >
-                  {isChangingPw ? 'Guardando…' : 'Guardar'}
+                  {isChangingPw ? t('profile.password.guardando') : t('profile.password.guardar')}
                 </button>
               </div>
             </form>

@@ -3,10 +3,13 @@ import Image from 'next/image';
 import { createClient } from '@/utils/supabase/server';
 import UserDropdown from '@/components/UserDropdown';
 import MobileMenu from '@/components/MobileMenu';
+import { getServerLang, tServer } from '@/utils/i18n-server';
 
 export default async function NavBar() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+  const lang = await getServerLang();
+  const t = (key: string) => tServer(lang, key);
 
   let isAdmin = false;
   let nickname = '';
@@ -31,11 +34,9 @@ export default async function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
 
-          {/* Lado Izquierdo: Logo y Navegación */}
           <div className="flex space-x-8">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
-                {/* Isotipo circular — solo móvil */}
                 <Image
                   src="/logo.svg"
                   alt="PollaMundialista"
@@ -46,7 +47,6 @@ export default async function NavBar() {
                   unoptimized
                   priority
                 />
-                {/* Logotipo completo — escritorio */}
                 <Image
                   src="/titulo.svg"
                   alt="PollaMundialista"
@@ -62,19 +62,19 @@ export default async function NavBar() {
 
             <div className="hidden md:flex space-x-4 items-center">
               <Link href="/" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
-                Inicio
+                {t('nav.home')}
               </Link>
-<Link href="/clasificacion" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
-                Clasificación
+              <Link href="/clasificacion" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
+                {t('nav.clasificacion')}
               </Link>
               <Link href="/supuestos" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
-                Mi Mundial
+                {t('nav.miMundial')}
               </Link>
               <Link href="/ligas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
-                Ligas Privadas
+                {t('nav.ligasPrivadas')}
               </Link>
               <Link href="/reglas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
-                Cómo jugar
+                {t('nav.comoJugar')}
               </Link>
               {isAdmin && (
                 <Link href="/admin" className="text-sm font-semibold text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 px-3 py-2 rounded-md transition-colors">
@@ -84,7 +84,6 @@ export default async function NavBar() {
             </div>
           </div>
 
-          {/* Lado Derecho: Perfil + Hamburguesa */}
           <div className="flex items-center space-x-2">
             {user ? (
               <UserDropdown avatarUrl={avatarUrl} nickname={nickname} role={role} />
@@ -93,7 +92,7 @@ export default async function NavBar() {
                 href="/login"
                 className="text-sm font-semibold text-white bg-gradient-to-r from-brand-blue to-brand-teal hover:from-brand-cyan hover:to-brand-mint px-4 py-2 rounded-lg transition-all shadow-sm"
               >
-                Iniciar Sesión
+                {t('nav.iniciarSesion')}
               </Link>
             )}
             <MobileMenu isAdmin={isAdmin} />

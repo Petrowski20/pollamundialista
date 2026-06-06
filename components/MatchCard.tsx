@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { savePredictionAction } from '@/app/(main)/actions';
 import { getFlagUrl } from '@/utils/getFlagUrl';
+import { useLang } from '@/contexts/LangContext';
 
 interface Team {
   name: string;
@@ -30,19 +31,6 @@ interface MatchCardProps {
   isLocked?: boolean;
   stadium?: string | null;
   referee?: string | null;
-}
-
-function formatStageLabel(matchStage: string, group: string, isFinished: boolean): string {
-  if (isFinished) return 'FINALIZADO';
-  const map: Record<string, string> = {
-    GROUP:        `GRUPO ${group}`,
-    ROUND_OF_16:  'OCTAVOS',
-    QUARTER_FINAL:'CUARTOS',
-    SEMI_FINAL:   'SEMIFINAL',
-    THIRD_PLACE:  '3.er PUESTO',
-    FINAL:        'GRAN FINAL',
-  };
-  return map[matchStage] ?? matchStage;
 }
 
 function FlagImg({ flagEmoji, name }: { flagEmoji: string; name: string }) {
@@ -94,49 +82,56 @@ export default function MatchCard({
   stadium,
   referee,
 }: MatchCardProps) {
+  const { t } = useLang();
+
   const initHome = homePrediction?.toString() ?? '';
   const initAway = awayPrediction?.toString() ?? '';
 
-  const [localHome, setLocalHome]             = useState(initHome);
-  const [localAway, setLocalAway]             = useState(initAway);
-  const [savedHome, setSavedHome]             = useState(initHome);
-  const [savedAway, setSavedAway]             = useState(initAway);
+  const [localHome, setLocalHome]               = useState(initHome);
+  const [localAway, setLocalAway]               = useState(initAway);
+  const [savedHome, setSavedHome]               = useState(initHome);
+  const [savedAway, setSavedAway]               = useState(initAway);
   const [localAdvancingId, setLocalAdvancingId] = useState<number | null>(predAdvancingTeamId);
   const [savedAdvancingId, setSavedAdvancingId] = useState<number | null>(predAdvancingTeamId);
-  const [isSaving, setIsSaving]               = useState(false);
+  const [isSaving, setIsSaving]                 = useState(false);
 
-  const isKnockout  = matchStage !== 'GROUP';
-  const isFinished  = status === 'FINISHED';
+  const isKnockout = matchStage !== 'GROUP';
+  const isFinished = status === 'FINISHED';
 
-  // Cuando los goles dejan de ser empate, descarta el equipo clasificado local
   useEffect(() => {
     if (!isKnockout) return;
     const h = parseInt(localHome, 10);
     const a = parseInt(localAway, 10);
-    if (!isNaN(h) && !isNaN(a) && h !== a) {
-      setLocalAdvancingId(null);
-    }
+    if (!isNaN(h) && !isNaN(a) && h !== a) setLocalAdvancingId(null);
   }, [localHome, localAway, isKnockout]);
 
-  const isTied = localHome !== '' && localAway !== '' && localHome === localAway;
+  const isTied        = localHome !== '' && localAway !== '' && localHome === localAway;
   const needsAdvancing = isKnockout && isTied;
-
-  const hasChanged =
+  const hasChanged    =
     localHome !== savedHome ||
     localAway !== savedAway ||
     (isKnockout && localAdvancingId !== savedAdvancingId);
-
   const canSave = hasChanged && !(needsAdvancing && localAdvancingId === null);
 
-  const centerLabel = formatStageLabel(matchStage, group, isFinished);
+  const stageMap: Record<string, string> = {
+    GROUP:        t('matchCard.stages.group', { group }),
+    ROUND_OF_16:  t('matchCard.stages.round16'),
+    QUARTER_FINAL: t('matchCard.stages.quarter'),
+    SEMI_FINAL:   t('matchCard.stages.semi'),
+    THIRD_PLACE:  t('matchCard.stages.third'),
+    FINAL:        t('matchCard.stages.final'),
+  };
+  const centerLabel = isFinished
+    ? t('matchCard.stages.finished')
+    : (stageMap[matchStage] ?? matchStage);
 
   const handleSave = async () => {
     if (localHome === '' || localAway === '') {
-      toast.error('Rellena ambos goles');
+      toast.error(t('matchCard.errors.rellenagoles'));
       return;
     }
     if (needsAdvancing && localAdvancingId === null) {
-      toast.error('Selecciona quién clasifica por penaltis');
+      toast.error(t('matchCard.errors.seleccionapenaltis'));
       return;
     }
     setIsSaving(true);
@@ -148,9 +143,9 @@ export default function MatchCard({
     );
     setIsSaving(false);
     if (res.error) {
-      toast.error('Error: ' + res.error);
+      toast.error(t('matchCard.errors.errorPrefix') + res.error);
     } else {
-      toast.success('¡Predicción guardada! ⚽');
+      toast.success(t('matchCard.success'));
       setSavedHome(localHome);
       setSavedAway(localAway);
       setSavedAdvancingId(localAdvancingId);
@@ -160,20 +155,20 @@ export default function MatchCard({
   return (
     <div className="bg-gradient-to-b from-[#FFD6D1] to-[#F9ECE5] dark:from-slate-800 dark:to-slate-900 rounded-xl shadow-md overflow-hidden relative border border-[#FFD6D1] dark:border-slate-700 text-gray-900 dark:text-white">
 
-      {/* ── Header ───────────────────────────────────────── */}
+      {/* Header */}
       <div className="bg-white/40 dark:bg-black/20 px-4 py-1.5 grid grid-cols-3 items-center gap-2">
         <span className="text-[10px] text-red-900/70 dark:text-slate-300 uppercase font-bold tracking-wider truncate">
-          {referee || 'Árbitro por asignar'}
+          {referee || t('matchCard.referee')}
         </span>
         <span className="text-[11px] text-gray-900 dark:text-white font-bold uppercase tracking-widest text-center whitespace-nowrap">
           {centerLabel}
         </span>
         <span className="text-[10px] text-red-900/70 dark:text-slate-300 uppercase font-bold tracking-wider text-right truncate">
-          {stadium || 'Estadio por definir'}
+          {stadium || t('matchCard.stadium')}
         </span>
       </div>
 
-      {/* ── Body: Equipo · Marcador · Equipo ─────────────── */}
+      {/* Body */}
       <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-5 gap-3">
 
         {/* Local */}
@@ -200,7 +195,6 @@ export default function MatchCard({
                 </span>
               </div>
 
-              {/* Banner penaltis — solo en eliminatorias con empate real */}
               {isKnockout && homeRealResult === awayRealResult && realAdvancingTeamId !== null && (
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 tracking-wide">
                   🏆 Pen.: {realAdvancingTeamId === homeTeamId ? home.name : away.name}
@@ -209,9 +203,9 @@ export default function MatchCard({
 
               {homePrediction !== undefined && (
                 <span className="text-[10px] text-gray-500 dark:text-emerald-300/70 tracking-wide">
-                  Tu pred: {homePrediction}-{awayPrediction}
+                  {t('matchCard.tuPred')} {homePrediction}-{awayPrediction}
                   {predAdvancingTeamId !== null && (
-                    <> · Pasa: {predAdvancingTeamId === homeTeamId ? home.name : away.name}</>
+                    <> · {t('matchCard.pasa')} {predAdvancingTeamId === homeTeamId ? home.name : away.name}</>
                   )}
                 </span>
               )}
@@ -228,50 +222,41 @@ export default function MatchCard({
                   {savedAway || '?'}
                 </span>
               </div>
-              {/* Clasificado guardado en eliminatoria */}
               {isKnockout && savedHome === savedAway && savedHome !== '' && savedAdvancingId !== null && (
                 <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400 tracking-wide">
-                  Pasa: {savedAdvancingId === homeTeamId ? home.name : away.name}
+                  {t('matchCard.pasa')} {savedAdvancingId === homeTeamId ? home.name : away.name}
                 </span>
               )}
-              <span className="text-[10px] text-gray-500 dark:text-emerald-300/60 tracking-wider">🔒 Bloqueado</span>
+              <span className="text-[10px] text-gray-500 dark:text-emerald-300/60 tracking-wider">
+                {t('matchCard.bloqueado')}
+              </span>
             </div>
           ) : (
-            /* Inputs editables */
             <div className="flex flex-col items-center gap-2">
               <div className="bg-white dark:bg-slate-950 rounded-lg shadow-sm border border-white/50 dark:border-slate-800 px-2 py-2 flex items-center gap-1">
                 <input
-                  type="number"
-                  min={0}
-                  max={99}
-                  value={localHome}
+                  type="number" min={0} max={99} value={localHome}
                   onChange={(e) => setLocalHome(e.target.value)}
-                  onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
+                  onKeyDown={(e) => { if (['e','E','+','-','.',','].includes(e.key)) e.preventDefault(); }}
                   onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
-                  disabled={isSaving}
-                  placeholder="–"
+                  disabled={isSaving} placeholder="–"
                   className="w-12 h-12 text-2xl font-black text-center text-slate-900 dark:text-white bg-transparent outline-none disabled:opacity-50 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <span className="text-slate-400 dark:text-slate-500 font-black text-xl px-0.5">-</span>
                 <input
-                  type="number"
-                  min={0}
-                  max={99}
-                  value={localAway}
+                  type="number" min={0} max={99} value={localAway}
                   onChange={(e) => setLocalAway(e.target.value)}
-                  onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
+                  onKeyDown={(e) => { if (['e','E','+','-','.',','].includes(e.key)) e.preventDefault(); }}
                   onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
-                  disabled={isSaving}
-                  placeholder="–"
+                  disabled={isSaving} placeholder="–"
                   className="w-12 h-12 text-2xl font-black text-center text-slate-900 dark:text-white bg-transparent outline-none disabled:opacity-50 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
 
-              {/* ── Selector de clasificado por penaltis ── */}
               {needsAdvancing && (
                 <div className="flex flex-col items-center gap-1.5">
                   <p className="text-[9px] uppercase tracking-widest font-bold text-gray-400 dark:text-slate-500">
-                    ¿Quién pasa por penaltis?
+                    {t('matchCard.penaltis')}
                   </p>
                   <div className="flex gap-2">
                     {([
@@ -310,7 +295,7 @@ export default function MatchCard({
         </div>
       </div>
 
-      {/* ── Footer ───────────────────────────────────────── */}
+      {/* Footer */}
       <div className="bg-white/40 dark:bg-black/20 px-4 py-2 flex items-center justify-between">
         <span className="text-[10px] text-gray-600 dark:text-emerald-300/60 tracking-wide">{date}</span>
 
@@ -321,26 +306,32 @@ export default function MatchCard({
               disabled={isSaving}
               className="text-[11px] font-bold bg-emerald-400 hover:bg-emerald-300 text-emerald-950 px-3 py-1 rounded-full transition-colors disabled:opacity-60 flex items-center gap-1"
             >
-              {isSaving ? '⏳ Guardando…' : '💾 Guardar'}
+              {isSaving ? t('matchCard.guardando') : t('matchCard.guardar')}
             </button>
           ) : needsAdvancing && localAdvancingId === null ? (
             <span className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold italic">
-              Selecciona clasificado
+              {t('matchCard.seleccionaClasificado')}
             </span>
           ) : savedHome !== '' ? (
             <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-              ✓ Guardado
+              {t('matchCard.guardado')}
             </span>
           ) : (
-            <span className="text-[11px] text-gray-400 dark:text-emerald-300/50 italic">Sin predicción</span>
+            <span className="text-[11px] text-gray-400 dark:text-emerald-300/50 italic">
+              {t('matchCard.sinPrediccion')}
+            </span>
           )
         )}
 
         {isFinished && (
-          <span className="text-[10px] text-gray-500 dark:text-emerald-300/60">Partido finalizado</span>
+          <span className="text-[10px] text-gray-500 dark:text-emerald-300/60">
+            {t('matchCard.partidoFinalizado')}
+          </span>
         )}
         {!isFinished && isLocked && (
-          <span className="text-[10px] text-gray-400 dark:text-emerald-300/50">Predicciones cerradas</span>
+          <span className="text-[10px] text-gray-400 dark:text-emerald-300/50">
+            {t('matchCard.prediccionesCerradas')}
+          </span>
         )}
       </div>
 

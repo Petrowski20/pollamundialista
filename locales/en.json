@@ -1,19 +1,268 @@
 {
   "nav": {
     "home": "Home",
-    "ranking": "Standings",
-    "leagues": "Private Leagues"
+    "clasificacion": "Standings",
+    "miMundial": "My World Cup",
+    "ligasPrivadas": "Private Leagues",
+    "comoJugar": "How to play",
+    "iniciarSesion": "Sign In"
+  },
+  "mobile": {
+    "navegacion": "Navigation"
+  },
+  "dropdown": {
+    "miPerfil": "My Profile",
+    "tema": "Theme",
+    "idioma": "Language",
+    "claro": "Light",
+    "auto": "Auto",
+    "oscuro": "Dark",
+    "cerrarSesion": "Sign Out"
+  },
+  "home": {
+    "title": "Current Matchday",
+    "subtitle": "Group Stage - Matchday 1",
+    "predictions": {
+      "title": "Your Predictions",
+      "completado": "Completed!",
+      "faltan": "{n} remaining",
+      "completadas": "Completed",
+      "hint": "Remember you can edit up to 1 hour before kick-off."
+    },
+    "ranking": {
+      "global": "Top 5 - Global",
+      "liga": "Top 5 - {name}",
+      "sinDatos": "No data yet.",
+      "verCompleto": "See full standings"
+    }
+  },
+  "clasificacion": {
+    "title": "Standings",
+    "sinDatos": "No data for this ranking yet.",
+    "yo": "(You)",
+    "cols": {
+      "pos": "Pos.",
+      "usuario": "User",
+      "total": "Total"
+    },
+    "legend": {
+      "me": "Exact score",
+      "ar": "Correct result",
+      "ta": "Total accurate",
+      "pi": "Wrong predictions",
+      "me_abbr": "ES",
+      "ar_abbr": "CW",
+      "ta_abbr": "TA",
+      "pi_abbr": "WP"
+    }
+  },
+  "ligas": {
+    "title": "My Private Leagues",
+    "subtitle": "Create a league to compete with friends or join with a code.",
+    "myLeagues": "Your leagues ({n})",
+    "noLeagues": "You don't belong to any league yet",
+    "noLeaguesHint": "Create the first one or join with a code.",
+    "admin": "Admin",
+    "code": "Code:",
+    "desde": "Since {date}",
+    "ereCreador": "You're the owner"
+  },
+  "leagueManager": {
+    "tabCrear": "➕ Create League",
+    "tabUnirse": "🔗 Join with Code",
+    "nombre": "Name",
+    "descripcion": "Description",
+    "opcional": "(optional)",
+    "creando": "Creating…",
+    "crear": "Create League",
+    "joinHint": "Ask the league owner for the 6-character code and enter it here.",
+    "uniendome": "Joining…",
+    "unirseBtn": "Join League",
+    "errors": {
+      "nombreObligatorio": "Name is required",
+      "codigoObligatorio": "Enter a league code"
+    },
+    "created": "League created. Share the code: {code}",
+    "joined": "You've joined \"{name}\"!"
+  },
+  "leagueSelector": {
+    "label": "View standings for:",
+    "global": "🌍 Global",
+    "guardando": "Saving...",
+    "error": "Error changing league: "
+  },
+  "leaveLeague": {
+    "confirmar": "Are you sure you want to leave the league \"{name}\"?",
+    "saliendo": "Leaving…",
+    "abandonar": "🚪 Leave",
+    "success": "You've left the league \"{name}\""
+  },
+  "matchCard": {
+    "stages": {
+      "finished": "FINISHED",
+      "group": "GROUP {group}",
+      "round16": "ROUND OF 16",
+      "quarter": "QUARTERS",
+      "semi": "SEMIFINAL",
+      "third": "3RD PLACE",
+      "final": "GRAND FINAL"
+    },
+    "referee": "Referee TBA",
+    "stadium": "Stadium TBD",
+    "penaltis": "Who advances on penalties?",
+    "pasa": "Advances:",
+    "tuPred": "Your pred:",
+    "bloqueado": "🔒 Locked",
+    "guardando": "⏳ Saving…",
+    "guardar": "💾 Save",
+    "seleccionaClasificado": "Select who advances",
+    "guardado": "✓ Saved",
+    "sinPrediccion": "No prediction",
+    "partidoFinalizado": "Match finished",
+    "prediccionesCerradas": "Predictions closed",
+    "errors": {
+      "rellenagoles": "Fill in both scores",
+      "seleccionapenaltis": "Select who advances on penalties",
+      "errorPrefix": "Error: "
+    },
+    "success": "Prediction saved! ⚽"
   },
   "auth": {
-    "login": "Sign In",
-    "register": "Create Account",
     "email": "Email Address",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
+    "emailPlaceholder": "you@email.com",
     "nickname": "Nickname (Unique)",
+    "nicknamePlaceholder": "E.g.: Petrowski",
     "birthDate": "Date of Birth",
-    "favoriteTeam": "Favorite National Team",
-    "noAccount": "Don't have an account? Sign up here",
-    "hasAccount": "Already have an account? Sign in"
+    "birthDateHint": "You must be at least 16 years old to participate.",
+    "seleccion": "Favourite National Team",
+    "seleccionPlaceholder": "Select your country...",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm Password",
+    "crearCuenta": "Create Account",
+    "iniciarSesion": "Sign In",
+    "yaRegistrado": "Already have an account? Sign in",
+    "noRegistrado": "Don't have an account? Sign up here",
+    "mostrar": "Show password",
+    "ocultar": "Hide password"
+  },
+  "login": {
+    "creaCuenta": "Create your player account",
+    "iniciaSesion": "Sign in to predict"
+  },
+  "profile": {
+    "estadisticas": "Statistics",
+    "puntosTotales": "Total points",
+    "rol": "Role",
+    "preferencias": "Preferences",
+    "idioma": "Language",
+    "tema": "Theme",
+    "cuenta": "Account",
+    "misLigas": "My Private Leagues",
+    "cambiarPassword": "Change password",
+    "cerrarSesion": "Sign out",
+    "cambiarFoto": "Change profile picture",
+    "claro": "Light",
+    "automatico": "Automatic",
+    "oscuro": "Dark",
+    "temaToast": "Theme: {label}",
+    "idiomaToast": "Language: {lang}",
+    "avatar": {
+      "success": "Profile picture updated",
+      "error": "Error uploading image: {msg}",
+      "bucketError": "The image bucket does not exist in the database. Please notify the administrator.",
+      "formatError": "Format not allowed. Use JPEG, PNG or WebP",
+      "sizeError": "Image is too large (max 5 MB)"
+    },
+    "password": {
+      "title": "Change password",
+      "nueva": "New password",
+      "confirmar": "Confirm password",
+      "nuevaPlaceholder": "At least 6 characters",
+      "confirmarPlaceholder": "Repeat the password",
+      "cancelar": "Cancel",
+      "guardar": "Save",
+      "guardando": "Saving…",
+      "min6": "Minimum 6 characters",
+      "noCoinciden": "Passwords don't match",
+      "success": "Password updated"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 POLLAMUNDIAL. Created by the people, for the people.",
+    "calendario": "FIFA Calendar",
+    "simulador": "Simulator",
+    "rtve": "RTVE Play",
+    "alternativa": "Alternative"
+  },
+  "notFound": {
+    "title": "Offside!",
+    "desc": "The referee has disallowed this page, or the match you're looking for no longer exists.",
+    "volver": "Back to the pitch"
+  },
+  "supuestos": {
+    "title": "My Virtual World Cup",
+    "subtitle": "How the groups would look based on your predictions",
+    "basado": "Based on {n} of {total} group stage predictions",
+    "sinPrediccion0": "Matches without a prediction count as 0 – 0",
+    "clasificacionDirecta": "Direct qualification (1st and 2nd)",
+    "mejorTercero": "Best third place (8 of 12)",
+    "noPartidos": "No group stage matches available.",
+    "grupo": "Group {letter}",
+    "mejor3": "Best 3rd",
+    "cols": {
+      "equipo": "Team",
+      "pts": "Pts"
+    }
+  },
+  "reglas": {
+    "title": "How to play",
+    "subtitle": "Everything you need to know to win the pool.",
+    "scoring": {
+      "title": "⚽ Scoring System",
+      "exact":      { "label": "Exact score",               "desc": "You get the exact match score. E.g.: you predict 2–1 and the final result is 2–1." },
+      "winnerDiff": { "label": "Winner and exact difference","desc": "You get the winner (or draw) and the exact goal difference, but not the score. E.g.: you predict 2–0, the result is 3–1 (home wins by 2 goals)." },
+      "winner":     { "label": "Correct winner",            "desc": "You get who wins (or that it will be a draw) but not the score or difference. E.g.: you predict 2–0, the result is 3–0." },
+      "noAcierto":  { "label": "No points",                 "desc": "The winner you predicted doesn't match the actual result." },
+      "noPrediccion":{ "label": "No prediction",            "desc": "If you don't register a prediction before the match starts, you score 0 points for that match." }
+    },
+    "examples": {
+      "title": "📋 Examples — Group Stage",
+      "predices": "You predict",
+      "real": "Actual:",
+      "localGana": "(home wins, diff. +{n})"
+    },
+    "knockout": {
+      "title": "⚡ Knockout Rounds",
+      "badge": "Round of 16 onwards",
+      "intro": "In knockout rounds the Absolute Winner rule applies. The points scale (+3, +2, +1) works the same as in groups, but only if you first get who advances.",
+      "ties":       { "title": "Draws after 120 min",           "desc": "If you predict a draw, the app will ask you to choose which team advances to the next round (as if it were penalties or extra time). That choice is part of your prediction." },
+      "goldenRule": { "title": "The Golden Rule: the qualifier rules", "desc1": "If you get the wrong team to advance,", "penalty": "you automatically receive 0 points", "desc2": ", regardless of how many goals you predicted correctly." },
+      "ifCorrect":  { "title": "If you get the qualifier right…", "desc": "The normal scale applies (+3 exact · +2 difference · +1 qualifier only) comparing your goals against the actual score in 90/120 minutes." },
+      "examples": {
+        "title": "Examples",
+        "predices": "You predict",
+        "real": "Actual:",
+        "pasaEquipoA": "(Team A advances)",
+        "pasaEquipoB": "(Team B advances)",
+        "failNote": "Wrong qualifier → full penalty",
+        "plus2Note": "Qualifier ✓ · difference (0 = 0) ✓ · exact score ✗"
+      }
+    },
+    "tiebreak": {
+      "title": "🏆 Tiebreaker criteria",
+      "intro": "If two or more players have the same total points, the tiebreaker is applied in this order:",
+      "r1": { "title": "Most exact scores (+3)",          "desc": "Whoever got the most exact scorelines throughout the tournament." },
+      "r2": { "title": "Most correct winners (+1)",       "desc": "Whoever correctly predicted the match outcome (1X2) the most times." },
+      "r3": { "title": "Predicted goals closest to real", "desc": "The sum of the absolute difference between predicted and actual goals across all matches. Less difference = better position." },
+      "r4": { "title": "Registration order",              "desc": "In case of a complete tie, priority goes to whoever registered first on the platform." }
+    },
+    "phases": {
+      "title": "📅 Tournament phases",
+      "disclaimer": "The deadline to register or edit a prediction is the exact moment of kick-off for each match.",
+      "p1": { "fase": "Group Stage",                  "desc": "Predict the results of all 48 matches in the first phase." },
+      "p2": { "fase": "Round of 16",                  "desc": "The 32 qualified teams compete in knockout rounds." },
+      "p3": { "fase": "Quarters, Semis and Final",    "desc": "Predictions are worth the same but the impact on the standings is higher." }
+    }
   }
 }
