@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="w-full py-6 mt-10 border-t border-gray-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
         <div>
-          <p>© 2026 POLLAMUNDIALISTA. Creado para el grupo.</p>
+          <p>© 2026 POLLAMUNDIAL. Creado por el pueblo y para el pueblo.</p>
         </div>
         
         <nav className="flex flex-wrap justify-center gap-4">

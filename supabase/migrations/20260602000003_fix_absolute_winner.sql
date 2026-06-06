@@ -1,13 +1,8 @@
--- ============================================================
---  RPC: calculate_match_points (v3 - Ganador Absoluto)
+-- RPC: calculate_match_points (v3 - Ganador Absoluto)
 --
---  Fix crítico para eliminatorias: antes de puntuar, se
---  determina un "Ganador Absoluto" por team_id para cada
---  predicción y se compara con el real. Si falla el
---  clasificado → 0 pts sin importar el marcador.
---
---  Ejecutar en: Supabase SQL Editor (o supabase db push)
--- ============================================================
+-- Fix crítico para eliminatorias: antes de puntuar, se determina un
+-- "Ganador Absoluto" por team_id para cada predicción y se compara
+-- con el real. Si falla el clasificado → 0 pts sin importar el marcador.
 
 CREATE OR REPLACE FUNCTION public.calculate_match_points(
   p_match_id  SMALLINT,

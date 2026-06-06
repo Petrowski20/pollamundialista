@@ -39,16 +39,20 @@ export default async function ClasificacionPage() {
         .limit(100)
     : supabase
         .from('v_ranking_global')
-        .select('position, nickname, total_points, id')
-        .order('position', { ascending: true })
+        .select('profile_id, nickname, total_points')
+        .order('total_points', { ascending: false })
         .limit(100)
 
-  const [{ data: rankingData }, { data: preds }] = await Promise.all([
+  const [
+    { data: rankingData, error: rankingError },
+    { data: preds, error: predsError },
+  ] = await Promise.all([
     rankingPromise,
     supabase
       .from('predictions')
       .select('profile_id, points_earned, matches!inner(status)'),
   ])
+
 
   const baseRanking: BaseRow[] = activeLeagueId
     ? (rankingData ?? []).map((r: any) => ({
@@ -57,11 +61,11 @@ export default async function ClasificacionPage() {
         pts: r.league_points,
         profileId: r.profile_id,
       }))
-    : (rankingData ?? []).map((r: any) => ({
-        position: r.position,
+    : (rankingData ?? []).map((r: any, i: number) => ({
+        position: i + 1,
         nickname: r.nickname,
         pts: r.total_points,
-        profileId: r.id,
+        profileId: r.profile_id,
       }))
 
   if (activeLeagueId) {

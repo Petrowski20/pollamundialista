@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
@@ -17,7 +17,10 @@ interface Props {
 export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [lang, setLang] = useState<Lang>('es')
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => { setMounted(true) }, [])
 
   const initial = nickname.charAt(0).toUpperCase()
 
@@ -95,27 +98,31 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
             {/* Tema */}
             <div className="px-3 py-2">
               <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">Tema</p>
-              <div className="flex gap-1.5">
-                {([
-                  ['light',  '☀️', 'Claro'],
-                  ['system', '⚙️', 'Auto'],
-                  ['dark',   '🌙', 'Oscuro'],
-                ] as [string, string, string][]).map(([t, icon, label]) => (
-                  <button
-                    key={t}
-                    onClick={() => setTheme(t)}
-                    title={label}
-                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${
-                      theme === t
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
-                    }`}
-                  >
-                    <span>{icon}</span>
-                    <span>{label}</span>
-                  </button>
-                ))}
-              </div>
+              {!mounted ? (
+                <div className="h-8 w-full bg-gray-100 dark:bg-slate-800 rounded-lg animate-pulse" />
+              ) : (
+                <div className="flex gap-1.5">
+                  {([
+                    ['light',  '☀️', 'Claro'],
+                    ['system', '⚙️', 'Auto'],
+                    ['dark',   '🌙', 'Oscuro'],
+                  ] as [string, string, string][]).map(([t, icon, label]) => (
+                    <button
+                      key={t}
+                      onClick={() => setTheme(t)}
+                      title={label}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${
+                        theme === t
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600'
+                      }`}
+                    >
+                      <span>{icon}</span>
+                      <span>{label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Idioma */}

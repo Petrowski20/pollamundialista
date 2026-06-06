@@ -1,5 +1,4 @@
--- Ejecutar en Supabase SQL Editor
--- Añade el clasificado por penaltis a predicciones y partidos
+-- Añade columna de clasificado por penaltis/prórroga a predicciones y partidos
 
 ALTER TABLE predictions
   ADD COLUMN IF NOT EXISTS pred_advancing_team_id integer

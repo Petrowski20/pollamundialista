@@ -1,7 +1,4 @@
--- ============================================================
--- Ejecutar en Supabase SQL Editor
--- Reemplaza calculate_match_points con lógica de penaltis
--- ============================================================
+-- Reemplaza calculate_match_points con lógica de penaltis (v2)
 
 CREATE OR REPLACE FUNCTION calculate_match_points(
   p_match_id   integer,
@@ -107,12 +104,3 @@ BEGIN
 
 END;
 $$;
-
--- Verificar que la función quedó registrada
-SELECT
-  routine_name,
-  routine_type,
-  security_type
-FROM information_schema.routines
-WHERE routine_schema = 'public'
-  AND routine_name   = 'calculate_match_points';

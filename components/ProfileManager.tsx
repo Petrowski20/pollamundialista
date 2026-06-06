@@ -15,8 +15,6 @@ interface Profile {
   role: string
   total_points: number
   avatar_url: string | null
-  birth_date: string | null
-  city: string | null
 }
 
 interface Props {
@@ -217,7 +215,7 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
 
           <div className="text-center">
             <p className="font-bold text-xl text-gray-900 leading-tight">{initialProfile.nickname}</p>
-            <p className="text-sm text-gray-400 mt-0.5">{userEmail}</p>
+            {userEmail && <p className="text-sm text-gray-400 mt-0.5">{userEmail}</p>}
           </div>
         </div>
 
@@ -257,21 +255,25 @@ export default function ProfileManager({ initialProfile, userEmail }: Props) {
             {/* Idioma */}
             <div className="flex items-center justify-between px-5 py-3.5">
               <span className="text-sm text-gray-600">Idioma</span>
-              <div className="flex gap-1.5">
-                {(['es', 'en'] as Lang[]).map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => handleLang(l)}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
-                      lang === l
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    {l.toUpperCase()}
-                  </button>
-                ))}
-              </div>
+              {!mounted ? (
+                <div className="h-7 w-[72px] bg-gray-100 rounded-lg animate-pulse" />
+              ) : (
+                <div className="flex gap-1.5">
+                  {(['es', 'en'] as Lang[]).map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => handleLang(l)}
+                      className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
+                        lang === l
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      {l.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Tema */}

@@ -104,7 +104,11 @@ export default async function LigasPage() {
                   {/* Footer: fecha + abandonar */}
                   <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 pt-1 border-t border-gray-50 dark:border-slate-800/50">
                     <span>Desde {joinedDate}</span>
-                    <LeaveLeagueButton leagueId={league.id} leagueName={league.name} />
+                    {isOwner ? (
+                      <span className="text-[10px] text-gray-300 dark:text-slate-600 italic">Eres el creador</span>
+                    ) : (
+                      <LeaveLeagueButton leagueId={league.id} leagueName={league.name} />
+                    )}
                   </div>
                 </div>
               )

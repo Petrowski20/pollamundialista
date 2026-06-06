@@ -100,6 +100,13 @@ export async function saveMatchResultAction(
 
   if (profile?.role !== 'ADMIN') return { error: 'Acceso denegado: se requiere rol ADMIN' }
 
+  if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) {
+    return { error: 'Los goles deben ser números enteros' }
+  }
+  if (homeGoals < 0 || awayGoals < 0 || homeGoals > 99 || awayGoals > 99) {
+    return { error: 'Valor de goles fuera de rango (0–99)' }
+  }
+
   // Obtener stage y team IDs para la sanitización
   const { data: match, error: matchError } = await supabase
     .from('matches')

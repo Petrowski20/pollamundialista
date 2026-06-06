@@ -48,7 +48,11 @@ export async function createLeagueAction(
     .from('profile_leagues')
     .insert({ profile_id: user.id, league_id: league.id })
 
-  if (memberError) return { error: memberError.message }
+  if (memberError) {
+    // Rollback: evitar liga huérfana sin miembros
+    await supabase.from('private_leagues').delete().eq('id', league.id)
+    return { error: memberError.message }
+  }
 
   revalidatePath('/ligas')
   revalidatePath('/clasificacion')
@@ -89,7 +93,10 @@ export async function joinLeagueAction(
     .from('profile_leagues')
     .insert({ profile_id: user.id, league_id: league.id })
 
-  if (joinError) return { error: joinError.message }
+  if (joinError) {
+    if (joinError.code === '23505') return { error: `Ya eres miembro de "${league.name}"` }
+    return { error: joinError.message }
+  }
 
   revalidatePath('/ligas')
   revalidatePath('/clasificacion')
