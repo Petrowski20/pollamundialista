@@ -67,6 +67,18 @@
     "desde": "Since {date}",
     "ereCreador": "You're the owner"
   },
+  "leagueDetail": {
+    "miembros": "Members ({n})",
+    "cargando": "Loading members…",
+    "creador": "Owner",
+    "tu": "You",
+    "verClasificacion": "View league standings",
+    "verClasificacionPending": "Loading…",
+    "confirmExpulsar": "Kick \"{nickname}\" from the league?",
+    "expulsado": "\"{nickname}\" has been kicked",
+    "expulsar": "Kick",
+    "expulsando": "…"
+  },
   "leagueManager": {
     "tabCrear": "➕ Create League",
     "tabUnirse": "🔗 Join with Code",

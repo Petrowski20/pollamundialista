@@ -67,6 +67,18 @@
     "desde": "Desde {date}",
     "ereCreador": "Eres el creador"
   },
+  "leagueDetail": {
+    "miembros": "Miembros ({n})",
+    "cargando": "Cargando miembros…",
+    "creador": "Creador",
+    "tu": "Tú",
+    "verClasificacion": "Ver clasificación de esta liga",
+    "verClasificacionPending": "Cargando…",
+    "confirmExpulsar": "¿Expulsar a \"{nickname}\" de la liga?",
+    "expulsado": "\"{nickname}\" ha sido expulsado",
+    "expulsar": "Expulsar",
+    "expulsando": "…"
+  },
   "leagueManager": {
     "tabCrear": "➕ Crear Liga",
     "tabUnirse": "🔗 Unirse con Código",

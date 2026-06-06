@@ -1,8 +1,7 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import LeagueManager from '@/components/LeagueManager'
-import CopyButton from '@/components/CopyButton'
-import LeaveLeagueButton from '@/components/LeaveLeagueButton'
+import LeagueCard from '@/components/LeagueCard'
 import { getServerLang, tServer } from '@/utils/i18n-server'
 
 export default async function LigasPage() {
@@ -57,56 +56,13 @@ export default async function LigasPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {leagues.map((league) => {
-              const isOwner = league.created_by === user.id
-              const joinedDate = new Date(league.joined_at).toLocaleDateString(lang === 'en' ? 'en-US' : 'es-ES', {
-                day: '2-digit', month: 'short', year: 'numeric',
-              })
-
-              return (
-                <div
-                  key={league.id}
-                  className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#FFD6D1] dark:border-slate-800 p-5 flex flex-col gap-3 hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base leading-tight">
-                      {league.name}
-                    </h3>
-                    {isOwner && (
-                      <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wide bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
-                        {t('ligas.admin')}
-                      </span>
-                    )}
-                  </div>
-
-                  {league.description && (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-snug">{league.description}</p>
-                  )}
-
-                  {league.join_code && (
-                    <div className="flex items-center gap-2 bg-gray-50 dark:bg-slate-800 rounded-lg px-3 py-2">
-                      <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0">{t('ligas.code')}</span>
-                      <span className="font-mono font-bold text-gray-900 dark:text-gray-100 tracking-widest text-sm flex-1">
-                        {league.join_code}
-                      </span>
-                      <CopyButton
-                        text={league.join_code}
-                        className="text-gray-400 hover:text-blue-600"
-                      />
-                    </div>
-                  )}
-
-                  <div className="flex items-center justify-between text-xs text-gray-400 dark:text-gray-500 pt-1 border-t border-gray-50 dark:border-slate-800/50">
-                    <span>{t('ligas.desde', { date: joinedDate })}</span>
-                    {isOwner ? (
-                      <span className="text-[10px] text-gray-300 dark:text-slate-600 italic">{t('ligas.ereCreador')}</span>
-                    ) : (
-                      <LeaveLeagueButton leagueId={league.id} leagueName={league.name} />
-                    )}
-                  </div>
-                </div>
-              )
-            })}
+            {leagues.map((league) => (
+              <LeagueCard
+                key={league.id}
+                league={league}
+                userId={user.id}
+              />
+            ))}
           </div>
         )}
       </div>
