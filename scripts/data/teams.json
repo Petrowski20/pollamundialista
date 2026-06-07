@@ -5,7 +5,8 @@
     "manager": "Miroslav Koubek",
     "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": "No clasificó"
+    "last_wc_result": "No clasificó",
+    "Seudonimo": ""
   },
   {
     "iso_code": "MEX",
@@ -13,7 +14,8 @@
     "manager": "Javier Aguirre",
     "confederation": "CONCACAF",
     "world_cups_won": 0,
-    "last_wc_result": "Fase de grupos"
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo": "El tricolor"
   },
   {
     "iso_code": "KOR",
@@ -21,7 +23,8 @@
     "manager": "Hong Myung-bo",
     "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": "Octavos de final"
+    "last_wc_result": "Octavos de final",
+    "Seudonimo": "Los Guerreros de Taeguk"
   },
   {
     "iso_code": "RSA",
@@ -29,7 +32,8 @@
     "manager": "Hugo Broos",
     "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": "No clasificó"
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los muchachos"
   },
   {
     "iso_code": "BIH",
@@ -37,7 +41,8 @@
     "manager": "Sergej Barbarez",
     "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": "No clasificó"
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los Dragones"
   },
   {
     "iso_code": "CAN",
@@ -45,7 +50,8 @@
     "manager": "Jesse Marsch",
     "confederation": "CONCACAF",
     "world_cups_won": 0,
-    "last_wc_result": "Fase de grupos"
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo": "The Canucks"
   },
   {
     "iso_code": "QAT",
@@ -53,7 +59,8 @@
     "manager": "Julen Lopetegui",
     "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": "Fase de grupos"
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo": "Los Al-Annabi (Los Granates)"
   },
   {
     "iso_code": "SUI",
@@ -61,7 +68,8 @@
     "manager": "Murat Yakin",
     "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": "Octavos de final"
+    "last_wc_result": "Octavos de final",
+    "Seudonimo": "Las Cruces Rojas"
   },
   {
     "iso_code": "BRA",
@@ -69,7 +77,8 @@
     "manager": "Carlo Ancelotti",
     "confederation": "CONMEBOL",
     "world_cups_won": 5,
-    "last_wc_result": "Cuartos de final"
+    "last_wc_result": "Cuartos de final",
+    "Seudonimo": "La Canarinha"
   },
   {
     "iso_code": "SCO",
@@ -77,7 +86,8 @@
     "manager": "Steve Clarke",
     "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": "No clasificó"
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "El Ejército de Tartán"
   },
   {
     "iso_code": "HAI",
@@ -85,7 +95,8 @@
     "manager": "Sébastien Migné",
     "confederation": "CONCACAF",
     "world_cups_won": 0,
-    "last_wc_result": "No clasificó"
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los Granaderos"
   },
   {
     "iso_code": "MAR",
@@ -103,7 +114,7 @@
     "confederation": "AFC",
     "world_cups_won": 0,
     "last_wc_result": "Octavos de final",
-    "Seudonimo":"Los socceros"
+    "Seudonimo":"Socceroos"
   },
   {
     "iso_code": "USA",
@@ -112,7 +123,7 @@
     "confederation": "CONCACAF",
     "world_cups_won": 0,
     "last_wc_result": "Octavos de final",
-    "Seudonimo":"The Yankees"
+    "Seudonimo":"The Stars and Stripes"
   },
   {
     "iso_code": "PAR",
@@ -130,111 +141,125 @@
     "confederation": "UEFA",
     "world_cups_won": 0,
     "last_wc_result": "No clasificó",
-    "Seudonimo":"Bizim Çocuklar"
+    "Seudonimo":"Los Crescent-Stars"
   },
   {
     "iso_code": "GER",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
-    "world_cups_won": 0,
-    "last_wc_result": ""
+    "fifa_ranking": 10,
+    "manager": "Julian Nagelsmann",
+    "confederation": "UEFA",
+    "world_cups_won": 4,
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Los teutones"
   },
   {
     "iso_code": "CIV",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 33,
+    "manager": "Emerse Faé",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Los elefantes"
   },
   {
     "iso_code": "CUW",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 82,
+    "manager": "Dick Advocaat",
+    "confederation": "CONCACAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"La Pantera Azul"
   },
   {
     "iso_code": "ECU",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 24,
+    "manager": "Sebastián Beccacece",
+    "confederation": "CONMEBOL",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"La tricolor"
   },
   {
     "iso_code": "JPN",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 18,
+    "manager": "Hajime Moriyasu",
+    "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Octavos de final",
+    "Seudonimo":"Los samuráis azules"
   },
   {
     "iso_code": "NED",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 8,
+    "manager": "Ronald Koeman",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Cuartos de final",
+    "Seudonimo":"La naranja mecánica"
+    
   },
   {
     "iso_code": "SWE",
     "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "manager": "Graham Potter",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Las tres coronas"
   },
   {
     "iso_code": "TUN",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 46,
+    "manager": "Sabri Lamouchi",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Las águilas de Cartago"
   },
   {
     "iso_code": "BEL",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 9,
+    "manager": "Rudi García",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Los diablos rojos"
   },
   {
     "iso_code": "EGY",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 29,
+    "manager": "Hossam Hassan",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Los faraones"
   },
   {
     "iso_code": "NZL",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 85,
+    "manager": "Darren Bazeley",
+    "confederation": "OFC",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"All Whites"
   },
   {
     "iso_code": "IRN",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 20,
+    "manager": "Amir Ghalenoei",
+    "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Los príncipes de Persia"
   },
   {
     "iso_code": "KSA",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 61,
+    "manager": "Georgios Donis",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Los halcones verdes"
   },
   {
     "iso_code": "ESP",
@@ -242,150 +267,169 @@
     "manager": "Luis de la Fuente",
     "confederation": "UEFA",
     "world_cups_won": 1,
-    "last_wc_result": ""
+    "last_wc_result": "Octavos de final",
+    "Seudonimo":"La Roja"
   },
   {
     "iso_code": "CPV",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 67,
+    "manager": "Bubista",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Criollos"
   },
   {
     "iso_code": "URU",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
-    "world_cups_won": 0,
-    "last_wc_result": ""
+    "fifa_ranking": 16,
+    "manager": "Marcelo Bielsa",
+    "confederation": "CONMEBOL",
+    "world_cups_won": 2,
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo":"Los Charrúas"
   },
   {
     "iso_code": "FRA",
-    "fifa_ranking": 1,
+    "fifa_ranking": 3,
     "manager": "Didier Deschamps",
     "confederation": "UEFA",
     "world_cups_won": 2,
-    "last_wc_result": "Final"
+    "last_wc_result": "Final",
+    "Seudonimo":"Les Bleus"
   },
   {
     "iso_code": "IRQ",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 56,
+    "manager": "Graham Arnold",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "",
+    "Seudonimo":"Los Leones de Mesopotamia"
   },
   {
     "iso_code": "NOR",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 31,
+    "manager": "Ståle Solbakken",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los vikingos rojos"
   },
   {
     "iso_code": "SEN",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 15,
+    "manager": "Pape Thiaw",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Octavos de final",
+    "Seudonimo": "Los Leones de la Teranga"
   },
   {
     "iso_code": "ALG",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 28,
+    "manager": "Vladimir Petković",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los zorros del desierto"
   },
   {
     "iso_code": "ARG",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
-    "world_cups_won": 0,
-    "last_wc_result": ""
+    "fifa_ranking": 1,
+    "manager": "Lionel Scaloni",
+    "confederation": "CONMEBOL",
+    "world_cups_won": 3,
+    "last_wc_result": "Campeón",
+    "Seudonimo": "La Albiceleste"
   },
   {
     "iso_code": "AUT",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 23,
+    "manager": "Ralf Rangnick",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Wunderteam"
   },
   {
     "iso_code": "JOR",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 63,
+    "manager": "Jamal Sellami",
+    "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los Bravos"
   },
   {
     "iso_code": "COL",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 13,
+    "manager": "Néstor Lorenzo",
+    "confederation": "CONMEBOL",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los Cafeteros"
   },
   {
     "iso_code": "POR",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 5,
+    "manager": "Roberto Martínez",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Cuartos de final",
+    "Seudonimo": "Los Lusos"
   },
   {
     "iso_code": "COD",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 45,
+    "manager": "Fabrizio Cesana",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "",
+    "Seudonimo": "Diablos rojos"
   },
   {
     "iso_code": "UZB",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 50,
+    "manager": "Fabio Cannavaro",
+    "confederation": "AFC",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Lobos blancos"
   },
   {
     "iso_code": "CRO",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 11,
+    "manager": "Zlatko Dalić",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Semifinal",
+    "Seudonimo": "Los Ardientes"
   },
   {
     "iso_code": "GHA",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 73,
+    "manager": "Carlos Queiroz",
+    "confederation": "CAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Fase de grupos",
+    "Seudonimo": "Las Estrellas Negras"
   },
   {
     "iso_code": "ENG",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 4,
+    "manager": "Thomas Tuchel",
+    "confederation": "UEFA",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "Cuartos de final",
+    "Seudonimo": "Los tres leones"
   },
   {
     "iso_code": "PAN",
-    "fifa_ranking": 0,
-    "manager": "",
-    "confederation": "",
+    "fifa_ranking": 34,
+    "manager": "Thomas Christiansen",
+    "confederation": "CONCACAF",
     "world_cups_won": 0,
-    "last_wc_result": ""
+    "last_wc_result": "No clasificó",
+    "Seudonimo": "Los Canaleros"
   }
 ]
