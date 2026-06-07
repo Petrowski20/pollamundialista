@@ -1,0 +1,291 @@
+{
+  "iso_code": "RSA",
+  "players": [
+    {
+      "squad_number": 16,
+      "name": "Sipho Chaine",
+      "position": "GK",
+      "date_of_birth": "1996-12-14",
+      "height_cm": 186,
+      "club": "Orlando Pirates",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 453370
+    },
+    {
+      "squad_number": 1,
+      "name": "Ronwen Williams",
+      "position": "GK",
+      "date_of_birth": "1992-01-21",
+      "height_cm": 184,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 62,
+      "intl_goals": 0,
+      "transfermarkt_id": 175577
+    },
+    {
+      "squad_number": 22,
+      "name": "Ricardo Goss",
+      "position": "GK",
+      "date_of_birth": "1994-04-02",
+      "height_cm": 181,
+      "club": "Siwelele Football Club",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 258304
+    },
+    {
+      "squad_number": 14,
+      "name": "Mbekezeli Mbokazi",
+      "position": "DF",
+      "date_of_birth": "2005-09-19",
+      "height_cm": 177,
+      "club": "Chicago Fire FC",
+      "caps": 10,
+      "intl_goals": 1,
+      "transfermarkt_id": 1378320
+    },
+    {
+      "squad_number": 21,
+      "name": "Ime Okon",
+      "position": "DF",
+      "date_of_birth": "2004-02-20",
+      "height_cm": 187,
+      "club": "Hannover 96",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 1107265
+    },
+    {
+      "squad_number": 24,
+      "name": "Olwethu Makhanya",
+      "position": "DF",
+      "date_of_birth": "2004-04-30",
+      "height_cm": 185,
+      "club": "Philadelphia Union",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 1069801
+    },
+    {
+      "squad_number": 19,
+      "name": "Nkosinathi Sibisi",
+      "position": "DF",
+      "date_of_birth": "1995-09-22",
+      "height_cm": 172,
+      "club": "Orlando Pirates",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 399068
+    },
+    {
+      "squad_number": 3,
+      "name": "Khulumani Ndamane",
+      "position": "DF",
+      "date_of_birth": "2004-02-05",
+      "height_cm": 183,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 1283140
+    },
+    {
+      "squad_number": 18,
+      "name": "Samukele Kabini",
+      "position": "DF",
+      "date_of_birth": "2004-03-15",
+      "height_cm": 179,
+      "club": "Molde FK",
+      "caps": 6,
+      "intl_goals": 0,
+      "transfermarkt_id": 1175086
+    },
+    {
+      "squad_number": 6,
+      "name": "Aubrey Modiba",
+      "position": "DF",
+      "date_of_birth": "1995-07-22",
+      "height_cm": 171,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 41,
+      "intl_goals": 1,
+      "transfermarkt_id": 353432
+    },
+    {
+      "squad_number": 26,
+      "name": "Bradley Cross",
+      "position": "DF",
+      "date_of_birth": "2001-01-30",
+      "height_cm": 175,
+      "club": "Kaizer Chiefs",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 555209
+    },
+    {
+      "squad_number": 2,
+      "name": "Thabang Matuludi",
+      "position": "DF",
+      "date_of_birth": "1999-01-14",
+      "height_cm": 189,
+      "club": "Polokwane City FC",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 1109254
+    },
+    {
+      "squad_number": 20,
+      "name": "Khuliso Mudau",
+      "position": "DF",
+      "date_of_birth": "1995-04-26",
+      "height_cm": 179,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 32,
+      "intl_goals": 1,
+      "transfermarkt_id": 450806
+    },
+    {
+      "squad_number": 25,
+      "name": "Kamogelo Sebelebele",
+      "position": "DF",
+      "date_of_birth": "2002-07-21",
+      "height_cm": 166,
+      "club": "Orlando Pirates",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 994370
+    },
+    {
+      "squad_number": 4,
+      "name": "Teboho Mokoena",
+      "position": "MF",
+      "date_of_birth": "1997-01-24",
+      "height_cm": 177,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 51,
+      "intl_goals": 9,
+      "transfermarkt_id": 436372
+    },
+    {
+      "squad_number": 5,
+      "name": "Thalente Mbatha",
+      "position": "MF",
+      "date_of_birth": "2000-03-06",
+      "height_cm": 179,
+      "club": "Orlando Pirates",
+      "caps": 15,
+      "intl_goals": 3,
+      "transfermarkt_id": 735697
+    },
+    {
+      "squad_number": 23,
+      "name": "Jayden Adams",
+      "position": "MF",
+      "date_of_birth": "2001-05-05",
+      "height_cm": 177,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 6,
+      "intl_goals": 1,
+      "transfermarkt_id": 804472
+    },
+    {
+      "squad_number": 13,
+      "name": "Yaya Sithole",
+      "position": "MF",
+      "date_of_birth": "1999-03-03",
+      "height_cm": 197,
+      "club": "CD Tondela",
+      "caps": 28,
+      "intl_goals": 1,
+      "transfermarkt_id": 401736
+    },
+    {
+      "squad_number": 11,
+      "name": "Themba Zwane",
+      "position": "MF",
+      "date_of_birth": "1989-08-03",
+      "height_cm": 178,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 54,
+      "intl_goals": 12,
+      "transfermarkt_id": 176578
+    },
+    {
+      "squad_number": 10,
+      "name": "Relebohile Mofokeng",
+      "position": "FW",
+      "date_of_birth": "2004-10-23",
+      "height_cm": 168,
+      "club": "Orlando Pirates",
+      "caps": 13,
+      "intl_goals": 0,
+      "transfermarkt_id": 1125037
+    },
+    {
+      "squad_number": 7,
+      "name": "Oswin Appollis",
+      "position": "FW",
+      "date_of_birth": "2001-08-25",
+      "height_cm": 171,
+      "club": "Orlando Pirates",
+      "caps": 26,
+      "intl_goals": 8,
+      "transfermarkt_id": 673381
+    },
+    {
+      "squad_number": 8,
+      "name": "Tshepang Moremi",
+      "position": "FW",
+      "date_of_birth": "2000-10-02",
+      "height_cm": 169,
+      "club": "Orlando Pirates",
+      "caps": 10,
+      "intl_goals": 1,
+      "transfermarkt_id": 844485
+    },
+    {
+      "squad_number": 12,
+      "name": "Thapelo Maseko",
+      "position": "FW",
+      "date_of_birth": "2003-11-11",
+      "height_cm": 178,
+      "club": "AEL Limassol",
+      "caps": 7,
+      "intl_goals": 1,
+      "transfermarkt_id": 983330
+    },
+    {
+      "squad_number": 9,
+      "name": "Lyle Foster",
+      "position": "FW",
+      "date_of_birth": "2000-09-03",
+      "height_cm": 185,
+      "club": "Burnley FC",
+      "caps": 27,
+      "intl_goals": 10,
+      "transfermarkt_id": 467623
+    },
+    {
+      "squad_number": 15,
+      "name": "Iqraam Rayners",
+      "position": "FW",
+      "date_of_birth": "1995-12-19",
+      "height_cm": 174,
+      "club": "Mamelodi Sundowns FC",
+      "caps": 14,
+      "intl_goals": 4,
+      "transfermarkt_id": 337884
+    },
+    {
+      "squad_number": 17,
+      "name": "Evidence Makgopa",
+      "position": "FW",
+      "date_of_birth": "2000-06-05",
+      "height_cm": 183,
+      "club": "Orlando Pirates",
+      "caps": 26,
+      "intl_goals": 6,
+      "transfermarkt_id": 746781
+    }
+  ]
+}

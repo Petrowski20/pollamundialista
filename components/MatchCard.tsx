@@ -9,6 +9,7 @@ import { useLang } from '@/contexts/LangContext';
 interface Team {
   name: string;
   flag_emoji: string;
+  iso_code?: string;
 }
 
 interface MatchCardProps {
@@ -33,8 +34,8 @@ interface MatchCardProps {
   referee?: string | null;
 }
 
-function FlagImg({ flagEmoji, name }: { flagEmoji: string; name: string }) {
-  const url = getFlagUrl(flagEmoji);
+function FlagImg({ flagEmoji, name, isoCode }: { flagEmoji: string; name: string; isoCode?: string }) {
+  const url = getFlagUrl(flagEmoji, isoCode);
   if (!url) {
     return (
       <span className="text-2xl leading-none select-none" role="img" aria-label={name}>
@@ -45,8 +46,8 @@ function FlagImg({ flagEmoji, name }: { flagEmoji: string; name: string }) {
   return <img src={url} alt={name} className="w-10 h-7 object-cover rounded-sm shadow-sm" />;
 }
 
-function SmallFlag({ flagEmoji, name }: { flagEmoji: string; name: string }) {
-  const url = getFlagUrl(flagEmoji);
+function SmallFlag({ flagEmoji, name, isoCode }: { flagEmoji: string; name: string; isoCode?: string }) {
+  const url = getFlagUrl(flagEmoji, isoCode);
   if (!url) return <span className="text-sm leading-none">{flagEmoji || '🏳'}</span>;
   return <img src={url} alt={name} className="w-4 h-3 object-cover rounded-sm shrink-0" />;
 }
@@ -174,7 +175,7 @@ export default function MatchCard({
         {/* Local */}
         <div className="flex flex-col items-center gap-2 min-w-0">
           <div className="w-14 h-14 bg-white/60 dark:bg-white/10 rounded-full flex items-center justify-center border border-white dark:border-white/20 shadow-inner">
-            <FlagImg flagEmoji={home.flag_emoji} name={home.name} />
+            <FlagImg flagEmoji={home.flag_emoji} name={home.name} isoCode={home.iso_code} />
           </div>
           <span className="text-xs font-semibold text-gray-800 dark:text-white/90 text-center leading-tight max-w-[80px] line-clamp-2">
             {home.name}
@@ -273,7 +274,7 @@ export default function MatchCard({
                             : 'border-gray-200 dark:border-slate-600 bg-white/60 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:border-blue-300 dark:hover:border-blue-600'
                         }`}
                       >
-                        <SmallFlag flagEmoji={team.flag_emoji} name={team.name} />
+                        <SmallFlag flagEmoji={team.flag_emoji} name={team.name} isoCode={team.iso_code} />
                         {team.name}
                       </button>
                     ))}
@@ -287,7 +288,7 @@ export default function MatchCard({
         {/* Visitante */}
         <div className="flex flex-col items-center gap-2 min-w-0">
           <div className="w-14 h-14 bg-white/60 dark:bg-white/10 rounded-full flex items-center justify-center border border-white dark:border-white/20 shadow-inner">
-            <FlagImg flagEmoji={away.flag_emoji} name={away.name} />
+            <FlagImg flagEmoji={away.flag_emoji} name={away.name} isoCode={away.iso_code} />
           </div>
           <span className="text-xs font-semibold text-gray-800 dark:text-white/90 text-center leading-tight max-w-[80px] line-clamp-2">
             {away.name}

@@ -1,0 +1,291 @@
+{
+  "iso_code": "CZE",
+  "players": [
+    {
+      "squad_number": 23,
+      "name": "Lukas Hornicek",
+      "position": "GK",
+      "date_of_birth": "2002-07-13",
+      "height_cm": 198,
+      "club": "SC Braga",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 629773
+    },
+    {
+      "squad_number": 1,
+      "name": "Matej Kovar",
+      "position": "GK",
+      "date_of_birth": "2000-05-17",
+      "height_cm": 196,
+      "club": "PSV Eindhoven",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 550829
+    },
+    {
+      "squad_number": 16,
+      "name": "Jindrich Stanek",
+      "position": "GK",
+      "date_of_birth": "1996-04-27",
+      "height_cm": 192,
+      "club": "SK Slavia Prague",
+      "caps": 14,
+      "intl_goals": 0,
+      "transfermarkt_id": 242089
+    },
+    {
+      "squad_number": 7,
+      "name": "Ladislav Krejčí",
+      "position": "DF",
+      "date_of_birth": "1999-04-20",
+      "height_cm": 191,
+      "club": "Wolverhampton Wanderers",
+      "caps": 27,
+      "intl_goals": 5,
+      "transfermarkt_id": 345911
+    },
+    {
+      "squad_number": 4,
+      "name": "Robin Hranac",
+      "position": "DF",
+      "date_of_birth": "2000-01-29",
+      "height_cm": 189,
+      "club": "TSG 1899 Hoffenheim",
+      "caps": 14,
+      "intl_goals": 1,
+      "transfermarkt_id": 620217
+    },
+    {
+      "squad_number": 6,
+      "name": "Stepan Chaloupek",
+      "position": "DF",
+      "date_of_birth": "2003-03-08",
+      "height_cm": 188,
+      "club": "SK Slavia Prague",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 944827
+    },
+    {
+      "squad_number": 2,
+      "name": "David Zima",
+      "position": "DF",
+      "date_of_birth": "2000-11-08",
+      "height_cm": 190,
+      "club": "SK Slavia Prague",
+      "caps": 25,
+      "intl_goals": 1,
+      "transfermarkt_id": 544149
+    },
+    {
+      "squad_number": 3,
+      "name": "Tomas Holes",
+      "position": "DF",
+      "date_of_birth": "1993-03-31",
+      "height_cm": 180,
+      "club": "SK Slavia Prague",
+      "caps": 41,
+      "intl_goals": 2,
+      "transfermarkt_id": 216278
+    },
+    {
+      "squad_number": 20,
+      "name": "Jaroslav Zelený",
+      "position": "DF",
+      "date_of_birth": "1992-08-20",
+      "height_cm": 190,
+      "club": "AC Sparta Prague",
+      "caps": 23,
+      "intl_goals": 0,
+      "transfermarkt_id": 142219
+    },
+    {
+      "squad_number": 14,
+      "name": "David Jurásek",
+      "position": "DF",
+      "date_of_birth": "2000-08-07",
+      "height_cm": 183,
+      "club": "SK Slavia Prague",
+      "caps": 18,
+      "intl_goals": 1,
+      "transfermarkt_id": 500054
+    },
+    {
+      "squad_number": 5,
+      "name": "Vladimír Coufal",
+      "position": "DF",
+      "date_of_birth": "1992-08-22",
+      "height_cm": 175,
+      "club": "TSG 1899 Hoffenheim",
+      "caps": 62,
+      "intl_goals": 2,
+      "transfermarkt_id": 157672
+    },
+    {
+      "squad_number": 22,
+      "name": "Tomáš Souček",
+      "position": "MF",
+      "date_of_birth": "1995-02-27",
+      "height_cm": 192,
+      "club": "West Ham United",
+      "caps": 90,
+      "intl_goals": 17,
+      "transfermarkt_id": 283628
+    },
+    {
+      "squad_number": 18,
+      "name": "Michal Sadílek",
+      "position": "MF",
+      "date_of_birth": "1999-05-31",
+      "height_cm": 169,
+      "club": "SK Slavia Prague",
+      "caps": 35,
+      "intl_goals": 1,
+      "transfermarkt_id": 321204
+    },
+    {
+      "squad_number": 12,
+      "name": "Lukas Cerv",
+      "position": "MF",
+      "date_of_birth": "2001-04-10",
+      "height_cm": 182,
+      "club": "FC Viktoria Plzen",
+      "caps": 17,
+      "intl_goals": 2,
+      "transfermarkt_id": 611049
+    },
+    {
+      "squad_number": 25,
+      "name": "Hugo Sochurek",
+      "position": "MF",
+      "date_of_birth": "2008-06-07",
+      "height_cm": 183,
+      "club": "AC Sparta Prague",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 1206877
+    },
+    {
+      "squad_number": 24,
+      "name": "Alexandr Sojka",
+      "position": "MF",
+      "date_of_birth": "2003-04-02",
+      "height_cm": 188,
+      "club": "FC Viktoria Plzen",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 826103
+    },
+    {
+      "squad_number": 8,
+      "name": "Vladimír Darida",
+      "position": "MF",
+      "date_of_birth": "1990-08-08",
+      "height_cm": 172,
+      "club": "FC Hradec Kralove",
+      "caps": 79,
+      "intl_goals": 8,
+      "transfermarkt_id": 179643
+    },
+    {
+      "squad_number": 21,
+      "name": "David Doudera",
+      "position": "MF",
+      "date_of_birth": "1998-05-31",
+      "height_cm": 175,
+      "club": "SK Slavia Prague",
+      "caps": 17,
+      "intl_goals": 2,
+      "transfermarkt_id": 493758
+    },
+    {
+      "squad_number": 15,
+      "name": "Pavel Sulc",
+      "position": "MF",
+      "date_of_birth": "2000-12-29",
+      "height_cm": 177,
+      "club": "Olympique Lyon",
+      "caps": 21,
+      "intl_goals": 5,
+      "transfermarkt_id": 500053
+    },
+    {
+      "squad_number": 26,
+      "name": "Denis Visinsky",
+      "position": "MF",
+      "date_of_birth": "2003-03-21",
+      "height_cm": 178,
+      "club": "FC Viktoria Plzen",
+      "caps": 2,
+      "intl_goals": 1,
+      "transfermarkt_id": 652060
+    },
+    {
+      "squad_number": 17,
+      "name": "Lukas Provod",
+      "position": "FW",
+      "date_of_birth": "1996-10-23",
+      "height_cm": 191,
+      "club": "SK Slavia Prague",
+      "caps": 38,
+      "intl_goals": 3,
+      "transfermarkt_id": 292779
+    },
+    {
+      "squad_number": 10,
+      "name": "Patrik Schick",
+      "position": "FW",
+      "date_of_birth": "1996-01-24",
+      "height_cm": 191,
+      "club": "Bayer 04 Leverkusen",
+      "caps": 53,
+      "intl_goals": 26,
+      "transfermarkt_id": 242086
+    },
+    {
+      "squad_number": 9,
+      "name": "Adam Hlozek",
+      "position": "FW",
+      "date_of_birth": "2002-07-25",
+      "height_cm": 188,
+      "club": "TSG 1899 Hoffenheim",
+      "caps": 43,
+      "intl_goals": 5,
+      "transfermarkt_id": 552057
+    },
+    {
+      "squad_number": 13,
+      "name": "Mojmír Chytil",
+      "position": "FW",
+      "date_of_birth": "1999-04-29",
+      "height_cm": 187,
+      "club": "SK Slavia Prague",
+      "caps": 22,
+      "intl_goals": 6,
+      "transfermarkt_id": 405855
+    },
+    {
+      "squad_number": 11,
+      "name": "Jan Kuchta",
+      "position": "FW",
+      "date_of_birth": "1997-01-08",
+      "height_cm": 185,
+      "club": "AC Sparta Prague",
+      "caps": 31,
+      "intl_goals": 3,
+      "transfermarkt_id": 334802
+    },
+    {
+      "squad_number": 19,
+      "name": "Tomas Chory",
+      "position": "FW",
+      "date_of_birth": "1995-01-26",
+      "height_cm": 199,
+      "club": "SK Slavia Prague",
+      "caps": 22,
+      "intl_goals": 7,
+      "transfermarkt_id": 198614
+    }
+  ]
+}

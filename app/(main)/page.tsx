@@ -16,8 +16,8 @@ export default async function HomePage() {
       .select(`
         id, match_date, stage, group_letter, status, home_goals, away_goals, stadium, referee,
         home_team_id, away_team_id, advancing_team_id,
-        home_team:teams!home_team_id (name, flag_emoji),
-        away_team:teams!away_team_id (name, flag_emoji)
+        home_team:teams!home_team_id (name, flag_emoji, iso_code),
+        away_team:teams!away_team_id (name, flag_emoji, iso_code)
       `)
       .order('match_date', { ascending: true }),
     supabase

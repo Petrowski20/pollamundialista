@@ -1,0 +1,291 @@
+{
+  "iso_code": "COD",
+  "players": [
+    {
+      "squad_number": 21,
+      "name": "Matthieu Epolo",
+      "position": "GK",
+      "date_of_birth": "2005-01-15",
+      "height_cm": 183,
+      "club": "Standard Liège",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 680218
+    },
+    {
+      "squad_number": 16,
+      "name": "Timothy Fayulu",
+      "position": "GK",
+      "date_of_birth": "1999-07-24",
+      "height_cm": 192,
+      "club": "FC Noah Yerevan",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 541420
+    },
+    {
+      "squad_number": 1,
+      "name": "Lionel Mpasi-Nzau",
+      "position": "GK",
+      "date_of_birth": "1994-08-01",
+      "height_cm": 182,
+      "club": "Le Havre AC",
+      "caps": 27,
+      "intl_goals": 0,
+      "transfermarkt_id": 164915
+    },
+    {
+      "squad_number": 4,
+      "name": "Axel Tuanzebe",
+      "position": "DF",
+      "date_of_birth": "1997-11-14",
+      "height_cm": 188,
+      "club": "Burnley FC",
+      "caps": 12,
+      "intl_goals": 1,
+      "transfermarkt_id": 342046
+    },
+    {
+      "squad_number": 3,
+      "name": "Steve Kapuadi",
+      "position": "DF",
+      "date_of_birth": "1998-04-30",
+      "height_cm": 196,
+      "club": "Widzew Lodz",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 679709
+    },
+    {
+      "squad_number": 22,
+      "name": "Chancel Mbemba",
+      "position": "DF",
+      "date_of_birth": "1994-08-08",
+      "height_cm": 182,
+      "club": "LOSC Lille",
+      "caps": 106,
+      "intl_goals": 7,
+      "transfermarkt_id": 203348
+    },
+    {
+      "squad_number": 5,
+      "name": "Dylan Batubinsika",
+      "position": "DF",
+      "date_of_birth": "1996-02-15",
+      "height_cm": 185,
+      "club": "AE Larisa",
+      "caps": 15,
+      "intl_goals": 1,
+      "transfermarkt_id": 289432
+    },
+    {
+      "squad_number": 12,
+      "name": "Joris Kayembe",
+      "position": "DF",
+      "date_of_birth": "1994-08-08",
+      "height_cm": 180,
+      "club": "KRC Genk",
+      "caps": 25,
+      "intl_goals": 0,
+      "transfermarkt_id": 129586
+    },
+    {
+      "squad_number": 26,
+      "name": "Arthur Masuaku",
+      "position": "DF",
+      "date_of_birth": "1993-11-07",
+      "height_cm": 179,
+      "club": "RC Lens",
+      "caps": 44,
+      "intl_goals": 4,
+      "transfermarkt_id": 181380
+    },
+    {
+      "squad_number": 2,
+      "name": "Aaron Wan-Bissaka",
+      "position": "DF",
+      "date_of_birth": "1997-11-26",
+      "height_cm": 183,
+      "club": "West Ham United",
+      "caps": 11,
+      "intl_goals": 0,
+      "transfermarkt_id": 477758
+    },
+    {
+      "squad_number": 24,
+      "name": "Gédéon Kalulu",
+      "position": "DF",
+      "date_of_birth": "1997-08-29",
+      "height_cm": 178,
+      "club": "Aris Limassol",
+      "caps": 28,
+      "intl_goals": 0,
+      "transfermarkt_id": 395685
+    },
+    {
+      "squad_number": 6,
+      "name": "Ngal'ayel Mukau",
+      "position": "MF",
+      "date_of_birth": "2004-11-03",
+      "height_cm": 186,
+      "club": "LOSC Lille",
+      "caps": 13,
+      "intl_goals": 0,
+      "transfermarkt_id": 1016015
+    },
+    {
+      "squad_number": 18,
+      "name": "Charles Pickel",
+      "position": "MF",
+      "date_of_birth": "1997-05-15",
+      "height_cm": 187,
+      "club": "RCD Espanyol Barcelona",
+      "caps": 34,
+      "intl_goals": 1,
+      "transfermarkt_id": 243879
+    },
+    {
+      "squad_number": 14,
+      "name": "Noah Sadiki",
+      "position": "MF",
+      "date_of_birth": "2004-12-17",
+      "height_cm": 165,
+      "club": "Sunderland AFC",
+      "caps": 19,
+      "intl_goals": 0,
+      "transfermarkt_id": 727089
+    },
+    {
+      "squad_number": 25,
+      "name": "Edo Kayembe",
+      "position": "MF",
+      "date_of_birth": "1998-06-03",
+      "height_cm": 183,
+      "club": "Watford FC",
+      "caps": 41,
+      "intl_goals": 2,
+      "transfermarkt_id": 486477
+    },
+    {
+      "squad_number": 8,
+      "name": "Samuel Moutoussamy",
+      "position": "MF",
+      "date_of_birth": "1996-08-12",
+      "height_cm": 176,
+      "club": "Atromitos Athens",
+      "caps": 57,
+      "intl_goals": 0,
+      "transfermarkt_id": 353403
+    },
+    {
+      "squad_number": 15,
+      "name": "Aaron Tshibola",
+      "position": "MF",
+      "date_of_birth": "1995-01-02",
+      "height_cm": 184,
+      "club": "Kilmarnock FC",
+      "caps": 16,
+      "intl_goals": 1,
+      "transfermarkt_id": 243633
+    },
+    {
+      "squad_number": 13,
+      "name": "Meschack Elia",
+      "position": "MF",
+      "date_of_birth": "1997-08-06",
+      "height_cm": 173,
+      "club": "Alanyaspor",
+      "caps": 65,
+      "intl_goals": 12,
+      "transfermarkt_id": 423678
+    },
+    {
+      "squad_number": 11,
+      "name": "Gaël Kakuta",
+      "position": "MF",
+      "date_of_birth": "1991-06-21",
+      "height_cm": 174,
+      "club": "AE Larisa",
+      "caps": 30,
+      "intl_goals": 5,
+      "transfermarkt_id": 74297
+    },
+    {
+      "squad_number": 7,
+      "name": "Nathanaël Mbuku",
+      "position": "FW",
+      "date_of_birth": "2002-03-16",
+      "height_cm": 170,
+      "club": "Montpellier HSC",
+      "caps": 18,
+      "intl_goals": 2,
+      "transfermarkt_id": 557614
+    },
+    {
+      "squad_number": 9,
+      "name": "Brian Cipenga",
+      "position": "FW",
+      "date_of_birth": "1998-03-11",
+      "height_cm": 172,
+      "club": "CD Castellón",
+      "caps": 7,
+      "intl_goals": 0,
+      "transfermarkt_id": 700565
+    },
+    {
+      "squad_number": 10,
+      "name": "Théo Bongonda",
+      "position": "FW",
+      "date_of_birth": "1995-11-20",
+      "height_cm": 176,
+      "club": "Spartak Moscow",
+      "caps": 37,
+      "intl_goals": 7,
+      "transfermarkt_id": 280701
+    },
+    {
+      "squad_number": 20,
+      "name": "Yoane Wissa",
+      "position": "FW",
+      "date_of_birth": "1996-09-03",
+      "height_cm": 176,
+      "club": "Newcastle United",
+      "caps": 37,
+      "intl_goals": 8,
+      "transfermarkt_id": 388165
+    },
+    {
+      "squad_number": 23,
+      "name": "Simon Banza",
+      "position": "FW",
+      "date_of_birth": "1996-08-13",
+      "height_cm": 189,
+      "club": "Al-Jazira Club",
+      "caps": 15,
+      "intl_goals": 2,
+      "transfermarkt_id": 344869
+    },
+    {
+      "squad_number": 19,
+      "name": "Fiston Mayele",
+      "position": "FW",
+      "date_of_birth": "1994-06-24",
+      "height_cm": 185,
+      "club": "Pyramids FC",
+      "caps": 36,
+      "intl_goals": 5,
+      "transfermarkt_id": 727157
+    },
+    {
+      "squad_number": 17,
+      "name": "Cédric Bakambu",
+      "position": "FW",
+      "date_of_birth": "1991-04-11",
+      "height_cm": 182,
+      "club": "Real Betis Balompié",
+      "caps": 68,
+      "intl_goals": 21,
+      "transfermarkt_id": 127048
+    }
+  ]
+}

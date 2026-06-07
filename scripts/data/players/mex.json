@@ -1,0 +1,291 @@
+{
+  "iso_code": "MEX",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Raúl Rangel",
+      "position": "GK",
+      "date_of_birth": "2000-02-25",
+      "height_cm": 190,
+      "club": "Deportivo Guadalajara",
+      "caps": 14,
+      "intl_goals": null,
+      "transfermarkt_id": 802855
+    },
+    {
+      "squad_number": 12,
+      "name": "Carlos Acevedo",
+      "position": "GK",
+      "date_of_birth": "1996-04-19",
+      "height_cm": 185,
+      "club": "Santos Laguna",
+      "caps": 7,
+      "intl_goals": null,
+      "transfermarkt_id": 356042
+    },
+    {
+      "squad_number": 13,
+      "name": "Guillermo Ochoa",
+      "position": "GK",
+      "date_of_birth": "1985-07-13",
+      "height_cm": 185,
+      "club": "AEL Limassol",
+      "caps": 153,
+      "intl_goals": null,
+      "transfermarkt_id": 29559
+    },
+    {
+      "squad_number": 5,
+      "name": "Johan Vásquez",
+      "position": "DF",
+      "date_of_birth": "1998-10-22",
+      "height_cm": 182,
+      "club": "Genoa CFC",
+      "caps": 46,
+      "intl_goals": 3,
+      "transfermarkt_id": 532937
+    },
+    {
+      "squad_number": 3,
+      "name": "César Montes",
+      "position": "DF",
+      "date_of_birth": "1997-02-24",
+      "height_cm": 195,
+      "club": "Lokomotiv Moscow",
+      "caps": 68,
+      "intl_goals": 4,
+      "transfermarkt_id": 387687
+    },
+    {
+      "squad_number": 7,
+      "name": "Luis Romo",
+      "position": "DF",
+      "date_of_birth": "1995-06-05",
+      "height_cm": 183,
+      "club": "Deportivo Guadalajara",
+      "caps": 63,
+      "intl_goals": 4,
+      "transfermarkt_id": 532938
+    },
+    {
+      "squad_number": 20,
+      "name": "Mateo Chávez",
+      "position": "DF",
+      "date_of_birth": "2004-05-12",
+      "height_cm": 178,
+      "club": "AZ Alkmaar",
+      "caps": 10,
+      "intl_goals": null,
+      "transfermarkt_id": 1066953
+    },
+    {
+      "squad_number": 23,
+      "name": "Jesús Gallardo",
+      "position": "DF",
+      "date_of_birth": "1994-08-15",
+      "height_cm": 174,
+      "club": "Deportivo Toluca",
+      "caps": 122,
+      "intl_goals": 3,
+      "transfermarkt_id": 344854
+    },
+    {
+      "squad_number": 15,
+      "name": "Israel Reyes",
+      "position": "DF",
+      "date_of_birth": "2000-05-23",
+      "height_cm": 181,
+      "club": "CF América",
+      "caps": 34,
+      "intl_goals": 2,
+      "transfermarkt_id": 687558
+    },
+    {
+      "squad_number": 2,
+      "name": "Jorge Sánchez",
+      "position": "DF",
+      "date_of_birth": "1997-12-10",
+      "height_cm": 176,
+      "club": "PAOK Thessaloniki",
+      "caps": 59,
+      "intl_goals": 3,
+      "transfermarkt_id": 356044
+    },
+    {
+      "squad_number": 4,
+      "name": "Edson Álvarez",
+      "position": "MF",
+      "date_of_birth": "1997-10-24",
+      "height_cm": 190,
+      "club": "Fenerbahce",
+      "caps": 99,
+      "intl_goals": 7,
+      "transfermarkt_id": 401356
+    },
+    {
+      "squad_number": 6,
+      "name": "Érik Lira",
+      "position": "MF",
+      "date_of_birth": "2000-05-08",
+      "height_cm": 172,
+      "club": "CD Cruz Azul",
+      "caps": 25,
+      "intl_goals": null,
+      "transfermarkt_id": 602324
+    },
+    {
+      "squad_number": 24,
+      "name": "Luis Chávez",
+      "position": "MF",
+      "date_of_birth": "1996-01-15",
+      "height_cm": 178,
+      "club": "Dynamo Moscow",
+      "caps": 45,
+      "intl_goals": 5,
+      "transfermarkt_id": 331059
+    },
+    {
+      "squad_number": 18,
+      "name": "Obed Vargas",
+      "position": "MF",
+      "date_of_birth": "2005-08-05",
+      "height_cm": 175,
+      "club": "Atlético de Madrid",
+      "caps": 6,
+      "intl_goals": null,
+      "transfermarkt_id": 889435
+    },
+    {
+      "squad_number": 17,
+      "name": "Orbelín Pineda",
+      "position": "MF",
+      "date_of_birth": "1996-03-24",
+      "height_cm": 169,
+      "club": "AEK Athens",
+      "caps": 92,
+      "intl_goals": 12,
+      "transfermarkt_id": 334042
+    },
+    {
+      "squad_number": 8,
+      "name": "Álvaro Fidalgo",
+      "position": "MF",
+      "date_of_birth": "1997-04-09",
+      "height_cm": 175,
+      "club": "Real Betis Balompié",
+      "caps": 4,
+      "intl_goals": null,
+      "transfermarkt_id": 261503
+    },
+    {
+      "squad_number": 19,
+      "name": "Gilberto Mora",
+      "position": "MF",
+      "date_of_birth": "2008-10-14",
+      "height_cm": 175,
+      "club": "Club Tijuana",
+      "caps": 8,
+      "intl_goals": null,
+      "transfermarkt_id": 1155723
+    },
+    {
+      "squad_number": 26,
+      "name": "Brian Gutiérrez",
+      "position": "MF",
+      "date_of_birth": "2003-06-17",
+      "height_cm": 178,
+      "club": "Deportivo Guadalajara",
+      "caps": 7,
+      "intl_goals": 2,
+      "transfermarkt_id": 724443
+    },
+    {
+      "squad_number": 10,
+      "name": "Alexis Vega",
+      "position": "FW",
+      "date_of_birth": "1997-11-25",
+      "height_cm": 175,
+      "club": "Deportivo Toluca",
+      "caps": 53,
+      "intl_goals": 7,
+      "transfermarkt_id": 424689
+    },
+    {
+      "squad_number": 21,
+      "name": "César Huerta",
+      "position": "FW",
+      "date_of_birth": "2000-12-03",
+      "height_cm": 171,
+      "club": "RSC Anderlecht",
+      "caps": 26,
+      "intl_goals": 3,
+      "transfermarkt_id": 540315
+    },
+    {
+      "squad_number": 25,
+      "name": "Roberto Alvarado",
+      "position": "FW",
+      "date_of_birth": "1998-09-07",
+      "height_cm": 176,
+      "club": "Deportivo Guadalajara",
+      "caps": 68,
+      "intl_goals": 5,
+      "transfermarkt_id": 353583
+    },
+    {
+      "squad_number": 11,
+      "name": "Santiago Gimenez",
+      "position": "FW",
+      "date_of_birth": "2001-04-18",
+      "height_cm": 180,
+      "club": "AC Milan",
+      "caps": 47,
+      "intl_goals": 6,
+      "transfermarkt_id": 552955
+    },
+    {
+      "squad_number": 14,
+      "name": "Armando González",
+      "position": "FW",
+      "date_of_birth": "2003-04-20",
+      "height_cm": 182,
+      "club": "Deportivo Guadalajara",
+      "caps": 7,
+      "intl_goals": 1,
+      "transfermarkt_id": 837619
+    },
+    {
+      "squad_number": 16,
+      "name": "Julián Quiñones",
+      "position": "FW",
+      "date_of_birth": "1997-03-24",
+      "height_cm": 177,
+      "club": "Al-Qadsiah FC",
+      "caps": 22,
+      "intl_goals": 2,
+      "transfermarkt_id": 416090
+    },
+    {
+      "squad_number": 9,
+      "name": "Raúl Jiménez",
+      "position": "FW",
+      "date_of_birth": "1991-05-05",
+      "height_cm": 188,
+      "club": "Fulham FC",
+      "caps": 126,
+      "intl_goals": 45,
+      "transfermarkt_id": 206040
+    },
+    {
+      "squad_number": 22,
+      "name": "Guillermo Martínez",
+      "position": "FW",
+      "date_of_birth": "1995-03-15",
+      "height_cm": 191,
+      "club": "UNAM Pumas",
+      "caps": 12,
+      "intl_goals": 3,
+      "transfermarkt_id": 347932
+    }
+  ]
+}

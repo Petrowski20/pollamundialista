@@ -1,0 +1,291 @@
+{
+  "iso_code": "POR",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Diogo Costa",
+      "position": "GK",
+      "date_of_birth": "1999-09-19",
+      "height_cm": 188,
+      "club": "FC Porto",
+      "caps": 42,
+      "intl_goals": 0,
+      "transfermarkt_id": 357153
+    },
+    {
+      "squad_number": 22,
+      "name": "Rui Silva",
+      "position": "GK",
+      "date_of_birth": "1994-02-07",
+      "height_cm": 191,
+      "club": "Sporting CP",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 234811
+    },
+    {
+      "squad_number": 12,
+      "name": "José Sá",
+      "position": "GK",
+      "date_of_birth": "1993-01-17",
+      "height_cm": 192,
+      "club": "Wolverhampton Wanderers",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 249994
+    },
+    {
+      "squad_number": 3,
+      "name": "Rúben Dias",
+      "position": "DF",
+      "date_of_birth": "1997-05-14",
+      "height_cm": 187,
+      "club": "Manchester City",
+      "caps": 75,
+      "intl_goals": 3,
+      "transfermarkt_id": 258004
+    },
+    {
+      "squad_number": 14,
+      "name": "Gonçalo Inácio",
+      "position": "DF",
+      "date_of_birth": "2001-08-25",
+      "height_cm": 185,
+      "club": "Sporting CP",
+      "caps": 21,
+      "intl_goals": 2,
+      "transfermarkt_id": 549006
+    },
+    {
+      "squad_number": 4,
+      "name": "Tomás Araújo",
+      "position": "DF",
+      "date_of_birth": "2002-05-16",
+      "height_cm": 187,
+      "club": "SL Benfica",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 504087
+    },
+    {
+      "squad_number": 13,
+      "name": "Renato Veiga",
+      "position": "DF",
+      "date_of_birth": "2003-07-29",
+      "height_cm": 188,
+      "club": "Villarreal CF",
+      "caps": 12,
+      "intl_goals": 1,
+      "transfermarkt_id": 805714
+    },
+    {
+      "squad_number": 25,
+      "name": "Nuno Mendes",
+      "position": "DF",
+      "date_of_birth": "2002-06-19",
+      "height_cm": 177,
+      "club": "Paris Saint-Germain",
+      "caps": 43,
+      "intl_goals": 1,
+      "transfermarkt_id": 616341
+    },
+    {
+      "squad_number": 6,
+      "name": "Matheus Nunes",
+      "position": "DF",
+      "date_of_birth": "1998-08-27",
+      "height_cm": 183,
+      "club": "Manchester City",
+      "caps": 19,
+      "intl_goals": 2,
+      "transfermarkt_id": 601883
+    },
+    {
+      "squad_number": 5,
+      "name": "Diogo Dalot",
+      "position": "DF",
+      "date_of_birth": "1999-03-18",
+      "height_cm": 184,
+      "club": "Manchester United",
+      "caps": 34,
+      "intl_goals": 3,
+      "transfermarkt_id": 357147
+    },
+    {
+      "squad_number": 20,
+      "name": "João Cancelo",
+      "position": "DF",
+      "date_of_birth": "1994-05-27",
+      "height_cm": 182,
+      "club": "FC Barcelona",
+      "caps": 67,
+      "intl_goals": 12,
+      "transfermarkt_id": 182712
+    },
+    {
+      "squad_number": 2,
+      "name": "Nélson Semedo",
+      "position": "DF",
+      "date_of_birth": "1993-11-16",
+      "height_cm": 179,
+      "club": "Fenerbahce",
+      "caps": 49,
+      "intl_goals": 0,
+      "transfermarkt_id": 231572
+    },
+    {
+      "squad_number": 23,
+      "name": "Vitinha",
+      "position": "MF",
+      "date_of_birth": "2000-02-13",
+      "height_cm": 170,
+      "club": "Paris Saint-Germain",
+      "caps": 37,
+      "intl_goals": 0,
+      "transfermarkt_id": 487469
+    },
+    {
+      "squad_number": 21,
+      "name": "Rúben Neves",
+      "position": "MF",
+      "date_of_birth": "1997-03-13",
+      "height_cm": 183,
+      "club": "Al-Hilal SFC",
+      "caps": 66,
+      "intl_goals": 1,
+      "transfermarkt_id": 225161
+    },
+    {
+      "squad_number": 24,
+      "name": "Samú Costa",
+      "position": "MF",
+      "date_of_birth": "2000-11-27",
+      "height_cm": 185,
+      "club": "RCD Mallorca",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 657430
+    },
+    {
+      "squad_number": 15,
+      "name": "João Neves",
+      "position": "MF",
+      "date_of_birth": "2004-09-27",
+      "height_cm": 171,
+      "club": "Paris Saint-Germain",
+      "caps": 21,
+      "intl_goals": 3,
+      "transfermarkt_id": 670681
+    },
+    {
+      "squad_number": 16,
+      "name": "Francisco Trincão",
+      "position": "MF",
+      "date_of_birth": "1999-12-29",
+      "height_cm": 184,
+      "club": "Sporting CP",
+      "caps": 17,
+      "intl_goals": 3,
+      "transfermarkt_id": 412669
+    },
+    {
+      "squad_number": 8,
+      "name": "Bruno Fernandes",
+      "position": "MF",
+      "date_of_birth": "1994-09-08",
+      "height_cm": 183,
+      "club": "Manchester United",
+      "caps": 88,
+      "intl_goals": 29,
+      "transfermarkt_id": 240306
+    },
+    {
+      "squad_number": 10,
+      "name": "Bernardo Silva",
+      "position": "MF",
+      "date_of_birth": "1994-08-10",
+      "height_cm": 173,
+      "club": "Manchester City",
+      "caps": 108,
+      "intl_goals": 14,
+      "transfermarkt_id": 241641
+    },
+    {
+      "squad_number": 17,
+      "name": "Rafael Leão",
+      "position": "FW",
+      "date_of_birth": "1999-06-10",
+      "height_cm": 188,
+      "club": "AC Milan",
+      "caps": 44,
+      "intl_goals": 5,
+      "transfermarkt_id": 357164
+    },
+    {
+      "squad_number": 19,
+      "name": "Gonçalo Guedes",
+      "position": "FW",
+      "date_of_birth": "1996-11-29",
+      "height_cm": 179,
+      "club": "Real Sociedad",
+      "caps": 34,
+      "intl_goals": 8,
+      "transfermarkt_id": 225122
+    },
+    {
+      "squad_number": 18,
+      "name": "Pedro Neto",
+      "position": "FW",
+      "date_of_birth": "2000-03-09",
+      "height_cm": 174,
+      "club": "Chelsea FC",
+      "caps": 24,
+      "intl_goals": 2,
+      "transfermarkt_id": 487465
+    },
+    {
+      "squad_number": 26,
+      "name": "Francisco Conceição",
+      "position": "FW",
+      "date_of_birth": "2002-12-14",
+      "height_cm": 166,
+      "club": "Juventus FC",
+      "caps": 16,
+      "intl_goals": 3,
+      "transfermarkt_id": 487474
+    },
+    {
+      "squad_number": 11,
+      "name": "João Félix",
+      "position": "FW",
+      "date_of_birth": "1999-11-10",
+      "height_cm": 179,
+      "club": "Al-Nassr FC",
+      "caps": 53,
+      "intl_goals": 12,
+      "transfermarkt_id": 462250
+    },
+    {
+      "squad_number": 9,
+      "name": "Gonçalo Ramos",
+      "position": "FW",
+      "date_of_birth": "2001-06-20",
+      "height_cm": 185,
+      "club": "Paris Saint-Germain",
+      "caps": 24,
+      "intl_goals": 10,
+      "transfermarkt_id": 550550
+    },
+    {
+      "squad_number": 7,
+      "name": "Cristiano Ronaldo",
+      "position": "FW",
+      "date_of_birth": "1985-02-05",
+      "height_cm": 185,
+      "club": "Al-Nassr FC",
+      "caps": 227,
+      "intl_goals": 143,
+      "transfermarkt_id": 8198
+    }
+  ]
+}

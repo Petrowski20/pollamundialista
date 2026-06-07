@@ -1,0 +1,291 @@
+{
+  "iso_code": "SUI",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Gregor Kobel",
+      "position": "GK",
+      "date_of_birth": "1997-12-06",
+      "height_cm": 196,
+      "club": "Borussia Dortmund",
+      "caps": 21,
+      "intl_goals": 0,
+      "transfermarkt_id": 257814
+    },
+    {
+      "squad_number": 21,
+      "name": "Marvin Keller",
+      "position": "GK",
+      "date_of_birth": "2002-07-03",
+      "height_cm": 189,
+      "club": "BSC Young Boys",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 500763
+    },
+    {
+      "squad_number": 12,
+      "name": "Yvon Mvogo",
+      "position": "GK",
+      "date_of_birth": "1994-06-06",
+      "height_cm": 190,
+      "club": "FC Lorient",
+      "caps": 13,
+      "intl_goals": 0,
+      "transfermarkt_id": 147051
+    },
+    {
+      "squad_number": 5,
+      "name": "Manuel Akanji",
+      "position": "DF",
+      "date_of_birth": "1995-07-19",
+      "height_cm": 188,
+      "club": "Inter Milan",
+      "caps": 81,
+      "intl_goals": 4,
+      "transfermarkt_id": 284730
+    },
+    {
+      "squad_number": 24,
+      "name": "Aurèle Amenda",
+      "position": "DF",
+      "date_of_birth": "2003-07-31",
+      "height_cm": 194,
+      "club": "Eintracht Frankfurt",
+      "caps": 7,
+      "intl_goals": 0,
+      "transfermarkt_id": 635645
+    },
+    {
+      "squad_number": 25,
+      "name": "Luca Jaquez",
+      "position": "DF",
+      "date_of_birth": "2003-06-02",
+      "height_cm": 187,
+      "club": "VfB Stuttgart",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 539798
+    },
+    {
+      "squad_number": 4,
+      "name": "Nico Elvedi",
+      "position": "DF",
+      "date_of_birth": "1996-09-30",
+      "height_cm": 189,
+      "club": "Borussia Mönchengladbach",
+      "caps": 67,
+      "intl_goals": 3,
+      "transfermarkt_id": 192635
+    },
+    {
+      "squad_number": 18,
+      "name": "Eray Cömert",
+      "position": "DF",
+      "date_of_birth": "1998-02-04",
+      "height_cm": 183,
+      "club": "Valencia CF",
+      "caps": 22,
+      "intl_goals": 0,
+      "transfermarkt_id": 298583
+    },
+    {
+      "squad_number": 2,
+      "name": "Miro Muheim",
+      "position": "DF",
+      "date_of_birth": "1998-03-24",
+      "height_cm": 182,
+      "club": "Hamburger SV",
+      "caps": 10,
+      "intl_goals": 0,
+      "transfermarkt_id": 298603
+    },
+    {
+      "squad_number": 13,
+      "name": "Ricardo Rodríguez",
+      "position": "DF",
+      "date_of_birth": "1992-08-25",
+      "height_cm": 182,
+      "club": "Real Betis Balompié",
+      "caps": 138,
+      "intl_goals": 9,
+      "transfermarkt_id": 86784
+    },
+    {
+      "squad_number": 3,
+      "name": "Silvan Widmer",
+      "position": "DF",
+      "date_of_birth": "1993-03-05",
+      "height_cm": 183,
+      "club": "1.FSV Mainz 05",
+      "caps": 60,
+      "intl_goals": 5,
+      "transfermarkt_id": 168989
+    },
+    {
+      "squad_number": 6,
+      "name": "Denis Zakaria",
+      "position": "MF",
+      "date_of_birth": "1996-11-20",
+      "height_cm": 189,
+      "club": "AS Monaco",
+      "caps": 65,
+      "intl_goals": 3,
+      "transfermarkt_id": 334526
+    },
+    {
+      "squad_number": 14,
+      "name": "Ardon Jashari",
+      "position": "MF",
+      "date_of_birth": "2002-07-30",
+      "height_cm": 181,
+      "club": "AC Milan",
+      "caps": 8,
+      "intl_goals": 0,
+      "transfermarkt_id": 608172
+    },
+    {
+      "squad_number": 10,
+      "name": "Granit Xhaka",
+      "position": "MF",
+      "date_of_birth": "1992-09-27",
+      "height_cm": 183,
+      "club": "Sunderland AFC",
+      "caps": 146,
+      "intl_goals": 17,
+      "transfermarkt_id": 111455
+    },
+    {
+      "squad_number": 9,
+      "name": "Johan Manzambi",
+      "position": "MF",
+      "date_of_birth": "2005-10-14",
+      "height_cm": 182,
+      "club": "SC Freiburg",
+      "caps": 12,
+      "intl_goals": 3,
+      "transfermarkt_id": 927353
+    },
+    {
+      "squad_number": 15,
+      "name": "Djibril Sow",
+      "position": "MF",
+      "date_of_birth": "1997-02-06",
+      "height_cm": 183,
+      "club": "Sevilla FC",
+      "caps": 52,
+      "intl_goals": 0,
+      "transfermarkt_id": 212723
+    },
+    {
+      "squad_number": 20,
+      "name": "Michel Aebischer",
+      "position": "MF",
+      "date_of_birth": "1997-01-06",
+      "height_cm": 183,
+      "club": "Pisa Sporting Club",
+      "caps": 40,
+      "intl_goals": 2,
+      "transfermarkt_id": 237658
+    },
+    {
+      "squad_number": 8,
+      "name": "Remo Freuler",
+      "position": "MF",
+      "date_of_birth": "1992-04-15",
+      "height_cm": 181,
+      "club": "Bologna FC 1909",
+      "caps": 88,
+      "intl_goals": 11,
+      "transfermarkt_id": 148252
+    },
+    {
+      "squad_number": 22,
+      "name": "Fabian Rieder",
+      "position": "MF",
+      "date_of_birth": "2002-02-16",
+      "height_cm": 181,
+      "club": "FC Augsburg",
+      "caps": 28,
+      "intl_goals": 1,
+      "transfermarkt_id": 507341
+    },
+    {
+      "squad_number": 16,
+      "name": "Christian Fassnacht",
+      "position": "MF",
+      "date_of_birth": "1993-11-11",
+      "height_cm": 185,
+      "club": "BSC Young Boys",
+      "caps": 23,
+      "intl_goals": 5,
+      "transfermarkt_id": 250490
+    },
+    {
+      "squad_number": 19,
+      "name": "Noah Okafor",
+      "position": "FW",
+      "date_of_birth": "2000-05-24",
+      "height_cm": 185,
+      "club": "Leeds United",
+      "caps": 25,
+      "intl_goals": 2,
+      "transfermarkt_id": 346890
+    },
+    {
+      "squad_number": 17,
+      "name": "Rubén Vargas",
+      "position": "FW",
+      "date_of_birth": "1998-08-05",
+      "height_cm": 179,
+      "club": "Sevilla FC",
+      "caps": 61,
+      "intl_goals": 11,
+      "transfermarkt_id": 345886
+    },
+    {
+      "squad_number": 11,
+      "name": "Dan Ndoye",
+      "position": "FW",
+      "date_of_birth": "2000-10-25",
+      "height_cm": 184,
+      "club": "Nottingham Forest",
+      "caps": 31,
+      "intl_goals": 8,
+      "transfermarkt_id": 365108
+    },
+    {
+      "squad_number": 7,
+      "name": "Breel Embolo",
+      "position": "FW",
+      "date_of_birth": "1997-02-14",
+      "height_cm": 184,
+      "club": "Stade Rennais FC",
+      "caps": 86,
+      "intl_goals": 24,
+      "transfermarkt_id": 237662
+    },
+    {
+      "squad_number": 23,
+      "name": "Zeki Amdouni",
+      "position": "FW",
+      "date_of_birth": "2000-12-04",
+      "height_cm": 183,
+      "club": "Burnley FC",
+      "caps": 29,
+      "intl_goals": 11,
+      "transfermarkt_id": 548729
+    },
+    {
+      "squad_number": 26,
+      "name": "Cedric Itten",
+      "position": "FW",
+      "date_of_birth": "1996-12-27",
+      "height_cm": 190,
+      "club": "Fortuna Düsseldorf",
+      "caps": 15,
+      "intl_goals": 5,
+      "transfermarkt_id": 243856
+    }
+  ]
+}

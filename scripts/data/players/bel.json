@@ -1,0 +1,291 @@
+{
+  "iso_code": "BEL",
+  "players": [
+    {
+      "squad_number": 12,
+      "name": "Senne Lammens",
+      "position": "GK",
+      "date_of_birth": "2002-07-07",
+      "height_cm": 193,
+      "club": "Manchester United",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 503883
+    },
+    {
+      "squad_number": 13,
+      "name": "Mike Penders",
+      "position": "GK",
+      "date_of_birth": "2005-07-31",
+      "height_cm": 200,
+      "club": "RC Strasbourg Alsace",
+      "caps": 0,
+      "intl_goals": 0,
+      "transfermarkt_id": 834397
+    },
+    {
+      "squad_number": 1,
+      "name": "Thibaut Courtois",
+      "position": "GK",
+      "date_of_birth": "1992-05-11",
+      "height_cm": 199,
+      "club": "Real Madrid",
+      "caps": 109,
+      "intl_goals": 0,
+      "transfermarkt_id": 108390
+    },
+    {
+      "squad_number": 2,
+      "name": "Zeno Debast",
+      "position": "DF",
+      "date_of_birth": "2003-10-24",
+      "height_cm": 191,
+      "club": "Sporting CP",
+      "caps": 26,
+      "intl_goals": 1,
+      "transfermarkt_id": 548193
+    },
+    {
+      "squad_number": 25,
+      "name": "Nathan Ngoy",
+      "position": "DF",
+      "date_of_birth": "2003-06-10",
+      "height_cm": 183,
+      "club": "LOSC Lille",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 548254
+    },
+    {
+      "squad_number": 16,
+      "name": "Koni De Winter",
+      "position": "DF",
+      "date_of_birth": "2002-06-12",
+      "height_cm": 191,
+      "club": "AC Milan",
+      "caps": 8,
+      "intl_goals": 0,
+      "transfermarkt_id": 490384
+    },
+    {
+      "squad_number": 3,
+      "name": "Arthur Theate",
+      "position": "DF",
+      "date_of_birth": "2000-05-25",
+      "height_cm": 185,
+      "club": "Eintracht Frankfurt",
+      "caps": 33,
+      "intl_goals": 1,
+      "transfermarkt_id": 368891
+    },
+    {
+      "squad_number": 4,
+      "name": "Brandon Mechele",
+      "position": "DF",
+      "date_of_birth": "1993-01-28",
+      "height_cm": 190,
+      "club": "Club Brugge KV",
+      "caps": 9,
+      "intl_goals": 1,
+      "transfermarkt_id": 236168
+    },
+    {
+      "squad_number": 5,
+      "name": "Maxim De Cuyper",
+      "position": "DF",
+      "date_of_birth": "2000-12-22",
+      "height_cm": 182,
+      "club": "Brighton & Hove Albion",
+      "caps": 19,
+      "intl_goals": 4,
+      "transfermarkt_id": 429915
+    },
+    {
+      "squad_number": 18,
+      "name": "Joaquin Seys",
+      "position": "DF",
+      "date_of_birth": "2005-03-28",
+      "height_cm": 178,
+      "club": "Club Brugge KV",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 981196
+    },
+    {
+      "squad_number": 21,
+      "name": "Timothy Castagne",
+      "position": "DF",
+      "date_of_birth": "1995-12-05",
+      "height_cm": 185,
+      "club": "Fulham FC",
+      "caps": 63,
+      "intl_goals": 2,
+      "transfermarkt_id": 262226
+    },
+    {
+      "squad_number": 15,
+      "name": "Thomas Meunier",
+      "position": "DF",
+      "date_of_birth": "1991-09-12",
+      "height_cm": 190,
+      "club": "LOSC Lille",
+      "caps": 80,
+      "intl_goals": 10,
+      "transfermarkt_id": 100986
+    },
+    {
+      "squad_number": 24,
+      "name": "Amadou Onana",
+      "position": "MF",
+      "date_of_birth": "2001-08-16",
+      "height_cm": 192,
+      "club": "Aston Villa",
+      "caps": 29,
+      "intl_goals": 1,
+      "transfermarkt_id": 485706
+    },
+    {
+      "squad_number": 23,
+      "name": "Nicolas Raskin",
+      "position": "MF",
+      "date_of_birth": "2001-02-23",
+      "height_cm": 178,
+      "club": "Rangers FC",
+      "caps": 13,
+      "intl_goals": 2,
+      "transfermarkt_id": 422763
+    },
+    {
+      "squad_number": 6,
+      "name": "Axel Witsel",
+      "position": "MF",
+      "date_of_birth": "1989-01-12",
+      "height_cm": 186,
+      "club": "Girona FC",
+      "caps": 138,
+      "intl_goals": 12,
+      "transfermarkt_id": 35047
+    },
+    {
+      "squad_number": 8,
+      "name": "Youri Tielemans",
+      "position": "MF",
+      "date_of_birth": "1997-05-07",
+      "height_cm": 176,
+      "club": "Aston Villa",
+      "caps": 85,
+      "intl_goals": 13,
+      "transfermarkt_id": 249565
+    },
+    {
+      "squad_number": 22,
+      "name": "Alexis Saelemaekers",
+      "position": "MF",
+      "date_of_birth": "1999-06-27",
+      "height_cm": 180,
+      "club": "AC Milan",
+      "caps": 24,
+      "intl_goals": 2,
+      "transfermarkt_id": 381950
+    },
+    {
+      "squad_number": 19,
+      "name": "Diego Moreira",
+      "position": "MF",
+      "date_of_birth": "2004-08-06",
+      "height_cm": 179,
+      "club": "RC Strasbourg Alsace",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 655006
+    },
+    {
+      "squad_number": 17,
+      "name": "Charles De Ketelaere",
+      "position": "MF",
+      "date_of_birth": "2001-03-10",
+      "height_cm": 192,
+      "club": "Atalanta BC",
+      "caps": 30,
+      "intl_goals": 6,
+      "transfermarkt_id": 435772
+    },
+    {
+      "squad_number": 7,
+      "name": "Kevin De Bruyne",
+      "position": "MF",
+      "date_of_birth": "1991-06-28",
+      "height_cm": 181,
+      "club": "SSC Napoli",
+      "caps": 119,
+      "intl_goals": 37,
+      "transfermarkt_id": 88755
+    },
+    {
+      "squad_number": 20,
+      "name": "Hans Vanaken",
+      "position": "MF",
+      "date_of_birth": "1992-08-24",
+      "height_cm": 195,
+      "club": "Club Brugge KV",
+      "caps": 34,
+      "intl_goals": 7,
+      "transfermarkt_id": 137576
+    },
+    {
+      "squad_number": 11,
+      "name": "Jérémy Doku",
+      "position": "FW",
+      "date_of_birth": "2002-05-27",
+      "height_cm": 173,
+      "club": "Manchester City",
+      "caps": 43,
+      "intl_goals": 7,
+      "transfermarkt_id": 486049
+    },
+    {
+      "squad_number": 10,
+      "name": "Leandro Trossard",
+      "position": "FW",
+      "date_of_birth": "1994-12-04",
+      "height_cm": 172,
+      "club": "Arsenal FC",
+      "caps": 51,
+      "intl_goals": 12,
+      "transfermarkt_id": 144028
+    },
+    {
+      "squad_number": 14,
+      "name": "Dodi Lukébakio",
+      "position": "FW",
+      "date_of_birth": "1997-09-24",
+      "height_cm": 184,
+      "club": "SL Benfica",
+      "caps": 30,
+      "intl_goals": 6,
+      "transfermarkt_id": 303259
+    },
+    {
+      "squad_number": 26,
+      "name": "Matias Fernandez-Pardo",
+      "position": "FW",
+      "date_of_birth": "2005-02-03",
+      "height_cm": 188,
+      "club": "LOSC Lille",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 724129
+    },
+    {
+      "squad_number": 9,
+      "name": "Romelu Lukaku",
+      "position": "FW",
+      "date_of_birth": "1993-05-13",
+      "height_cm": 190,
+      "club": "SSC Napoli",
+      "caps": 126,
+      "intl_goals": 90,
+      "transfermarkt_id": 96341
+    }
+  ]
+}

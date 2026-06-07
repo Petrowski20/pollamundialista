@@ -70,6 +70,9 @@ export default async function NavBar() {
               <Link href="/supuestos" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
                 {t('nav.miMundial')}
               </Link>
+              <Link href="/selecciones" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
+                {t('nav.selecciones')}
+              </Link>
               <Link href="/ligas" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-blue px-3 py-2 rounded-md transition-colors">
                 {t('nav.ligasPrivadas')}
               </Link>

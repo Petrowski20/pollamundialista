@@ -38,8 +38,8 @@ interface TeamStanding {
   dg: number
 }
 
-function FlagCell({ flagEmoji, name }: { flagEmoji: string | null; name: string }) {
-  const url = getFlagUrl(flagEmoji ?? '');
+function FlagCell({ flagEmoji, name, isoCode }: { flagEmoji: string | null; name: string; isoCode?: string }) {
+  const url = getFlagUrl(flagEmoji ?? '', isoCode);
   if (!url) {
     return (
       <span
@@ -152,9 +152,11 @@ export default async function SupuestosPage() {
       standings: calcStandings(groupMatches, predMap),
     }))
 
-  const allThirds = groups
-    .map(g => g.standings[2])
-    .filter((t): t is TeamStanding => t !== undefined)
+  type ThirdPlace = TeamStanding & { groupLetter: string }
+
+  const allThirds: ThirdPlace[] = groups
+    .filter(g => g.standings.length >= 3)
+    .map(g => ({ ...g.standings[2], groupLetter: g.letter }))
     .sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf)
 
   const bestThirdsIds = new Set(allThirds.slice(0, 8).map(team => team.id))
@@ -224,12 +226,10 @@ export default async function SupuestosPage() {
                       >
                         <td className="px-3 py-2.5">
                           <div className="flex items-center gap-1.5">
-                            <FlagCell flagEmoji={team.flag} name={team.name} />
-                            {isBestThird && (
-                              <span className="shrink-0 text-[10px] font-semibold text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/40 px-1 py-0.5 rounded leading-none">
-                                {t('supuestos.mejor3')}
-                              </span>
-                            )}
+                            <FlagCell flagEmoji={team.flag} name={team.name} isoCode={team.isoCode} />
+                            <span className="font-mono text-[11px] font-bold text-gray-600 dark:text-gray-300 tracking-wide">
+                              {team.isoCode}
+                            </span>
                           </div>
                         </td>
                         <td className="px-1.5 py-2.5 w-7 shrink-0 text-center text-gray-500 dark:text-gray-400">{team.pj}</td>
@@ -251,6 +251,84 @@ export default async function SupuestosPage() {
               </table>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* ── Mejores Terceros ── */}
+      {allThirds.length > 0 && (
+        <div className="mt-8 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-[#FFD6D1] dark:border-slate-800 overflow-hidden">
+          <div className="bg-[#FFD6D1]/30 dark:bg-slate-800/50 px-4 py-3 border-b border-[#FFD6D1] dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
+            <h2 className="text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+              {t('supuestos.mejoresTercerosTitle')}
+            </h2>
+            <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+              <span className="flex items-center gap-1">
+                <span className="inline-block w-2.5 h-2.5 rounded-sm bg-green-200 dark:bg-green-800" />
+                {t('supuestos.mejorTerceroPass')}
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="inline-block w-2.5 h-2.5 rounded-sm bg-red-200 dark:bg-red-900/60" />
+                {t('supuestos.mejorTerceroOut')}
+              </span>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-gray-100 dark:border-slate-800/80 text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                  <th className="px-3 py-2 text-center w-8">G</th>
+                  <th className="px-3 py-2 text-left">{t('supuestos.cols.equipo')}</th>
+                  <th className="px-1.5 py-2 text-center w-7">PJ</th>
+                  <th className="px-1.5 py-2 text-center w-7">PG</th>
+                  <th className="px-1.5 py-2 text-center w-7">PE</th>
+                  <th className="px-1.5 py-2 text-center w-7">PP</th>
+                  <th className="px-1.5 py-2 text-center w-7">GF</th>
+                  <th className="px-1.5 py-2 text-center w-7">GC</th>
+                  <th className="px-1.5 py-2 text-center w-9">DG</th>
+                  <th className="px-2 py-2 text-center w-10 font-bold text-gray-600 dark:text-gray-300">{t('supuestos.cols.pts')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allThirds.map((team, idx) => {
+                  const passes = idx < 8
+                  const rowClass = passes
+                    ? 'bg-green-50/70 dark:bg-green-900/10 hover:bg-green-50 dark:hover:bg-green-900/20'
+                    : 'bg-red-50/60 dark:bg-red-900/10 hover:bg-red-50 dark:hover:bg-red-900/20'
+                  return (
+                    <tr
+                      key={team.id}
+                      className={`border-b border-gray-50 dark:border-slate-800/50 last:border-0 transition-colors ${rowClass}`}
+                    >
+                      <td className="px-3 py-2.5 text-center">
+                        <span className="font-bold text-gray-500 dark:text-gray-400">{team.groupLetter}</span>
+                      </td>
+                      <td className="px-3 py-2.5">
+                        <div className="flex items-center gap-1.5">
+                          <FlagCell flagEmoji={team.flag} name={team.name} isoCode={team.isoCode} />
+                          <span className="font-mono text-[11px] font-bold text-gray-600 dark:text-gray-300 tracking-wide">
+                            {team.isoCode}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.pj}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.pg}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.pe}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.pp}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.gf}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">{team.gc}</td>
+                      <td className="px-1.5 py-2.5 text-center text-gray-500 dark:text-gray-400">
+                        {team.dg > 0 ? `+${team.dg}` : team.dg}
+                      </td>
+                      <td className="px-2 py-2.5 text-center font-bold text-blue-600 dark:text-blue-400">
+                        {team.pts}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>

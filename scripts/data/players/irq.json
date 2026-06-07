@@ -1,0 +1,302 @@
+{
+  "iso_code": "IRQ",
+  "players": [
+    {
+      "squad_number": 22,
+      "name": "Ahmed Basil Fadhil",
+      "position": "GK",
+      "date_of_birth": "1996-08-19",
+      "height_cm": 186,
+      "club": "Al-Shorta SC",
+      "caps": 14,
+      "intl_goals": 0,
+      "transfermarkt_id": 560952
+    },
+    {
+      "squad_number": 1,
+      "name": "Fahad Talib",
+      "position": "GK",
+      "date_of_birth": "1994-10-21",
+      "height_cm": 193,
+      "club": "Al-Talaba SC",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 377268
+    },
+    {
+      "squad_number": 12,
+      "name": "Jalal Hassan",
+      "position": "GK",
+      "date_of_birth": "1991-05-18",
+      "height_cm": 184,
+      "club": "Al-Zawraa SC",
+      "caps": 97,
+      "intl_goals": 0,
+      "transfermarkt_id": 206782
+    },
+    {
+      "squad_number": 5,
+      "name": "Akam Hashem",
+      "position": "DF",
+      "date_of_birth": "1998-08-16",
+      "height_cm": 186,
+      "club": "Al-Zawraa SC",
+      "caps": 13,
+      "intl_goals": 1,
+      "transfermarkt_id": 933541
+    },
+    {
+      "squad_number": 4,
+      "name": "Zaid Tahseen",
+      "position": "DF",
+      "date_of_birth": "2001-01-29",
+      "height_cm": 193,
+      "club": "Pakhtakor Tashkent",
+      "caps": 26,
+      "intl_goals": 1,
+      "transfermarkt_id": 931147
+    },
+    {
+      "squad_number": 26,
+      "name": "Frans Dhia Putros",
+      "position": "DF",
+      "date_of_birth": "1993-07-14",
+      "height_cm": 181,
+      "club": "PERSIB Bandung",
+      "caps": 27,
+      "intl_goals": 0,
+      "transfermarkt_id": 166460
+    },
+    {
+      "squad_number": 6,
+      "name": "Manaf Younis",
+      "position": "DF",
+      "date_of_birth": "1996-11-16",
+      "height_cm": 190,
+      "club": "Al-Shorta SC",
+      "caps": 32,
+      "intl_goals": 1,
+      "transfermarkt_id": 945266
+    },
+    {
+      "squad_number": 2,
+      "name": "Rebin Sulaka",
+      "position": "DF",
+      "date_of_birth": "1992-04-12",
+      "height_cm": 192,
+      "club": "Port FC",
+      "caps": 53,
+      "intl_goals": 1,
+      "transfermarkt_id": 217073
+    },
+    {
+      "squad_number": 23,
+      "name": "Merchas Doski",
+      "position": "DF",
+      "date_of_birth": "1999-12-07",
+      "height_cm": 173,
+      "club": "FC Viktoria Plzen",
+      "caps": 31,
+      "intl_goals": 1,
+      "transfermarkt_id": 530527
+    },
+    {
+      "squad_number": 15,
+      "name": "Ahmed Yahya",
+      "position": "DF",
+      "date_of_birth": "1995-07-01",
+      "height_cm": 187,
+      "club": "Al-Shorta SC",
+      "caps": 19,
+      "intl_goals": 0,
+      "transfermarkt_id": 949320
+    },
+    {
+      "squad_number": 20,
+      "name": "Ahmed Hasan",
+      "position": "DF",
+      "date_of_birth": "2001-09-24",
+      "height_cm": 183,
+      "club": "Al-Karma",
+      "caps": 6,
+      "intl_goals": 0,
+      "transfermarkt_id": 881506
+    },
+    {
+      "squad_number": 3,
+      "name": "Hussein Ali",
+      "position": "DF",
+      "date_of_birth": "2002-03-01",
+      "height_cm": 182,
+      "club": "Pogon Szczecin",
+      "caps": 26,
+      "intl_goals": 1,
+      "transfermarkt_id": 585325
+    },
+    {
+      "squad_number": 25,
+      "name": "Mustafa Saadoon",
+      "position": "DF",
+      "date_of_birth": "2001-05-25",
+      "height_cm": 182,
+      "club": "Al-Shorta SC",
+      "caps": 16,
+      "intl_goals": 0,
+      "transfermarkt_id": 952341
+    },
+    {
+      "squad_number": 16,
+      "name": "Amir Al-Ammari",
+      "position": "MF",
+      "date_of_birth": "1997-07-27",
+      "height_cm": 184,
+      "club": "Cracovia",
+      "caps": 49,
+      "intl_goals": 3,
+      "transfermarkt_id": 303766
+    },
+    {
+      "squad_number": 24,
+      "name": "Zaid Ismail",
+      "position": "MF",
+      "date_of_birth": "2002-01-03",
+      "height_cm": 185,
+      "club": "Al-Talaba SC",
+      "caps": 6,
+      "intl_goals": 0,
+      "transfermarkt_id": 1132850
+    },
+    {
+      "squad_number": 20,
+      "name": "Aimar Sher",
+      "position": "MF",
+      "date_of_birth": "2002-12-20",
+      "height_cm": 180,
+      "club": "Sarpsborg 08 FF",
+      "caps": 6,
+      "intl_goals": 0,
+      "transfermarkt_id": 579294
+    },
+    {
+      "squad_number": 14,
+      "name": "Zidane Iqbal",
+      "position": "MF",
+      "date_of_birth": "2003-04-27",
+      "height_cm": 181,
+      "club": "FC Utrecht U21",
+      "caps": 24,
+      "intl_goals": 2,
+      "transfermarkt_id": 686845
+    },
+    {
+      "squad_number": 19,
+      "name": "Kevin Yakob",
+      "position": "MF",
+      "date_of_birth": "2000-10-10",
+      "height_cm": 184,
+      "club": "Aarhus GF",
+      "caps": 8,
+      "intl_goals": 0,
+      "transfermarkt_id": 413268
+    },
+    {
+      "squad_number": 8,
+      "name": "Ibrahim Bayesh",
+      "position": "MF",
+      "date_of_birth": "2000-05-01",
+      "height_cm": 177,
+      "club": "Al-Dhafra FC",
+      "caps": 73,
+      "intl_goals": 8,
+      "transfermarkt_id": 560957
+    },
+    {
+      "squad_number": 21,
+      "name": "Marko Farji",
+      "position": "FW",
+      "date_of_birth": "2004-03-16",
+      "height_cm": 184,
+      "club": "Venezia FC",
+      "caps": 11,
+      "intl_goals": 0,
+      "transfermarkt_id": 663153
+    },
+    {
+      "squad_number": 7,
+      "name": "Youssef Amyn",
+      "position": "FW",
+      "date_of_birth": "2003-08-21",
+      "height_cm": 175,
+      "club": "AEK Larnaca",
+      "caps": 26,
+      "intl_goals": 2,
+      "transfermarkt_id": 684307
+    },
+    {
+      "squad_number": 17,
+      "name": "Ali Jasim",
+      "position": "FW",
+      "date_of_birth": "2004-01-20",
+      "height_cm": 178,
+      "club": "Al-Najma SC",
+      "caps": 36,
+      "intl_goals": 2,
+      "transfermarkt_id": 877672
+    },
+    {
+      "squad_number": 11,
+      "name": "Ahmed Qasem",
+      "position": "FW",
+      "date_of_birth": "2003-07-12",
+      "height_cm": 183,
+      "club": "Nashville SC",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 833817
+    },
+    {
+      "squad_number": 9,
+      "name": "Ali Al-Hamadi",
+      "position": "FW",
+      "date_of_birth": "2002-03-01",
+      "height_cm": 187,
+      "club": "Luton Town",
+      "caps": 19,
+      "intl_goals": 5,
+      "transfermarkt_id": 610581
+    },
+    {
+      "squad_number": 10,
+      "name": "Mohanad Ali",
+      "position": "FW",
+      "date_of_birth": "2000-06-20",
+      "height_cm": 183,
+      "club": "Dibba SCC",
+      "caps": 69,
+      "intl_goals": 26,
+      "transfermarkt_id": 589646
+    },
+    {
+      "squad_number": 18,
+      "name": "Aymen Hussein",
+      "position": "FW",
+      "date_of_birth": "1996-03-22",
+      "height_cm": 189,
+      "club": "Al-Karma",
+      "caps": 90,
+      "intl_goals": 32,
+      "transfermarkt_id": 401054
+    },
+    {
+      "squad_number": 13,
+      "name": "Ali Yousif",
+      "position": "FW",
+      "date_of_birth": "1996-01-19",
+      "height_cm": 192,
+      "club": "Al-Talaba SC",
+      "caps": 6,
+      "intl_goals": 1,
+      "transfermarkt_id": 576265
+    }
+  ]
+}

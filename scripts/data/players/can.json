@@ -1,0 +1,280 @@
+{
+  "iso_code": "CAN",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Dayne St. Clair",
+      "position": "GK",
+      "date_of_birth": "1997-09-05",
+      "height_cm": 191,
+      "club": "Inter Miami CF",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 439750
+    },
+    {
+      "squad_number": 16,
+      "name": "Maxime Crépeau",
+      "position": "GK",
+      "date_of_birth": "1994-11-05",
+      "height_cm": 185,
+      "club": "Orlando City SC",
+      "caps": 32,
+      "intl_goals": 0,
+      "transfermarkt_id": 189014
+    },
+    {
+      "squad_number": 18,
+      "name": "Owen Goodman",
+      "position": "GK",
+      "date_of_birth": "2003-11-27",
+      "height_cm": 193,
+      "club": "Barnsley FC",
+      "caps": null,
+      "intl_goals": null,
+      "transfermarkt_id": 814848
+    },
+    {
+      "squad_number": 15,
+      "name": "Moïse Bombito",
+      "position": "DF",
+      "date_of_birth": "2000-03-30",
+      "height_cm": 190,
+      "club": "OGC Nice",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 1089202
+    },
+    {
+      "squad_number": 3,
+      "name": "Alfie Jones",
+      "position": "DF",
+      "date_of_birth": "1997-10-07",
+      "height_cm": 191,
+      "club": "Middlesbrough FC",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 340990
+    },
+    {
+      "squad_number": 13,
+      "name": "Derek Cornelius",
+      "position": "DF",
+      "date_of_birth": "1997-11-25",
+      "height_cm": 186,
+      "club": "Olympique Marseille",
+      "caps": 44,
+      "intl_goals": 1,
+      "transfermarkt_id": 328609
+    },
+    {
+      "squad_number": 5,
+      "name": "Joel Waterman",
+      "position": "DF",
+      "date_of_birth": "1996-01-24",
+      "height_cm": 185,
+      "club": "Chicago Fire FC",
+      "caps": 17,
+      "intl_goals": 0,
+      "transfermarkt_id": 441738
+    },
+    {
+      "squad_number": 4,
+      "name": "Luc De Fougerolles",
+      "position": "DF",
+      "date_of_birth": "2005-10-12",
+      "height_cm": 183,
+      "club": "FCV Dender EH",
+      "caps": 13,
+      "intl_goals": 0,
+      "transfermarkt_id": 921995
+    },
+    {
+      "squad_number": 19,
+      "name": "Alphonso Davies",
+      "position": "DF",
+      "date_of_birth": "2000-11-02",
+      "height_cm": 183,
+      "club": "Bayern Munich",
+      "caps": 58,
+      "intl_goals": 15,
+      "transfermarkt_id": 424204
+    },
+    {
+      "squad_number": 2,
+      "name": "Alistair Johnston",
+      "position": "DF",
+      "date_of_birth": "1998-10-08",
+      "height_cm": 180,
+      "club": "Celtic FC",
+      "caps": 58,
+      "intl_goals": 1,
+      "transfermarkt_id": 637446
+    },
+    {
+      "squad_number": 22,
+      "name": "Richie Laryea",
+      "position": "DF",
+      "date_of_birth": "1995-01-07",
+      "height_cm": 175,
+      "club": "Toronto FC",
+      "caps": 76,
+      "intl_goals": 1,
+      "transfermarkt_id": 417348
+    },
+    {
+      "squad_number": 23,
+      "name": "Niko Sigur",
+      "position": "MF",
+      "date_of_birth": "2003-09-09",
+      "height_cm": 178,
+      "club": "HNK Hajduk Split",
+      "caps": 19,
+      "intl_goals": 2,
+      "transfermarkt_id": 1045375
+    },
+    {
+      "squad_number": 8,
+      "name": "Ismaël Koné",
+      "position": "MF",
+      "date_of_birth": "2002-06-16",
+      "height_cm": 188,
+      "club": "US Sassuolo",
+      "caps": 40,
+      "intl_goals": 4,
+      "transfermarkt_id": 921655
+    },
+    {
+      "squad_number": 25,
+      "name": "Nathan-Dylan Saliba",
+      "position": "MF",
+      "date_of_birth": "2004-02-07",
+      "height_cm": 174,
+      "club": "RSC Anderlecht",
+      "caps": 15,
+      "intl_goals": 2,
+      "transfermarkt_id": 842420
+    },
+    {
+      "squad_number": 7,
+      "name": "Stephen Eustaquio",
+      "position": "MF",
+      "date_of_birth": "1996-12-21",
+      "height_cm": 175,
+      "club": "Los Angeles FC",
+      "caps": 56,
+      "intl_goals": 4,
+      "transfermarkt_id": 512913
+    },
+    {
+      "squad_number": 21,
+      "name": "Jonathan Osorio",
+      "position": "MF",
+      "date_of_birth": "1992-06-12",
+      "height_cm": 175,
+      "club": "Toronto FC",
+      "caps": 91,
+      "intl_goals": 10,
+      "transfermarkt_id": 260807
+    },
+    {
+      "squad_number": 6,
+      "name": "Mathieu Choinière",
+      "position": "MF",
+      "date_of_birth": "1999-02-07",
+      "height_cm": 173,
+      "club": "Los Angeles FC",
+      "caps": 24,
+      "intl_goals": 0,
+      "transfermarkt_id": 589006
+    },
+    {
+      "squad_number": 20,
+      "name": "Ali Ahmed",
+      "position": "MF",
+      "date_of_birth": "2000-10-10",
+      "height_cm": 180,
+      "club": "Norwich City",
+      "caps": 24,
+      "intl_goals": 1,
+      "transfermarkt_id": 995642
+    },
+    {
+      "squad_number": 11,
+      "name": "Liam Millar",
+      "position": "FW",
+      "date_of_birth": "1999-09-27",
+      "height_cm": 176,
+      "club": "Hull City",
+      "caps": 41,
+      "intl_goals": 1,
+      "transfermarkt_id": 487417
+    },
+    {
+      "squad_number": 14,
+      "name": "Jacob Shaffelburg",
+      "position": "FW",
+      "date_of_birth": "1999-11-26",
+      "height_cm": 181,
+      "club": "Los Angeles FC",
+      "caps": 31,
+      "intl_goals": 6,
+      "transfermarkt_id": 637632
+    },
+    {
+      "squad_number": 17,
+      "name": "Tajon Buchanan",
+      "position": "FW",
+      "date_of_birth": "1999-02-08",
+      "height_cm": 183,
+      "club": "Villarreal CF",
+      "caps": 60,
+      "intl_goals": 8,
+      "transfermarkt_id": 638793
+    },
+    {
+      "squad_number": 10,
+      "name": "Jonathan David",
+      "position": "FW",
+      "date_of_birth": "2000-01-14",
+      "height_cm": 175,
+      "club": "Juventus FC",
+      "caps": 77,
+      "intl_goals": 39,
+      "transfermarkt_id": 533738
+    },
+    {
+      "squad_number": 24,
+      "name": "Promise David",
+      "position": "FW",
+      "date_of_birth": "2001-07-03",
+      "height_cm": 195,
+      "club": "Union Saint-Gilloise",
+      "caps": 10,
+      "intl_goals": 3,
+      "transfermarkt_id": 888785
+    },
+    {
+      "squad_number": 12,
+      "name": "Tani Oluwaseyi",
+      "position": "FW",
+      "date_of_birth": "2000-05-15",
+      "height_cm": 187,
+      "club": "Villarreal CF",
+      "caps": 24,
+      "intl_goals": 2,
+      "transfermarkt_id": 972465
+    },
+    {
+      "squad_number": 9,
+      "name": "Cyle Larin",
+      "position": "FW",
+      "date_of_birth": "1995-04-17",
+      "height_cm": 188,
+      "club": "Southampton FC",
+      "caps": 90,
+      "intl_goals": 30,
+      "transfermarkt_id": 343463
+    }
+  ]
+}

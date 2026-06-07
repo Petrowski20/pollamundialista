@@ -1,0 +1,17 @@
+{
+  "iso_code": "XXX",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Nombre Apellido",
+      "position": "GK",
+      "date_of_birth": "YYYY-MM-DD",
+      "height_cm": 185,
+      "weight_kg": 80,
+      "club": "Nombre del Club",
+      "caps": 0,
+      "intl_goals": 0,
+      "transfermarkt_id": 123456
+    }
+  ]
+}

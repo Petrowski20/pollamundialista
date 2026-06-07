@@ -5,6 +5,7 @@
     "miMundial": "My World Cup",
     "ligasPrivadas": "Private Leagues",
     "comoJugar": "How to play",
+    "selecciones": "Teams",
     "iniciarSesion": "Sign In"
   },
   "mobile": {
@@ -200,6 +201,34 @@
       "success": "Password updated"
     }
   },
+  "selecciones": {
+    "title": "Teams",
+    "subtitle": "Info and squads for all 48 World Cup 2026 teams",
+    "grupo": "Group {letter}",
+    "rankingFifa": "FIFA Ranking",
+    "seleccionador": "Manager",
+    "mundiales": "World Cups",
+    "ultimoResultado": "Last WC",
+    "sinDatos": "Information not available yet",
+    "verPlantilla": "View squad",
+    "volver": "← All teams",
+    "squad": {
+      "title": "Called-up squad",
+      "preInfo": "Statistics prior to the start of the tournament",
+      "sinJugadores": "This team's squad is not available yet.",
+      "verPerfil": "View on Transfermarkt",
+      "cols": {
+        "dorsal": "#",
+        "jugador": "Player",
+        "pos": "Pos.",
+        "edad": "Age",
+        "altura": "Ht.",
+        "club": "Club",
+        "pj": "Apps",
+        "goles": "Goals"
+      }
+    }
+  },
   "footer": {
     "copyright": "© 2026 POLLAMUNDIAL. Created by the people, for the people.",
     "calendario": "FIFA Calendar",
@@ -222,6 +251,9 @@
     "noPartidos": "No group stage matches available.",
     "grupo": "Group {letter}",
     "mejor3": "Best 3rd",
+    "mejoresTercerosTitle": "Best Third-Place Rankings",
+    "mejorTerceroPass": "Qualify (8 of 12)",
+    "mejorTerceroOut": "Eliminated (4 of 12)",
     "cols": {
       "equipo": "Team",
       "pts": "Pts"
@@ -248,7 +280,7 @@
       "title": "⚡ Knockout Rounds",
       "badge": "Round of 16 onwards",
       "intro": "In knockout rounds the Absolute Winner rule applies. The points scale (+3, +2, +1) works the same as in groups, but only if you first get who advances.",
-      "ties":       { "title": "Draws after 120 min",           "desc": "If you predict a draw, the app will ask you to choose which team advances to the next round (as if it were penalties or extra time). That choice is part of your prediction." },
+      "ties":       { "title": "Draws after 120 min",           "desc": "If you predict a draw, the app will ask you to choose which team advances to the next round (as if it were penalties). That choice is part of your prediction." },
       "goldenRule": { "title": "The Golden Rule: the qualifier rules", "desc1": "If you get the wrong team to advance,", "penalty": "you automatically receive 0 points", "desc2": ", regardless of how many goals you predicted correctly." },
       "ifCorrect":  { "title": "If you get the qualifier right…", "desc": "The normal scale applies (+3 exact · +2 difference · +1 qualifier only) comparing your goals against the actual score in 90/120 minutes." },
       "examples": {
@@ -273,8 +305,7 @@
       "title": "📅 Tournament phases",
       "disclaimer": "The deadline to register or edit a prediction is the exact moment of kick-off for each match.",
       "p1": { "fase": "Group Stage",                  "desc": "Predict the results of all 48 matches in the first phase." },
-      "p2": { "fase": "Round of 16",                  "desc": "The 32 qualified teams compete in knockout rounds." },
-      "p3": { "fase": "Quarters, Semis and Final",    "desc": "Predictions are worth the same but the impact on the standings is higher." }
+      "p2": { "fase": "Round of 16",                  "desc": "The 32 qualified teams compete in knockout rounds." }
     }
   }
 }

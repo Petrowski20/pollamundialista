@@ -1,0 +1,291 @@
+{
+  "iso_code": "BIH",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Nikola Vasilj",
+      "position": "GK",
+      "date_of_birth": "1995-12-02",
+      "height_cm": 193,
+      "club": "FC St. Pauli",
+      "caps": 26,
+      "intl_goals": 0,
+      "transfermarkt_id": 248454
+    },
+    {
+      "squad_number": 22,
+      "name": "Martin Zlomislic",
+      "position": "GK",
+      "date_of_birth": "1998-08-16",
+      "height_cm": 189,
+      "club": "HNK Rijeka",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 495320
+    },
+    {
+      "squad_number": 12,
+      "name": "Mladen Jurkas",
+      "position": "GK",
+      "date_of_birth": "2007-10-07",
+      "height_cm": 193,
+      "club": "FK Borac Banja Luka",
+      "caps": null,
+      "intl_goals": null,
+      "transfermarkt_id": 952692
+    },
+    {
+      "squad_number": 4,
+      "name": "Tarik Muharemović",
+      "position": "DF",
+      "date_of_birth": "2003-02-28",
+      "height_cm": 192,
+      "club": "US Sassuolo",
+      "caps": 14,
+      "intl_goals": 1,
+      "transfermarkt_id": 679423
+    },
+    {
+      "squad_number": 24,
+      "name": "Nidal Celik",
+      "position": "DF",
+      "date_of_birth": "2006-07-17",
+      "height_cm": 192,
+      "club": "RC Lens",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 819566
+    },
+    {
+      "squad_number": 5,
+      "name": "Sead Kolasinac",
+      "position": "DF",
+      "date_of_birth": "1993-06-20",
+      "height_cm": 183,
+      "club": "Atalanta BC",
+      "caps": 65,
+      "intl_goals": 0,
+      "transfermarkt_id": 94005
+    },
+    {
+      "squad_number": 21,
+      "name": "Stjepan Radeljic",
+      "position": "DF",
+      "date_of_birth": "1997-09-05",
+      "height_cm": 201,
+      "club": "HNK Rijeka",
+      "caps": 5,
+      "intl_goals": 0,
+      "transfermarkt_id": 384568
+    },
+    {
+      "squad_number": 18,
+      "name": "Nikola Katic",
+      "position": "DF",
+      "date_of_birth": "1996-10-10",
+      "height_cm": 194,
+      "club": "FC Schalke 04",
+      "caps": 17,
+      "intl_goals": 2,
+      "transfermarkt_id": 422051
+    },
+    {
+      "squad_number": 2,
+      "name": "Nihad Mujakic",
+      "position": "DF",
+      "date_of_birth": "1998-04-15",
+      "height_cm": 189,
+      "club": "Gaziantep FK",
+      "caps": 12,
+      "intl_goals": 1,
+      "transfermarkt_id": 380919
+    },
+    {
+      "squad_number": 3,
+      "name": "Dennis Hadzikadunic",
+      "position": "DF",
+      "date_of_birth": "1998-07-09",
+      "height_cm": 191,
+      "club": "UC Sampdoria",
+      "caps": 32,
+      "intl_goals": 0,
+      "transfermarkt_id": 322065
+    },
+    {
+      "squad_number": 7,
+      "name": "Amar Dedić",
+      "position": "DF",
+      "date_of_birth": "2002-08-18",
+      "height_cm": 180,
+      "club": "SL Benfica",
+      "caps": 28,
+      "intl_goals": 1,
+      "transfermarkt_id": 519184
+    },
+    {
+      "squad_number": 16,
+      "name": "Amir Hadziahmetovic",
+      "position": "MF",
+      "date_of_birth": "1997-03-08",
+      "height_cm": 179,
+      "club": "Hull City",
+      "caps": 36,
+      "intl_goals": 0,
+      "transfermarkt_id": 293213
+    },
+    {
+      "squad_number": 14,
+      "name": "Ivan Šunjić",
+      "position": "MF",
+      "date_of_birth": "1996-10-09",
+      "height_cm": 183,
+      "club": "Pafos FC",
+      "caps": 11,
+      "intl_goals": 0,
+      "transfermarkt_id": 226097
+    },
+    {
+      "squad_number": 17,
+      "name": "Dzenis Burnic",
+      "position": "MF",
+      "date_of_birth": "1998-05-22",
+      "height_cm": 182,
+      "club": "Karlsruher SC",
+      "caps": 20,
+      "intl_goals": 0,
+      "transfermarkt_id": 251295
+    },
+    {
+      "squad_number": 6,
+      "name": "Benjamin Tahirović",
+      "position": "MF",
+      "date_of_birth": "2003-03-03",
+      "height_cm": 191,
+      "club": "Bröndby IF",
+      "caps": 28,
+      "intl_goals": 2,
+      "transfermarkt_id": 787907
+    },
+    {
+      "squad_number": 8,
+      "name": "Armin Gigovic",
+      "position": "MF",
+      "date_of_birth": "2002-04-06",
+      "height_cm": 187,
+      "club": "BSC Young Boys",
+      "caps": 20,
+      "intl_goals": 1,
+      "transfermarkt_id": 651269
+    },
+    {
+      "squad_number": 13,
+      "name": "Ivan Basic",
+      "position": "MF",
+      "date_of_birth": "2002-04-30",
+      "height_cm": 178,
+      "club": "FC Astana",
+      "caps": 17,
+      "intl_goals": 0,
+      "transfermarkt_id": 620560
+    },
+    {
+      "squad_number": 15,
+      "name": "Amar Memić",
+      "position": "MF",
+      "date_of_birth": "2001-01-20",
+      "height_cm": 176,
+      "club": "FC Viktoria Plzen",
+      "caps": 13,
+      "intl_goals": 1,
+      "transfermarkt_id": 638990
+    },
+    {
+      "squad_number": 26,
+      "name": "Ermin Mahmic",
+      "position": "MF",
+      "date_of_birth": "2005-03-14",
+      "height_cm": 182,
+      "club": "FC Slovan Liberec",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 803049
+    },
+    {
+      "squad_number": 19,
+      "name": "Kerim Alajbegovic",
+      "position": "FW",
+      "date_of_birth": "2007-09-21",
+      "height_cm": 186,
+      "club": "Red Bull Salzburg",
+      "caps": 10,
+      "intl_goals": 1,
+      "transfermarkt_id": 929994
+    },
+    {
+      "squad_number": 20,
+      "name": "Esmir Bajraktarevic",
+      "position": "FW",
+      "date_of_birth": "2005-03-10",
+      "height_cm": 175,
+      "club": "PSV Eindhoven",
+      "caps": 16,
+      "intl_goals": 1,
+      "transfermarkt_id": 925862
+    },
+    {
+      "squad_number": 10,
+      "name": "Ermedin Demirovic",
+      "position": "FW",
+      "date_of_birth": "1998-03-25",
+      "height_cm": 185,
+      "club": "VfB Stuttgart",
+      "caps": 40,
+      "intl_goals": 4,
+      "transfermarkt_id": 335457
+    },
+    {
+      "squad_number": 23,
+      "name": "Haris Tabakovic",
+      "position": "FW",
+      "date_of_birth": "1994-06-20",
+      "height_cm": 196,
+      "club": "Borussia Mönchengladbach",
+      "caps": 10,
+      "intl_goals": 4,
+      "transfermarkt_id": 203123
+    },
+    {
+      "squad_number": 25,
+      "name": "Jovo Lukić",
+      "position": "FW",
+      "date_of_birth": "1998-11-28",
+      "height_cm": 190,
+      "club": "FC Universitatea Cluj",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 457738
+    },
+    {
+      "squad_number": 9,
+      "name": "Samed Bazdar",
+      "position": "FW",
+      "date_of_birth": "2004-01-31",
+      "height_cm": 189,
+      "club": "Jagiellonia Bialystok",
+      "caps": 13,
+      "intl_goals": 1,
+      "transfermarkt_id": 710969
+    },
+    {
+      "squad_number": 11,
+      "name": "Edin Dzeko",
+      "position": "FW",
+      "date_of_birth": "1986-03-17",
+      "height_cm": 192,
+      "club": "FC Schalke 04",
+      "caps": 148,
+      "intl_goals": 73,
+      "transfermarkt_id": 28396
+    }
+  ]
+}

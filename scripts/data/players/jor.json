@@ -1,0 +1,280 @@
+{
+  "iso_code": "JOR",
+  "players": [
+    {
+      "squad_number": 1,
+      "name": "Yazeed Abulaila",
+      "position": "GK",
+      "date_of_birth": "1993-01-08",
+      "height_cm": 188,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 63,
+      "intl_goals": 0,
+      "transfermarkt_id": 261850
+    },
+    {
+      "squad_number": 12,
+      "name": "Noor Bane Ataya",
+      "position": "GK",
+      "date_of_birth": "1993-01-25",
+      "height_cm": 179,
+      "club": "Al-Faisaly SC",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 261837
+    },
+    {
+      "squad_number": 22,
+      "name": "Abdallah Al-Fakhouri",
+      "position": "GK",
+      "date_of_birth": "2000-01-22",
+      "height_cm": 190,
+      "club": "Al-Wehdat SC",
+      "caps": 10,
+      "intl_goals": 0,
+      "transfermarkt_id": 658805
+    },
+    {
+      "squad_number": 5,
+      "name": "Yazan Al-Arab",
+      "position": "DF",
+      "date_of_birth": "1996-01-31",
+      "height_cm": 185,
+      "club": "FC Seoul",
+      "caps": 69,
+      "intl_goals": 3,
+      "transfermarkt_id": 539961
+    },
+    {
+      "squad_number": 19,
+      "name": "Saed Al-Rousan",
+      "position": "DF",
+      "date_of_birth": "1997-02-01",
+      "height_cm": 186,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 16,
+      "intl_goals": 2,
+      "transfermarkt_id": 561481
+    },
+    {
+      "squad_number": 3,
+      "name": "Abdallah Nasib",
+      "position": "DF",
+      "date_of_birth": "1994-02-25",
+      "height_cm": 184,
+      "club": "Al-Zawraa SC",
+      "caps": 54,
+      "intl_goals": 2,
+      "transfermarkt_id": 882197
+    },
+    {
+      "squad_number": 4,
+      "name": "Husam Abu Dahab",
+      "position": "DF",
+      "date_of_birth": "2000-05-13",
+      "height_cm": 186,
+      "club": "Al-Faisaly SC",
+      "caps": 12,
+      "intl_goals": 0,
+      "transfermarkt_id": 895291
+    },
+    {
+      "squad_number": 16,
+      "name": "Mohammad Abualnadi",
+      "position": "DF",
+      "date_of_birth": "2001-02-08",
+      "height_cm": 185,
+      "club": "Selangor FC",
+      "caps": 13,
+      "intl_goals": 0,
+      "transfermarkt_id": 658052
+    },
+    {
+      "squad_number": 17,
+      "name": "Saleem Obaid",
+      "position": "DF",
+      "date_of_birth": "1992-01-17",
+      "height_cm": 187,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 10,
+      "intl_goals": 0,
+      "transfermarkt_id": 658807
+    },
+    {
+      "squad_number": 20,
+      "name": "Mohannad Abu Taha",
+      "position": "DF",
+      "date_of_birth": "2003-02-02",
+      "height_cm": 173,
+      "club": "Al-Quwa Al-Jawiya",
+      "caps": 24,
+      "intl_goals": 1,
+      "transfermarkt_id": 883111
+    },
+    {
+      "squad_number": 2,
+      "name": "Mohammad Abu Hasheesh",
+      "position": "DF",
+      "date_of_birth": "1995-05-09",
+      "height_cm": 179,
+      "club": "Al-Karma",
+      "caps": 46,
+      "intl_goals": 1,
+      "transfermarkt_id": 895249
+    },
+    {
+      "squad_number": 23,
+      "name": "Ehsan Haddad",
+      "position": "DF",
+      "date_of_birth": "1994-02-05",
+      "height_cm": 174,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 75,
+      "intl_goals": 1,
+      "transfermarkt_id": 310943
+    },
+    {
+      "squad_number": 26,
+      "name": "Anas Badawi",
+      "position": "DF",
+      "date_of_birth": "1997-09-13",
+      "height_cm": 174,
+      "club": "Al-Faisaly SC",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 1378902
+    },
+    {
+      "squad_number": 21,
+      "name": "Nizar Al-Rashdan",
+      "position": "MF",
+      "date_of_birth": "1999-03-23",
+      "height_cm": 183,
+      "club": "Qatar SC",
+      "caps": 39,
+      "intl_goals": 4,
+      "transfermarkt_id": 734751
+    },
+    {
+      "squad_number": 6,
+      "name": "Amer Jamous",
+      "position": "MF",
+      "date_of_birth": "2002-07-03",
+      "height_cm": 177,
+      "club": "Al-Zawraa SC",
+      "caps": 14,
+      "intl_goals": 1,
+      "transfermarkt_id": 744040
+    },
+    {
+      "squad_number": 8,
+      "name": "Noor Al-Rawabdeh",
+      "position": "MF",
+      "date_of_birth": "1997-02-24",
+      "height_cm": 182,
+      "club": "Selangor FC",
+      "caps": 57,
+      "intl_goals": 3,
+      "transfermarkt_id": 561485
+    },
+    {
+      "squad_number": 15,
+      "name": "Ibrahim Saadeh",
+      "position": "MF",
+      "date_of_birth": "2000-04-27",
+      "height_cm": 175,
+      "club": "Al-Karma",
+      "caps": 44,
+      "intl_goals": 3,
+      "transfermarkt_id": 709974
+    },
+    {
+      "squad_number": 14,
+      "name": "Rajaei Ayed",
+      "position": "MF",
+      "date_of_birth": "1993-07-25",
+      "height_cm": 175,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 57,
+      "intl_goals": 0,
+      "transfermarkt_id": 261842
+    },
+    {
+      "squad_number": 25,
+      "name": "Mohammad Al-Dawoud",
+      "position": "MF",
+      "date_of_birth": "1992-12-04",
+      "height_cm": 185,
+      "club": "Al-Wehdat SC",
+      "caps": 6,
+      "intl_goals": 1,
+      "transfermarkt_id": 310801
+    },
+    {
+      "squad_number": 11,
+      "name": "Odeh Fakhoury",
+      "position": "FW",
+      "date_of_birth": "2005-11-20",
+      "height_cm": 180,
+      "club": "Pyramids FC",
+      "caps": 9,
+      "intl_goals": 1,
+      "transfermarkt_id": 1252820
+    },
+    {
+      "squad_number": 13,
+      "name": "Mahmoud Al-Mardi",
+      "position": "FW",
+      "date_of_birth": "1993-10-06",
+      "height_cm": 176,
+      "club": "Al-Hussein SC (Irbid)",
+      "caps": 70,
+      "intl_goals": 7,
+      "transfermarkt_id": 401086
+    },
+    {
+      "squad_number": 10,
+      "name": "Mousa Tamari",
+      "position": "FW",
+      "date_of_birth": "1997-06-10",
+      "height_cm": 176,
+      "club": "Stade Rennais FC",
+      "caps": 76,
+      "intl_goals": 23,
+      "transfermarkt_id": 551505
+    },
+    {
+      "squad_number": 7,
+      "name": "Shararh",
+      "position": "FW",
+      "date_of_birth": "1997-12-30",
+      "height_cm": 170,
+      "club": "Raja Club Athletic",
+      "caps": 33,
+      "intl_goals": 5,
+      "transfermarkt_id": 677986
+    },
+    {
+      "squad_number": 24,
+      "name": "Ali Azaizeh",
+      "position": "FW",
+      "date_of_birth": "2004-04-13",
+      "height_cm": 178,
+      "club": "Al-Shabab FC",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 1059056
+    },
+    {
+      "squad_number": 9,
+      "name": "Ali Olwan",
+      "position": "FW",
+      "date_of_birth": "2000-03-26",
+      "height_cm": 182,
+      "club": "Al-Sailiya SC",
+      "caps": 58,
+      "intl_goals": 27,
+      "transfermarkt_id": 664057
+    }
+  ]
+}

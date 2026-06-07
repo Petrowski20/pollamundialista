@@ -1,0 +1,291 @@
+{
+  "iso_code": "KOR",
+  "players": [
+    {
+      "squad_number": 12,
+      "name": "Bum-keun Song",
+      "position": "GK",
+      "date_of_birth": "1997-10-15",
+      "height_cm": 196,
+      "club": "Jeonbuk Hyundai Motors",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 508237
+    },
+    {
+      "squad_number": 21,
+      "name": "Hyeon-woo Jo",
+      "position": "GK",
+      "date_of_birth": "1991-09-25",
+      "height_cm": 189,
+      "club": "Ulsan HD FC",
+      "caps": 48,
+      "intl_goals": 0,
+      "transfermarkt_id": 260171
+    },
+    {
+      "squad_number": 1,
+      "name": "Seung-gyu Kim",
+      "position": "GK",
+      "date_of_birth": "1990-09-30",
+      "height_cm": 189,
+      "club": "FC Tokyo",
+      "caps": 86,
+      "intl_goals": 0,
+      "transfermarkt_id": 92076
+    },
+    {
+      "squad_number": 4,
+      "name": "Min-jae Kim",
+      "position": "DF",
+      "date_of_birth": "1996-11-15",
+      "height_cm": 190,
+      "club": "Bayern Munich",
+      "caps": 79,
+      "intl_goals": 4,
+      "transfermarkt_id": 503482
+    },
+    {
+      "squad_number": 2,
+      "name": "Han-beom Lee",
+      "position": "DF",
+      "date_of_birth": "2002-06-17",
+      "height_cm": 188,
+      "club": "FC Midtjylland",
+      "caps": 8,
+      "intl_goals": 0,
+      "transfermarkt_id": 706963
+    },
+    {
+      "squad_number": 5,
+      "name": "Tae-hyeon Kim",
+      "position": "DF",
+      "date_of_birth": "2000-09-17",
+      "height_cm": 186,
+      "club": "Kashima Antlers",
+      "caps": 7,
+      "intl_goals": 0,
+      "transfermarkt_id": 645847
+    },
+    {
+      "squad_number": 3,
+      "name": "Gi-hyuk Lee",
+      "position": "DF",
+      "date_of_birth": "2000-07-07",
+      "height_cm": 184,
+      "club": "Gangwon FC",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 763349
+    },
+    {
+      "squad_number": 14,
+      "name": "Wi-je Cho",
+      "position": "DF",
+      "date_of_birth": "2001-08-25",
+      "height_cm": 190,
+      "club": "Jeonbuk Hyundai Motors",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 550978
+    },
+    {
+      "squad_number": 13,
+      "name": "Tae-seok Lee",
+      "position": "DF",
+      "date_of_birth": "2002-07-28",
+      "height_cm": 174,
+      "club": "Austria Vienna",
+      "caps": 15,
+      "intl_goals": 1,
+      "transfermarkt_id": 639027
+    },
+    {
+      "squad_number": 22,
+      "name": "Young-woo Seol",
+      "position": "DF",
+      "date_of_birth": "1998-12-05",
+      "height_cm": 180,
+      "club": "Red Star Belgrade",
+      "caps": 34,
+      "intl_goals": 0,
+      "transfermarkt_id": 639414
+    },
+    {
+      "squad_number": 15,
+      "name": "Moon-hwan Kim",
+      "position": "DF",
+      "date_of_birth": "1995-08-01",
+      "height_cm": 173,
+      "club": "Daejeon Hana Citizen",
+      "caps": 35,
+      "intl_goals": 0,
+      "transfermarkt_id": 524592
+    },
+    {
+      "squad_number": 6,
+      "name": "In-beom Hwang",
+      "position": "MF",
+      "date_of_birth": "1996-09-20",
+      "height_cm": 177,
+      "club": "Feyenoord Rotterdam",
+      "caps": 73,
+      "intl_goals": 6,
+      "transfermarkt_id": 365394
+    },
+    {
+      "squad_number": 16,
+      "name": "Jin-seob Park",
+      "position": "MF",
+      "date_of_birth": "1995-10-23",
+      "height_cm": 183,
+      "club": "Zhejiang FC",
+      "caps": 14,
+      "intl_goals": 1,
+      "transfermarkt_id": 557469
+    },
+    {
+      "squad_number": 23,
+      "name": "Jens Castrop",
+      "position": "MF",
+      "date_of_birth": "2003-07-29",
+      "height_cm": 178,
+      "club": "Borussia Mönchengladbach",
+      "caps": 7,
+      "intl_goals": 0,
+      "transfermarkt_id": 613192
+    },
+    {
+      "squad_number": 8,
+      "name": "Seung-ho Paik",
+      "position": "MF",
+      "date_of_birth": "1997-03-17",
+      "height_cm": 182,
+      "club": "Birmingham City",
+      "caps": 27,
+      "intl_goals": 3,
+      "transfermarkt_id": 282689
+    },
+    {
+      "squad_number": 24,
+      "name": "Jin-gyu Kim",
+      "position": "MF",
+      "date_of_birth": "1997-02-24",
+      "height_cm": 177,
+      "club": "Jeonbuk Hyundai Motors",
+      "caps": 22,
+      "intl_goals": 3,
+      "transfermarkt_id": 365377
+    },
+    {
+      "squad_number": 19,
+      "name": "Kang-in Lee",
+      "position": "MF",
+      "date_of_birth": "2001-02-19",
+      "height_cm": 174,
+      "club": "Paris Saint-Germain",
+      "caps": 47,
+      "intl_goals": 11,
+      "transfermarkt_id": 557149
+    },
+    {
+      "squad_number": 17,
+      "name": "Jun-ho Bae",
+      "position": "MF",
+      "date_of_birth": "2003-08-21",
+      "height_cm": 180,
+      "club": "Stoke City",
+      "caps": 13,
+      "intl_goals": 2,
+      "transfermarkt_id": 912081
+    },
+    {
+      "squad_number": 10,
+      "name": "Jae-sung Lee",
+      "position": "MF",
+      "date_of_birth": "1992-08-10",
+      "height_cm": 180,
+      "club": "1.FSV Mainz 05",
+      "caps": 105,
+      "intl_goals": 15,
+      "transfermarkt_id": 314398
+    },
+    {
+      "squad_number": 26,
+      "name": "Dong-gyeong Lee",
+      "position": "MF",
+      "date_of_birth": "1997-09-20",
+      "height_cm": 175,
+      "club": "Ulsan HD FC",
+      "caps": 18,
+      "intl_goals": 4,
+      "transfermarkt_id": 558086
+    },
+    {
+      "squad_number": 7,
+      "name": "Heung-min Son",
+      "position": "FW",
+      "date_of_birth": "1992-07-08",
+      "height_cm": 183,
+      "club": "Los Angeles FC",
+      "caps": 145,
+      "intl_goals": 56,
+      "transfermarkt_id": 91845
+    },
+    {
+      "squad_number": 25,
+      "name": "Ji-sung Eom",
+      "position": "FW",
+      "date_of_birth": "2002-05-09",
+      "height_cm": 177,
+      "club": "Swansea City",
+      "caps": 9,
+      "intl_goals": 2,
+      "transfermarkt_id": 706968
+    },
+    {
+      "squad_number": 20,
+      "name": "Hyun-jun Yang",
+      "position": "FW",
+      "date_of_birth": "2002-05-25",
+      "height_cm": 179,
+      "club": "Celtic FC",
+      "caps": 9,
+      "intl_goals": 0,
+      "transfermarkt_id": 853110
+    },
+    {
+      "squad_number": 18,
+      "name": "Hyeon-gyu Oh",
+      "position": "FW",
+      "date_of_birth": "2001-04-12",
+      "height_cm": 183,
+      "club": "Besiktas JK",
+      "caps": 27,
+      "intl_goals": 6,
+      "transfermarkt_id": 639246
+    },
+    {
+      "squad_number": 11,
+      "name": "Hee-chan Hwang",
+      "position": "FW",
+      "date_of_birth": "1996-01-26",
+      "height_cm": 177,
+      "club": "Wolverhampton Wanderers",
+      "caps": 79,
+      "intl_goals": 17,
+      "transfermarkt_id": 292246
+    },
+    {
+      "squad_number": 9,
+      "name": "Gue-sung Cho",
+      "position": "FW",
+      "date_of_birth": "1998-01-25",
+      "height_cm": 188,
+      "club": "FC Midtjylland",
+      "caps": 44,
+      "intl_goals": 12,
+      "transfermarkt_id": 652537
+    }
+  ]
+}

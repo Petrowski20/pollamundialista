@@ -1,0 +1,280 @@
+{
+  "iso_code": "AUT",
+  "players": [
+    {
+      "squad_number": 12,
+      "name": "Florian Wiegele",
+      "position": "GK",
+      "date_of_birth": "2001-03-21",
+      "height_cm": 205,
+      "club": "FC Viktoria Plzen",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 393999
+    },
+    {
+      "squad_number": 13,
+      "name": "Patrick Pentz",
+      "position": "GK",
+      "date_of_birth": "1997-01-02",
+      "height_cm": 183,
+      "club": "Bröndby IF",
+      "caps": 18,
+      "intl_goals": 0,
+      "transfermarkt_id": 223972
+    },
+    {
+      "squad_number": 1,
+      "name": "Alexander Schlager",
+      "position": "GK",
+      "date_of_birth": "1996-02-01",
+      "height_cm": 188,
+      "club": "Red Bull Salzburg",
+      "caps": 26,
+      "intl_goals": 0,
+      "transfermarkt_id": 186374
+    },
+    {
+      "squad_number": 2,
+      "name": "David Affengruber",
+      "position": "DF",
+      "date_of_birth": "2001-03-19",
+      "height_cm": 185,
+      "club": "Elche CF",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 452483
+    },
+    {
+      "squad_number": 3,
+      "name": "Kevin Danso",
+      "position": "DF",
+      "date_of_birth": "1998-09-19",
+      "height_cm": 190,
+      "club": "Tottenham Hotspur",
+      "caps": 32,
+      "intl_goals": 0,
+      "transfermarkt_id": 263236
+    },
+    {
+      "squad_number": 15,
+      "name": "Philipp Lienhart",
+      "position": "DF",
+      "date_of_birth": "1996-07-11",
+      "height_cm": 189,
+      "club": "SC Freiburg",
+      "caps": 41,
+      "intl_goals": 3,
+      "transfermarkt_id": 225657
+    },
+    {
+      "squad_number": 23,
+      "name": "Marco Friedl",
+      "position": "DF",
+      "date_of_birth": "1998-03-16",
+      "height_cm": 187,
+      "club": "SV Werder Bremen",
+      "caps": 11,
+      "intl_goals": 0,
+      "transfermarkt_id": 156990
+    },
+    {
+      "squad_number": 5,
+      "name": "Stefan Posch",
+      "position": "DF",
+      "date_of_birth": "1997-05-14",
+      "height_cm": 188,
+      "club": "1.FSV Mainz 05",
+      "caps": 52,
+      "intl_goals": 5,
+      "transfermarkt_id": 223974
+    },
+    {
+      "squad_number": 25,
+      "name": "Michael Svoboda",
+      "position": "DF",
+      "date_of_birth": "1998-10-15",
+      "height_cm": 195,
+      "club": "Venezia FC",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 438961
+    },
+    {
+      "squad_number": 8,
+      "name": "David Alaba",
+      "position": "DF",
+      "date_of_birth": "1992-06-24",
+      "height_cm": 180,
+      "club": "Real Madrid",
+      "caps": 113,
+      "intl_goals": 15,
+      "transfermarkt_id": 59016
+    },
+    {
+      "squad_number": 16,
+      "name": "Phillipp Mwene",
+      "position": "DF",
+      "date_of_birth": "1994-01-29",
+      "height_cm": 170,
+      "club": "1.FSV Mainz 05",
+      "caps": 30,
+      "intl_goals": 0,
+      "transfermarkt_id": 127573
+    },
+    {
+      "squad_number": 20,
+      "name": "Konrad Laimer",
+      "position": "DF",
+      "date_of_birth": "1997-05-27",
+      "height_cm": 180,
+      "club": "Bayern Munich",
+      "caps": 57,
+      "intl_goals": 7,
+      "transfermarkt_id": 223967
+    },
+    {
+      "squad_number": 6,
+      "name": "Nicolas Seiwald",
+      "position": "MF",
+      "date_of_birth": "2001-05-04",
+      "height_cm": 179,
+      "club": "RB Leipzig",
+      "caps": 47,
+      "intl_goals": 1,
+      "transfermarkt_id": 404950
+    },
+    {
+      "squad_number": 10,
+      "name": "Florian Grillitsch",
+      "position": "MF",
+      "date_of_birth": "1995-08-07",
+      "height_cm": 186,
+      "club": "SC Braga",
+      "caps": 59,
+      "intl_goals": 1,
+      "transfermarkt_id": 195736
+    },
+    {
+      "squad_number": 24,
+      "name": "Paul Wanner",
+      "position": "MF",
+      "date_of_birth": "2005-12-23",
+      "height_cm": 185,
+      "club": "PSV Eindhoven",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 900909
+    },
+    {
+      "squad_number": 17,
+      "name": "Carney Chukwuemeka",
+      "position": "MF",
+      "date_of_birth": "2003-10-20",
+      "height_cm": 187,
+      "club": "Borussia Dortmund",
+      "caps": 3,
+      "intl_goals": 1,
+      "transfermarkt_id": 659459
+    },
+    {
+      "squad_number": 4,
+      "name": "Xaver Schlager",
+      "position": "MF",
+      "date_of_birth": "1997-09-28",
+      "height_cm": 174,
+      "club": "RB Leipzig",
+      "caps": 51,
+      "intl_goals": 4,
+      "transfermarkt_id": 223979
+    },
+    {
+      "squad_number": 9,
+      "name": "Marcel Sabitzer",
+      "position": "MF",
+      "date_of_birth": "1994-03-17",
+      "height_cm": 178,
+      "club": "Borussia Dortmund",
+      "caps": 98,
+      "intl_goals": 26,
+      "transfermarkt_id": 106987
+    },
+    {
+      "squad_number": 26,
+      "name": "Alessandro Schöpf",
+      "position": "MF",
+      "date_of_birth": "1994-02-07",
+      "height_cm": 178,
+      "club": "Wolfsberger AC",
+      "caps": 35,
+      "intl_goals": 6,
+      "transfermarkt_id": 118397
+    },
+    {
+      "squad_number": 22,
+      "name": "Alexander Prass",
+      "position": "MF",
+      "date_of_birth": "2001-05-26",
+      "height_cm": 180,
+      "club": "TSG 1899 Hoffenheim",
+      "caps": 19,
+      "intl_goals": 0,
+      "transfermarkt_id": 434116
+    },
+    {
+      "squad_number": 18,
+      "name": "Romano Schmid",
+      "position": "MF",
+      "date_of_birth": "2000-01-27",
+      "height_cm": 168,
+      "club": "SV Werder Bremen",
+      "caps": 34,
+      "intl_goals": 3,
+      "transfermarkt_id": 346853
+    },
+    {
+      "squad_number": 21,
+      "name": "Patrick Wimmer",
+      "position": "FW",
+      "date_of_birth": "2001-05-30",
+      "height_cm": 182,
+      "club": "VfL Wolfsburg",
+      "caps": 30,
+      "intl_goals": 1,
+      "transfermarkt_id": 533295
+    },
+    {
+      "squad_number": 14,
+      "name": "Sasa Kalajdzic",
+      "position": "FW",
+      "date_of_birth": "1997-07-07",
+      "height_cm": 200,
+      "club": "LASK",
+      "caps": 22,
+      "intl_goals": 4,
+      "transfermarkt_id": 369567
+    },
+    {
+      "squad_number": 7,
+      "name": "Marko Arnautovic",
+      "position": "FW",
+      "date_of_birth": "1989-04-19",
+      "height_cm": 192,
+      "club": "Red Star Belgrade",
+      "caps": 133,
+      "intl_goals": 47,
+      "transfermarkt_id": 41384
+    },
+    {
+      "squad_number": 11,
+      "name": "Michael Gregoritsch",
+      "position": "FW",
+      "date_of_birth": "1994-04-18",
+      "height_cm": 193,
+      "club": "FC Augsburg",
+      "caps": 75,
+      "intl_goals": 24,
+      "transfermarkt_id": 120205
+    }
+  ]
+}

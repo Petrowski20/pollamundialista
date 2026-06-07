@@ -39,7 +39,6 @@ export default async function ReglasPage() {
   const phaseItems = [
     { fase: t('reglas.phases.p1.fase'), desc: t('reglas.phases.p1.desc') },
     { fase: t('reglas.phases.p2.fase'), desc: t('reglas.phases.p2.desc') },
-    { fase: t('reglas.phases.p3.fase'), desc: t('reglas.phases.p3.desc') },
   ]
 
   return (

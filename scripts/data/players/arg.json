@@ -1,0 +1,280 @@
+{
+  "iso_code": "ARG",
+  "players": [
+    {
+      "squad_number": 23,
+      "name": "Emiliano Martínez",
+      "position": "GK",
+      "date_of_birth": "1992-09-02",
+      "height_cm": 195,
+      "club": "Aston Villa",
+      "caps": 59,
+      "intl_goals": 0,
+      "transfermarkt_id": 111873
+    },
+    {
+      "squad_number": 12,
+      "name": "Gerónimo Rulli",
+      "position": "GK",
+      "date_of_birth": "1992-05-20",
+      "height_cm": 189,
+      "club": "Olympique Marseille",
+      "caps": 7,
+      "intl_goals": 0,
+      "transfermarkt_id": 229604
+    },
+    {
+      "squad_number": 1,
+      "name": "Juan Musso",
+      "position": "GK",
+      "date_of_birth": "1994-05-06",
+      "height_cm": 193,
+      "club": "Atlético de Madrid",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 242359
+    },
+    {
+      "squad_number": 13,
+      "name": "Cristian Romero",
+      "position": "DF",
+      "date_of_birth": "1998-04-27",
+      "height_cm": 185,
+      "club": "Tottenham Hotspur",
+      "caps": 50,
+      "intl_goals": 3,
+      "transfermarkt_id": 355915
+    },
+    {
+      "squad_number": 6,
+      "name": "Lisandro Martínez",
+      "position": "DF",
+      "date_of_birth": "1998-01-18",
+      "height_cm": 175,
+      "club": "Manchester United",
+      "caps": 27,
+      "intl_goals": 1,
+      "transfermarkt_id": 480762
+    },
+    {
+      "squad_number": 25,
+      "name": "Facundo Medina",
+      "position": "DF",
+      "date_of_birth": "1999-05-28",
+      "height_cm": 184,
+      "club": "Olympique Marseille",
+      "caps": 8,
+      "intl_goals": 0,
+      "transfermarkt_id": 474800
+    },
+    {
+      "squad_number": 19,
+      "name": "Nicolás Otamendi",
+      "position": "DF",
+      "date_of_birth": "1988-02-12",
+      "height_cm": 182,
+      "club": "SL Benfica",
+      "caps": 131,
+      "intl_goals": 8,
+      "transfermarkt_id": 54781
+    },
+    {
+      "squad_number": 3,
+      "name": "Nicolás Tagliafico",
+      "position": "DF",
+      "date_of_birth": "1992-08-31",
+      "height_cm": 172,
+      "club": "Olympique Lyon",
+      "caps": 76,
+      "intl_goals": 1,
+      "transfermarkt_id": 131225
+    },
+    {
+      "squad_number": 26,
+      "name": "Nahuel Molina",
+      "position": "DF",
+      "date_of_birth": "1998-04-06",
+      "height_cm": 179,
+      "club": "Atlético de Madrid",
+      "caps": 58,
+      "intl_goals": 1,
+      "transfermarkt_id": 424042
+    },
+    {
+      "squad_number": 4,
+      "name": "Gonzalo Montiel",
+      "position": "DF",
+      "date_of_birth": "1997-01-01",
+      "height_cm": 175,
+      "club": "CA River Plate",
+      "caps": 38,
+      "intl_goals": 2,
+      "transfermarkt_id": 402733
+    },
+    {
+      "squad_number": 5,
+      "name": "Leandro Paredes",
+      "position": "MF",
+      "date_of_birth": "1994-06-29",
+      "height_cm": 182,
+      "club": "CA Boca Juniors",
+      "caps": 77,
+      "intl_goals": 5,
+      "transfermarkt_id": 166237
+    },
+    {
+      "squad_number": 24,
+      "name": "Enzo Fernández",
+      "position": "MF",
+      "date_of_birth": "2001-01-17",
+      "height_cm": 178,
+      "club": "Chelsea FC",
+      "caps": 41,
+      "intl_goals": 6,
+      "transfermarkt_id": 648195
+    },
+    {
+      "squad_number": 20,
+      "name": "Alexis Mac Allister",
+      "position": "MF",
+      "date_of_birth": "1998-12-24",
+      "height_cm": 176,
+      "club": "Liverpool FC",
+      "caps": 45,
+      "intl_goals": 6,
+      "transfermarkt_id": 534033
+    },
+    {
+      "squad_number": 8,
+      "name": "Valentín Barco",
+      "position": "MF",
+      "date_of_birth": "2004-07-23",
+      "height_cm": 172,
+      "club": "RC Strasbourg Alsace",
+      "caps": 3,
+      "intl_goals": 1,
+      "transfermarkt_id": 849410
+    },
+    {
+      "squad_number": 14,
+      "name": "Exequiel Palacios",
+      "position": "MF",
+      "date_of_birth": "1998-10-05",
+      "height_cm": 177,
+      "club": "Bayer 04 Leverkusen",
+      "caps": 39,
+      "intl_goals": 0,
+      "transfermarkt_id": 401578
+    },
+    {
+      "squad_number": 7,
+      "name": "Rodrigo De Paul",
+      "position": "MF",
+      "date_of_birth": "1994-05-24",
+      "height_cm": 178,
+      "club": "Inter Miami CF",
+      "caps": 86,
+      "intl_goals": 2,
+      "transfermarkt_id": 255901
+    },
+    {
+      "squad_number": 18,
+      "name": "Nico Paz",
+      "position": "MF",
+      "date_of_birth": "2004-09-08",
+      "height_cm": 185,
+      "club": "Como 1907",
+      "caps": 8,
+      "intl_goals": 1,
+      "transfermarkt_id": 948294
+    },
+    {
+      "squad_number": 11,
+      "name": "Giovani Lo Celso",
+      "position": "MF",
+      "date_of_birth": "1996-04-09",
+      "height_cm": 177,
+      "club": "Real Betis Balompié",
+      "caps": 66,
+      "intl_goals": 4,
+      "transfermarkt_id": 348795
+    },
+    {
+      "squad_number": 15,
+      "name": "Nico González",
+      "position": "FW",
+      "date_of_birth": "1998-04-06",
+      "height_cm": 180,
+      "club": "Atlético de Madrid",
+      "caps": 50,
+      "intl_goals": 6,
+      "transfermarkt_id": 486031
+    },
+    {
+      "squad_number": 16,
+      "name": "Thiago Almada",
+      "position": "FW",
+      "date_of_birth": "2001-04-26",
+      "height_cm": 171,
+      "club": "Atlético de Madrid",
+      "caps": 15,
+      "intl_goals": 4,
+      "transfermarkt_id": 576028
+    },
+    {
+      "squad_number": 17,
+      "name": "Giuliano Simeone",
+      "position": "FW",
+      "date_of_birth": "2002-12-18",
+      "height_cm": 174,
+      "club": "Atlético de Madrid",
+      "caps": 12,
+      "intl_goals": 1,
+      "transfermarkt_id": 742201
+    },
+    {
+      "squad_number": 10,
+      "name": "Lionel Messi",
+      "position": "FW",
+      "date_of_birth": "1987-06-24",
+      "height_cm": 170,
+      "club": "Inter Miami CF",
+      "caps": 198,
+      "intl_goals": 116,
+      "transfermarkt_id": 28003
+    },
+    {
+      "squad_number": 9,
+      "name": "Julián Álvarez",
+      "position": "FW",
+      "date_of_birth": "2000-01-31",
+      "height_cm": 170,
+      "club": "Atlético de Madrid",
+      "caps": 51,
+      "intl_goals": 14,
+      "transfermarkt_id": 576024
+    },
+    {
+      "squad_number": 22,
+      "name": "Lautaro Martínez",
+      "position": "FW",
+      "date_of_birth": "1997-08-22",
+      "height_cm": 175,
+      "club": "Inter Milan",
+      "caps": 76,
+      "intl_goals": 37,
+      "transfermarkt_id": 406625
+    },
+    {
+      "squad_number": 21,
+      "name": "José Manuel López",
+      "position": "FW",
+      "date_of_birth": "2000-12-06",
+      "height_cm": 190,
+      "club": "Sociedade Esportiva Palmeiras",
+      "caps": 3,
+      "intl_goals": 0,
+      "transfermarkt_id": 844797
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "iso_code": "UZB",
+  "players": [
+    {
+      "squad_number": 12,
+      "name": "Abduvokhid Nematov",
+      "position": "GK",
+      "date_of_birth": "2001-03-20",
+      "height_cm": 182,
+      "club": "Nasaf Qarshi",
+      "caps": 14,
+      "intl_goals": 0,
+      "transfermarkt_id": 527866
+    },
+    {
+      "squad_number": 1,
+      "name": "Utkir Yusupov",
+      "position": "GK",
+      "date_of_birth": "1991-01-04",
+      "height_cm": 185,
+      "club": "Navbahor Namangan",
+      "caps": 44,
+      "intl_goals": 0,
+      "transfermarkt_id": 311958
+    },
+    {
+      "squad_number": 16,
+      "name": "Botirali Ergashev",
+      "position": "GK",
+      "date_of_birth": "1995-06-23",
+      "height_cm": 189,
+      "club": "Neftchi Fergana",
+      "caps": 4,
+      "intl_goals": 0,
+      "transfermarkt_id": 312690
+    },
+    {
+      "squad_number": 2,
+      "name": "Abdukodir Khusanov",
+      "position": "DF",
+      "date_of_birth": "2004-02-29",
+      "height_cm": 186,
+      "club": "Manchester City",
+      "caps": 26,
+      "intl_goals": 0,
+      "transfermarkt_id": 763079
+    },
+    {
+      "squad_number": 5,
+      "name": "Rustam Ashurmatov",
+      "position": "DF",
+      "date_of_birth": "1996-07-07",
+      "height_cm": 186,
+      "club": "Esteghlal FC",
+      "caps": 50,
+      "intl_goals": 1,
+      "transfermarkt_id": 288883
+    },
+    {
+      "squad_number": 26,
+      "name": "Jakhongir Urozov",
+      "position": "DF",
+      "date_of_birth": "2004-01-18",
+      "height_cm": 190,
+      "club": "Dinamo Samarqand",
+      "caps": 3,
+      "intl_goals": 1,
+      "transfermarkt_id": 989069
+    },
+    {
+      "squad_number": 25,
+      "name": "Avazbek Ulmasaliev",
+      "position": "DF",
+      "date_of_birth": "2000-03-27",
+      "height_cm": 187,
+      "club": "FC OKMK Olmaliq",
+      "caps": null,
+      "intl_goals": null,
+      "transfermarkt_id": 538764
+    },
+    {
+      "squad_number": 15,
+      "name": "Umar Eshmurodov",
+      "position": "DF",
+      "date_of_birth": "1992-11-30",
+      "height_cm": 185,
+      "club": "Nasaf Qarshi",
+      "caps": 39,
+      "intl_goals": 0,
+      "transfermarkt_id": 493725
+    },
+    {
+      "squad_number": 13,
+      "name": "Sherzod Nasrullaev",
+      "position": "DF",
+      "date_of_birth": "1998-07-23",
+      "height_cm": 183,
+      "club": "Pakhtakor Tashkent",
+      "caps": 38,
+      "intl_goals": 2,
+      "transfermarkt_id": 608537
+    },
+    {
+      "squad_number": 4,
+      "name": "Farrukh Sayfiev",
+      "position": "DF",
+      "date_of_birth": "1991-01-17",
+      "height_cm": 183,
+      "club": "Neftchi Fergana",
+      "caps": 67,
+      "intl_goals": 1,
+      "transfermarkt_id": 212499
+    },
+    {
+      "squad_number": 3,
+      "name": "Khozhiakbar Alizhonov",
+      "position": "DF",
+      "date_of_birth": "1997-04-19",
+      "height_cm": 180,
+      "club": "Pakhtakor Tashkent",
+      "caps": 52,
+      "intl_goals": 3,
+      "transfermarkt_id": 492558
+    },
+    {
+      "squad_number": 24,
+      "name": "Bekhruz Karimov",
+      "position": "DF",
+      "date_of_birth": "2007-08-07",
+      "height_cm": 172,
+      "club": "Surkhon Termiz",
+      "caps": 2,
+      "intl_goals": 0,
+      "transfermarkt_id": 1106187
+    },
+    {
+      "squad_number": 9,
+      "name": "Odildzhon Khamrobekov",
+      "position": "MF",
+      "date_of_birth": "1996-02-13",
+      "height_cm": 180,
+      "club": "Tractor FC",
+      "caps": 74,
+      "intl_goals": 1,
+      "transfermarkt_id": 288915
+    },
+    {
+      "squad_number": 18,
+      "name": "Abdulla Abdullaev",
+      "position": "MF",
+      "date_of_birth": "1997-09-01",
+      "height_cm": 181,
+      "club": "Dibba SCC",
+      "caps": 29,
+      "intl_goals": 0,
+      "transfermarkt_id": 570272
+    },
+    {
+      "squad_number": 19,
+      "name": "Aziz Ganiev",
+      "position": "MF",
+      "date_of_birth": "1998-02-22",
+      "height_cm": 178,
+      "club": "Al-Bataeh CSC",
+      "caps": 23,
+      "intl_goals": 0,
+      "transfermarkt_id": 431911
+    },
+    {
+      "squad_number": 7,
+      "name": "Otabek Shukurov",
+      "position": "MF",
+      "date_of_birth": "1996-06-22",
+      "height_cm": 183,
+      "club": "FC Baniyas",
+      "caps": 88,
+      "intl_goals": 9,
+      "transfermarkt_id": 294525
+    },
+    {
+      "squad_number": 6,
+      "name": "Akmal Mozgovoy",
+      "position": "MF",
+      "date_of_birth": "1999-04-02",
+      "height_cm": 180,
+      "club": "Pakhtakor Tashkent",
+      "caps": 24,
+      "intl_goals": 1,
+      "transfermarkt_id": 562022
+    },
+    {
+      "squad_number": 23,
+      "name": "Sherzod Esanov",
+      "position": "MF",
+      "date_of_birth": "2003-02-01",
+      "height_cm": 190,
+      "club": "FC Buxoro",
+      "caps": 1,
+      "intl_goals": 0,
+      "transfermarkt_id": 989068
+    },
+    {
+      "squad_number": 8,
+      "name": "Jamshid Iskanderov",
+      "position": "MF",
+      "date_of_birth": "1993-10-16",
+      "height_cm": 171,
+      "club": "Neftchi Fergana",
+      "caps": 44,
+      "intl_goals": 4,
+      "transfermarkt_id": 260857
+    },
+    {
+      "squad_number": 11,
+      "name": "Oston Urunov",
+      "position": "FW",
+      "date_of_birth": "2000-12-19",
+      "height_cm": 181,
+      "club": "Persepolis FC",
+      "caps": 42,
+      "intl_goals": 10,
+      "transfermarkt_id": 492556
+    },
+    {
+      "squad_number": 10,
+      "name": "Jaloliddin Masharipov",
+      "position": "FW",
+      "date_of_birth": "1993-09-01",
+      "height_cm": 174,
+      "club": "Esteghlal FC",
+      "caps": 74,
+      "intl_goals": 13,
+      "transfermarkt_id": 274536
+    },
+    {
+      "squad_number": 22,
+      "name": "Abbosbek Fayzullaev",
+      "position": "FW",
+      "date_of_birth": "2003-10-03",
+      "height_cm": 167,
+      "club": "Basaksehir FK",
+      "caps": 31,
+      "intl_goals": 8,
+      "transfermarkt_id": 754037
+    },
+    {
+      "squad_number": 17,
+      "name": "Dostonbek Khamdamov",
+      "position": "FW",
+      "date_of_birth": "1996-07-24",
+      "height_cm": 178,
+      "club": "Pakhtakor Tashkent",
+      "caps": 36,
+      "intl_goals": 5,
+      "transfermarkt_id": 294502
+    },
+    {
+      "squad_number": 14,
+      "name": "Eldor Shomurodov",
+      "position": "FW",
+      "date_of_birth": "1995-06-29",
+      "height_cm": 190,
+      "club": "Basaksehir FK",
+      "caps": 91,
+      "intl_goals": 44,
+      "transfermarkt_id": 358166
+    },
+    {
+      "squad_number": 21,
+      "name": "Igor Sergeev",
+      "position": "FW",
+      "date_of_birth": "1993-04-30",
+      "height_cm": 185,
+      "club": "Persepolis FC",
+      "caps": 83,
+      "intl_goals": 24,
+      "transfermarkt_id": 185372
+    },
+    {
+      "squad_number": 20,
+      "name": "Azizbek Amanov",
+      "position": "FW",
+      "date_of_birth": "1997-10-30",
+      "height_cm": 181,
+      "club": "Dinamo Samarqand",
+      "caps": 12,
+      "intl_goals": 2,
+      "transfermarkt_id": 517918
+    }
+  ]
+}

@@ -3,6 +3,7 @@
     "home": "Inicio",
     "clasificacion": "Clasificación",
     "miMundial": "Mi Mundial",
+    "selecciones": "Selecciones",
     "ligasPrivadas": "Ligas Privadas",
     "comoJugar": "Cómo jugar",
     "iniciarSesion": "Iniciar Sesión"
@@ -200,6 +201,34 @@
       "success": "Contraseña actualizada"
     }
   },
+  "selecciones": {
+    "title": "Selecciones",
+    "subtitle": "Información y plantillas de los 48 equipos del Mundial 2026",
+    "grupo": "Grupo {letter}",
+    "rankingFifa": "Ranking FIFA",
+    "seleccionador": "Seleccionador",
+    "mundiales": "Mundiales",
+    "ultimoResultado": "Último Mundial",
+    "sinDatos": "Información no disponible aún",
+    "verPlantilla": "Ver plantilla",
+    "volver": "← Todas las selecciones",
+    "squad": {
+      "title": "Plantilla convocada",
+      "preInfo": "Estadísticas anteriores al inicio del torneo",
+      "sinJugadores": "La plantilla de esta selección aún no está disponible.",
+      "verPerfil": "Ver en Transfermarkt",
+      "cols": {
+        "dorsal": "#",
+        "jugador": "Jugador",
+        "pos": "Pos.",
+        "edad": "Edad",
+        "altura": "Alt.",
+        "club": "Club",
+        "pj": "PJ",
+        "goles": "Goles"
+      }
+    }
+  },
   "footer": {
     "copyright": "© 2026 POLLAMUNDIAL. Creado por el pueblo y para el pueblo.",
     "calendario": "Calendario FIFA",
@@ -222,6 +251,9 @@
     "noPartidos": "No hay partidos de fase de grupos disponibles.",
     "grupo": "Grupo {letter}",
     "mejor3": "Mejor 3º",
+    "mejoresTercerosTitle": "Clasificación de Mejores Terceros",
+    "mejorTerceroPass": "Clasifican (8 de 12)",
+    "mejorTerceroOut": "No clasifican (4 de 12)",
     "cols": {
       "equipo": "Equipo",
       "pts": "Pts"
@@ -248,7 +280,7 @@
       "title": "⚡ Fases Eliminatorias",
       "badge": "Dieciseisavos en adelante",
       "intro": "En eliminación directa aplica la regla del Ganador Absoluto. La escala de puntos (+3, +2, +1) funciona igual que en grupos, pero solo si primero aciertas quién pasa de ronda.",
-      "ties":       { "title": "Empates en 120 min",                    "desc": "Si predices un empate, la app te pedirá que elijas qué equipo avanza a la siguiente ronda (como si fuera a penaltis o prórroga). Esa elección forma parte de tu predicción." },
+      "ties":       { "title": "Empates en 120 min",                    "desc": "Si predices un empate, la app te pedirá que elijas qué equipo avanza a la siguiente ronda (como si fuera a penaltis). Esa elección forma parte de tu predicción." },
       "goldenRule": { "title": "La Regla de Oro: el clasificado manda",  "desc1": "Si fallas qué equipo pasa de ronda,", "penalty": "recibes 0 puntos automáticamente", "desc2": ", sin importar cuántos goles hayas acertado en el marcador." },
       "ifCorrect":  { "title": "Si aciertas el clasificado…",            "desc": "Se aplica la escala normal (+3 exacto · +2 diferencia · +1 solo clasificado) comparando tus goles con el marcador real en los 90/120 minutos." },
       "examples": {
@@ -272,9 +304,8 @@
     "phases": {
       "title": "📅 Fases del torneo",
       "disclaimer": "El plazo para registrar o modificar una predicción vence en el momento exacto del pitido inicial de cada partido.",
-      "p1": { "fase": "Fase de Grupos",              "desc": "Predice los resultados de los 48 partidos de la primera fase." },
-      "p2": { "fase": "Octavos de Final",             "desc": "Los 32 clasificados se enfrentan en rondas de eliminación directa." },
-      "p3": { "fase": "Cuartos, Semifinales y Final", "desc": "Las predicciones valen igual pero el impacto en la clasificación es mayor." }
+      "p1": { "fase": "Fase de Grupos",              "desc": "Predice ganador o empate de los 72 partidos de la fase de grupos" },
+      "p2": { "fase": "Octavos de Final en adelante",             "desc": "Los 32 clasificados se enfrentan en rondas de eliminación directa." }
     }
   }
 }
