@@ -8,7 +8,132 @@
     "last_wc_result": "No clasificó"
   },
   {
-    "iso_code": "",
+    "iso_code": "MEX",
+    "fifa_ranking": 14,
+    "manager": "Javier Aguirre",
+    "confederation": "CONCACAF",
+    "world_cups_won": 0,
+    "last_wc_result": "Fase de grupos"
+  },
+  {
+    "iso_code": "KOR",
+    "fifa_ranking": 25,
+    "manager": "Hong Myung-bo",
+    "confederation": "AFC",
+    "world_cups_won": 0,
+    "last_wc_result": "Octavos de final"
+  },
+  {
+    "iso_code": "RSA",
+    "fifa_ranking": 60,
+    "manager": "Hugo Broos",
+    "confederation": "CAF",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó"
+  },
+  {
+    "iso_code": "BIH",
+    "fifa_ranking": 64,
+    "manager": "Sergej Barbarez",
+    "confederation": "UEFA",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó"
+  },
+  {
+    "iso_code": "CAN",
+    "fifa_ranking": 30,
+    "manager": "Jesse Marsch",
+    "confederation": "CONCACAF",
+    "world_cups_won": 0,
+    "last_wc_result": "Fase de grupos"
+  },
+  {
+    "iso_code": "QAT",
+    "fifa_ranking": 57,
+    "manager": "Julen Lopetegui",
+    "confederation": "AFC",
+    "world_cups_won": 0,
+    "last_wc_result": "Fase de grupos"
+  },
+  {
+    "iso_code": "SUI",
+    "fifa_ranking": 19,
+    "manager": "Murat Yakin",
+    "confederation": "UEFA",
+    "world_cups_won": 0,
+    "last_wc_result": "Octavos de final"
+  },
+  {
+    "iso_code": "BRA",
+    "fifa_ranking": 6,
+    "manager": "Carlo Ancelotti",
+    "confederation": "CONMEBOL",
+    "world_cups_won": 5,
+    "last_wc_result": "Cuartos de final"
+  },
+  {
+    "iso_code": "SCO",
+    "fifa_ranking": 42,
+    "manager": "Steve Clarke",
+    "confederation": "UEFA",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó"
+  },
+  {
+    "iso_code": "HAI",
+    "fifa_ranking": 83,
+    "manager": "Sébastien Migné",
+    "confederation": "CONCACAF",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó"
+  },
+  {
+    "iso_code": "MAR",
+    "fifa_ranking": 7,
+    "manager": "Mohamed Ouahbi",
+    "confederation": "CAF",
+    "world_cups_won": 0,
+    "last_wc_result": "Semifinal",
+    "Seudonimo":"Los leones del Atlas"
+  },
+  {
+    "iso_code": "AUS",
+    "fifa_ranking": 27,
+    "manager": "Tony Popovic",
+    "confederation": "AFC",
+    "world_cups_won": 0,
+    "last_wc_result": "Octavos de final",
+    "Seudonimo":"Los socceros"
+  },
+  {
+    "iso_code": "USA",
+    "fifa_ranking": 17,
+    "manager": "Mauricio Pochettino",
+    "confederation": "CONCACAF",
+    "world_cups_won": 0,
+    "last_wc_result": "Octavos de final",
+    "Seudonimo":"The Yankees"
+  },
+  {
+    "iso_code": "PAR",
+    "fifa_ranking": 40,
+    "manager": "Gustavo Alfaro",
+    "confederation": "CONMEBOL",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Los Guaraníes"
+  },
+  {
+    "iso_code": "TUR",
+    "fifa_ranking": 22,
+    "manager": "Vincenzo Montella",
+    "confederation": "UEFA",
+    "world_cups_won": 0,
+    "last_wc_result": "No clasificó",
+    "Seudonimo":"Bizim Çocuklar"
+  },
+  {
+    "iso_code": "GER",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -16,7 +141,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "CIV",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -24,7 +149,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "CUW",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -32,7 +157,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "ECU",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -40,7 +165,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "JPN",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -48,7 +173,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "NED",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -56,7 +181,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "SWE",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -64,7 +189,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "TUN",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -72,7 +197,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "BEL",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -80,7 +205,7 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "EGY",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
@@ -88,7 +213,175 @@
     "last_wc_result": ""
   },
   {
-    "iso_code": "",
+    "iso_code": "NZL",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "IRN",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "KSA",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "ESP",
+    "fifa_ranking": 2,
+    "manager": "Luis de la Fuente",
+    "confederation": "UEFA",
+    "world_cups_won": 1,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "CPV",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "URU",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "FRA",
+    "fifa_ranking": 1,
+    "manager": "Didier Deschamps",
+    "confederation": "UEFA",
+    "world_cups_won": 2,
+    "last_wc_result": "Final"
+  },
+  {
+    "iso_code": "IRQ",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "NOR",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "SEN",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "ALG",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "ARG",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "AUT",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "JOR",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "COL",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "POR",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "COD",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "UZB",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "CRO",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "GHA",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "ENG",
+    "fifa_ranking": 0,
+    "manager": "",
+    "confederation": "",
+    "world_cups_won": 0,
+    "last_wc_result": ""
+  },
+  {
+    "iso_code": "PAN",
     "fifa_ranking": 0,
     "manager": "",
     "confederation": "",
