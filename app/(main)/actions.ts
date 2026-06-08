@@ -5,9 +5,31 @@ import { revalidatePath } from 'next/cache'
 
 export interface PredictionDraft {
   matchId: number
-  homeGoals: number
-  awayGoals: number
+  homeGoals: number | null
+  awayGoals: number | null
   advancingTeamId: number | null
+}
+
+// ── Helper interno: borra la predicción validando corte de tiempo ──────────
+async function _deletePrediction(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  userId: string,
+  matchId: number,
+  matchDate: string,
+  status: string,
+  now: number,
+): Promise<void> {
+  if (status === 'FINISHED' || status === 'CANCELLED') throw new Error('No acepta modificaciones')
+  const cutoffMs = new Date(matchDate).getTime() - 60 * 60 * 1000
+  if (now >= cutoffMs) throw new Error('Plazo cerrado')
+
+  const { error } = await supabase
+    .from('predictions')
+    .delete()
+    .eq('profile_id', userId)
+    .eq('match_id', matchId)
+
+  if (error) throw new Error(error.message)
 }
 
 export async function saveAllPredictionsAction(
@@ -28,9 +50,6 @@ export async function saveAllPredictionsAction(
 
   const outcomes = await Promise.allSettled(
     drafts.map(async ({ matchId, homeGoals, awayGoals, advancingTeamId: clientAdvancingId }) => {
-      if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) throw new Error('Goles inválidos')
-      if (homeGoals < 0 || awayGoals < 0 || homeGoals > 99 || awayGoals > 99) throw new Error('Goles fuera de rango')
-
       const match = matchMap.get(matchId)
       if (!match) throw new Error('Partido no encontrado')
       if (match.status === 'FINISHED' || match.status === 'CANCELLED') throw new Error('No acepta predicciones')
@@ -38,11 +57,20 @@ export async function saveAllPredictionsAction(
       const cutoffMs = new Date(match.match_date).getTime() - 60 * 60 * 1000
       if (now >= cutoffMs) throw new Error('Plazo cerrado')
 
+      // Borrador nulo → DELETE
+      if (homeGoals === null && awayGoals === null) {
+        await _deletePrediction(supabase, user.id, matchId, match.match_date, match.status, now)
+        return
+      }
+
+      if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) throw new Error('Goles inválidos')
+      if (homeGoals! < 0 || awayGoals! < 0 || homeGoals! > 99 || awayGoals! > 99) throw new Error('Goles fuera de rango')
+
       let pred_advancing_team_id: number | null = null
       if (match.stage !== 'GROUP') {
-        if (homeGoals > awayGoals) {
+        if (homeGoals! > awayGoals!) {
           pred_advancing_team_id = match.home_team_id
-        } else if (awayGoals > homeGoals) {
+        } else if (awayGoals! > homeGoals!) {
           pred_advancing_team_id = match.away_team_id
         } else {
           if (!clientAdvancingId) throw new Error('Selecciona quién clasifica por penaltis')
@@ -82,21 +110,14 @@ export async function saveAllPredictionsAction(
 
 export async function savePredictionAction(
   matchId: number,
-  homeGoals: number,
-  awayGoals: number,
+  homeGoals: number | null,
+  awayGoals: number | null,
   clientAdvancingId: number | null = null,
 ) {
   const supabase = await createClient()
 
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return { error: 'No estás autenticado' }
-
-  if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) {
-    return { error: 'Los goles deben ser números enteros' }
-  }
-  if (homeGoals < 0 || awayGoals < 0 || homeGoals > 99 || awayGoals > 99) {
-    return { error: 'Valor de goles fuera de rango (0–99)' }
-  }
 
   const { data: match, error: matchError } = await supabase
     .from('matches')
@@ -105,7 +126,6 @@ export async function savePredictionAction(
     .single()
 
   if (matchError || !match) return { error: 'Partido no encontrado' }
-
   if (match.status === 'FINISHED' || match.status === 'CANCELLED') {
     return { error: 'Este partido ya no acepta predicciones' }
   }
@@ -115,17 +135,31 @@ export async function savePredictionAction(
     return { error: 'El plazo para predecir ha cerrado (se cierra 1 hora antes del partido)' }
   }
 
-  // ── Sanitización del clasificado (anti-trampa) ──────────────
-  let pred_advancing_team_id: number | null = null
+  // Borrador nulo → DELETE
+  if (homeGoals === null && awayGoals === null) {
+    try {
+      await _deletePrediction(supabase, user.id, matchId, match.match_date, match.status, Date.now())
+      revalidatePath('/')
+      return { success: true }
+    } catch (e) {
+      return { error: (e as Error).message }
+    }
+  }
 
+  if (!Number.isInteger(homeGoals) || !Number.isInteger(awayGoals)) {
+    return { error: 'Los goles deben ser números enteros' }
+  }
+  if (homeGoals! < 0 || awayGoals! < 0 || homeGoals! > 99 || awayGoals! > 99) {
+    return { error: 'Valor de goles fuera de rango (0–99)' }
+  }
+
+  let pred_advancing_team_id: number | null = null
   if (match.stage !== 'GROUP') {
-    if (homeGoals > awayGoals) {
-      // El servidor fuerza el clasificado independientemente del cliente
+    if (homeGoals! > awayGoals!) {
       pred_advancing_team_id = match.home_team_id
-    } else if (awayGoals > homeGoals) {
+    } else if (awayGoals! > homeGoals!) {
       pred_advancing_team_id = match.away_team_id
     } else {
-      // Empate real: solo aquí se acepta la elección del cliente
       if (!clientAdvancingId) {
         return { error: 'En eliminatoria con empate debes seleccionar quién clasifica por penaltis' }
       }
@@ -135,7 +169,6 @@ export async function savePredictionAction(
       pred_advancing_team_id = clientAdvancingId
     }
   }
-  // ────────────────────────────────────────────────────────────
 
   const { error } = await supabase
     .from('predictions')
@@ -146,9 +179,7 @@ export async function savePredictionAction(
       pred_away_goals: awayGoals,
       pred_advancing_team_id,
       updated_at: new Date().toISOString(),
-    }, {
-      onConflict: 'profile_id, match_id',
-    })
+    }, { onConflict: 'profile_id, match_id' })
 
   if (error) return { error: error.message }
 

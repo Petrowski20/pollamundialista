@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import MatchCard from './MatchCard';
+import type { MatchCardHandle } from './MatchCard';
 import { saveAllPredictionsAction } from '@/app/(main)/actions';
 import type { PredictionDraft } from '@/app/(main)/actions';
 
@@ -24,6 +25,7 @@ export default function MatchGrid({ matches }: { matches: any[] }) {
   // Pending predictions — useRef to avoid re-renders on every keystroke,
   // useState only for the count (to show/hide the sticky button)
   const pendingRef  = useRef<Map<number, PredictionDraft>>(new Map());
+  const cardRefs    = useRef<Map<number, MatchCardHandle>>(new Map());
   const [pendingCount, setPendingCount] = useState(0);
 
   const handlePendingChange = useCallback((
@@ -45,6 +47,17 @@ export default function MatchGrid({ matches }: { matches: any[] }) {
     setIsSavingAll(true);
     try {
       const { saved, failed } = await saveAllPredictionsAction(drafts);
+
+      // Confirmación inmediata: limpiar mapa y actualizar cada tarjeta sin esperar router.refresh()
+      const failedIds = new Set(failed.map((f) => f.matchId));
+      for (const draft of drafts) {
+        if (!failedIds.has(draft.matchId)) {
+          pendingRef.current.delete(draft.matchId);
+          cardRefs.current.get(draft.matchId)?.confirmSaved();
+        }
+      }
+      setPendingCount(pendingRef.current.size);
+
       if (failed.length === 0) {
         toast.success(`✅ ${saved} predicción${saved !== 1 ? 'es' : ''} guardada${saved !== 1 ? 's' : ''}`);
       } else {
@@ -189,6 +202,10 @@ export default function MatchGrid({ matches }: { matches: any[] }) {
           return (
             <MatchCard
               key={match.id}
+              ref={(el) => {
+                if (el) cardRefs.current.set(match.id, el);
+                else cardRefs.current.delete(match.id);
+              }}
               id={match.id}
               home={match.home_team}
               away={match.away_team}

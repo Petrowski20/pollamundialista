@@ -1,15 +1,18 @@
 import { cookies } from 'next/headers'
 import es from '@/locales/es.json'
 import en from '@/locales/en.json'
+import ro from '@/locales/ro.json'
 import type { Lang } from '@/contexts/LangContext'
 
 type Vars = Record<string, string | number>
 
-const dicts: Record<Lang, typeof es> = { es, en: en as typeof es }
+const dicts: Record<Lang, typeof es> = { es, en: en as typeof es, ro: ro as typeof es }
 
 export async function getServerLang(): Promise<Lang> {
   const store = await cookies()
-  return store.get('pm_lang')?.value === 'en' ? 'en' : 'es'
+  const val = store.get('pm_lang')?.value
+  if (val === 'en' || val === 'ro') return val
+  return 'es'
 }
 
 export function tServer(lang: Lang, key: string, vars?: Vars): string {

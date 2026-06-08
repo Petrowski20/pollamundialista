@@ -138,7 +138,8 @@
       "seleccionapenaltis": "Select who advances on penalties",
       "errorPrefix": "Error: "
     },
-    "success": "Prediction saved! ⚽"
+    "success": "Prediction saved! ⚽",
+    "cleared": "Prediction removed"
   },
   "auth": {
     "email": "Email Address",

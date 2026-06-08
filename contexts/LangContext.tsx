@@ -4,11 +4,12 @@ import { createContext, useContext, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import es from '@/locales/es.json'
 import en from '@/locales/en.json'
+import ro from '@/locales/ro.json'
 
-export type Lang = 'es' | 'en'
+export type Lang = 'es' | 'en' | 'ro'
 type Vars = Record<string, string | number>
 
-const dicts: Record<Lang, typeof es> = { es, en: en as typeof es }
+const dicts: Record<Lang, typeof es> = { es, en: en as typeof es, ro: ro as typeof es }
 
 function resolve(dict: typeof es, key: string): string {
   const val = key.split('.').reduce((o: unknown, k: string) => {

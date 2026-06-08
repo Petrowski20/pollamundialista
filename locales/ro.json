@@ -1,0 +1,317 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "clasificacion": "Clasament",
+    "miMundial": "Mondialul Meu",
+    "selecciones": "Echipe",
+    "ligasPrivadas": "Ligi Private",
+    "comoJugar": "Cum să joci",
+    "iniciarSesion": "Autentificare"
+  },
+  "mobile": {
+    "navegacion": "Navigare"
+  },
+  "dropdown": {
+    "miPerfil": "Profilul Meu",
+    "tema": "Temă",
+    "idioma": "Limbă",
+    "claro": "Luminos",
+    "auto": "Auto",
+    "oscuro": "Întunecat",
+    "cerrarSesion": "Deconectare"
+  },
+  "home": {
+    "title": "Etapa Curentă",
+    "subtitle": "Faza Grupelor - Etapa 1",
+    "predictions": {
+      "title": "Predicțiile Tale",
+      "completado": "Complet!",
+      "faltan": "Mai lipsesc {n}",
+      "completadas": "Finalizate",
+      "hint": "Nu uita că poți edita până cu 1 oră înainte de fluierul de start."
+    },
+    "ranking": {
+      "global": "Top 5 - Global",
+      "liga": "Top 5 - {name}",
+      "sinDatos": "Încă nu există date.",
+      "verCompleto": "Vezi clasamentul complet"
+    }
+  },
+  "clasificacion": {
+    "title": "Clasament",
+    "sinDatos": "Încă nu există date pentru acest clasament.",
+    "yo": "(Tu)",
+    "cols": {
+      "pos": "Poz.",
+      "usuario": "Utilizator",
+      "total": "Total"
+    },
+    "legend": {
+      "me": "Scor exact",
+      "ar": "Rezultat corect",
+      "ta": "Total puncte",
+      "pi": "Predicții incorecte",
+      "me_abbr": "SE",
+      "ar_abbr": "RC",
+      "ta_abbr": "TP",
+      "pi_abbr": "PI"
+    }
+  },
+  "ligas": {
+    "title": "Ligi Private",
+    "subtitle": "Creează o ligă pentru a concura cu prietenii sau alătură-te cu un cod.",
+    "myLeagues": "Ligile tale ({n})",
+    "noLeagues": "Nu faci parte din nicio ligă încă",
+    "noLeaguesHint": "Creează prima ligă sau alătură-te cu un cod.",
+    "admin": "Admin",
+    "code": "Cod:",
+    "desde": "Din {date}",
+    "ereCreador": "Ești creatorul"
+  },
+  "leagueDetail": {
+    "miembros": "Membri ({n})",
+    "cargando": "Se încarcă membrii…",
+    "creador": "Creator",
+    "tu": "Tu",
+    "verClasificacion": "Vezi clasamentul ligii",
+    "verClasificacionPending": "Se încarcă…",
+    "confirmExpulsar": "Elimini pe \"{nickname}\" din ligă?",
+    "expulsado": "\"{nickname}\" a fost eliminat",
+    "expulsar": "Elimină",
+    "expulsando": "…"
+  },
+  "leagueManager": {
+    "tabCrear": "➕ Creează Ligă",
+    "tabUnirse": "🔗 Alătură-te cu Cod",
+    "nombre": "Nume",
+    "descripcion": "Descriere",
+    "opcional": "(opțional)",
+    "creando": "Se creează…",
+    "crear": "Creează Liga",
+    "joinHint": "Cere codul de 6 caractere de la creatorul ligii și introdu-l aici.",
+    "uniendome": "Mă alătur…",
+    "unirseBtn": "Alătură-te Ligii",
+    "errors": {
+      "nombreObligatorio": "Numele este obligatoriu",
+      "codigoObligatorio": "Introdu un cod de ligă"
+    },
+    "created": "Ligă creată. Distribuie codul: {code}",
+    "joined": "Te-ai alăturat ligii \"{name}\"!"
+  },
+  "leagueSelector": {
+    "label": "Vezi clasamentul pentru:",
+    "global": "🌍 Global",
+    "guardando": "Se salvează...",
+    "error": "Eroare la schimbarea ligii: "
+  },
+  "leaveLeague": {
+    "confirmar": "Ești sigur că vrei să părăsești liga \"{name}\"?",
+    "saliendo": "Se părăsește…",
+    "abandonar": "🚪 Părăsește",
+    "success": "Ai părăsit liga \"{name}\""
+  },
+  "matchCard": {
+    "stages": {
+      "finished": "FINALIZAT",
+      "group": "GRUPA {group}",
+      "round16": "OPTIMI",
+      "quarter": "SFERTURI",
+      "semi": "SEMIFINALĂ",
+      "third": "LOCUL 3",
+      "final": "MAREA FINALĂ"
+    },
+    "referee": "Arbitru nealocat",
+    "stadium": "Stadion nespecificat",
+    "penaltis": "Cine merge mai departe la penaltiuri?",
+    "pasa": "Merge mai departe:",
+    "tuPred": "Predicția ta:",
+    "bloqueado": "🔒 Blocat",
+    "guardando": "⏳ Se salvează…",
+    "guardar": "💾 Salvează",
+    "seleccionaClasificado": "Selectează echipa calificată",
+    "guardado": "✓ Salvat",
+    "sinPrediccion": "Fără predicție",
+    "partidoFinalizado": "Meci finalizat",
+    "prediccionesCerradas": "Predicții închise",
+    "errors": {
+      "rellenagoles": "Completează ambele scoruri",
+      "seleccionapenaltis": "Selectează cine se califică la penaltiuri",
+      "errorPrefix": "Eroare: "
+    },
+    "success": "Predicție salvată! ⚽",
+    "cleared": "Predicție ștearsă"
+  },
+  "auth": {
+    "email": "Adresă de E-mail",
+    "emailPlaceholder": "tu@email.com",
+    "nickname": "Nickname (Unic)",
+    "nicknamePlaceholder": "Ex: Petrowski",
+    "birthDate": "Data nașterii",
+    "birthDateHint": "Trebuie să ai cel puțin 16 ani pentru a participa.",
+    "seleccion": "Echipa favorită",
+    "seleccionPlaceholder": "Selectează țara ta...",
+    "password": "Parolă",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirmă parola",
+    "crearCuenta": "Creează cont",
+    "iniciarSesion": "Autentificare",
+    "yaRegistrado": "Ai deja un cont? Autentifică-te",
+    "noRegistrado": "Nu ai cont? Înregistrează-te",
+    "mostrar": "Arată parola",
+    "ocultar": "Ascunde parola"
+  },
+  "login": {
+    "creaCuenta": "Creează-ți contul de jucător",
+    "iniciaSesion": "Autentifică-te pentru a prezice"
+  },
+  "profile": {
+    "estadisticas": "Statistici",
+    "puntosTotales": "Total puncte",
+    "rol": "Rol",
+    "preferencias": "Preferințe",
+    "idioma": "Limbă",
+    "tema": "Temă",
+    "cuenta": "Cont",
+    "misLigas": "Ligi Private",
+    "cambiarPassword": "Schimbă parola",
+    "cerrarSesion": "Deconectare",
+    "cambiarFoto": "Schimbă poza de profil",
+    "claro": "Luminos",
+    "automatico": "Automat",
+    "oscuro": "Întunecat",
+    "temaToast": "Temă: {label}",
+    "idiomaToast": "Limbă: {lang}",
+    "avatar": {
+      "success": "Poză de profil actualizată",
+      "error": "Eroare la încărcarea imaginii: {msg}",
+      "bucketError": "Containerul de imagini nu există în baza de date. Anunță administratorul.",
+      "formatError": "Format nepermis. Folosește JPEG, PNG sau WebP",
+      "sizeError": "Imaginea este prea mare (max. 5 MB)"
+    },
+    "password": {
+      "title": "Schimbă parola",
+      "nueva": "Parolă nouă",
+      "confirmar": "Confirmă parola",
+      "nuevaPlaceholder": "Minim 6 caractere",
+      "confirmarPlaceholder": "Repetă parola",
+      "cancelar": "Anulează",
+      "guardar": "Salvează",
+      "guardando": "Se salvează…",
+      "min6": "Minim 6 caractere",
+      "noCoinciden": "Parolele nu coincid",
+      "success": "Parolă actualizată"
+    }
+  },
+  "selecciones": {
+    "title": "Echipe",
+    "subtitle": "Informații și loturi pentru cele 48 de echipe de la Mondialul 2026",
+    "grupo": "Grupa {letter}",
+    "rankingFifa": "Clasament FIFA",
+    "seleccionador": "Selecționer",
+    "mundiales": "Campionate Mondiale",
+    "ultimoResultado": "Ultimul Mondial",
+    "sinDatos": "Informații indisponibile momentan",
+    "verPlantilla": "Vezi lotul",
+    "volver": "← Toate echipele",
+    "squad": {
+      "title": "Lotul convocat",
+      "preInfo": "Statistici înainte de începerea turneului",
+      "sinJugadores": "Lotul acestei echipe nu este disponibil încă.",
+      "verPerfil": "Vezi pe Transfermarkt",
+      "cols": {
+        "dorsal": "#",
+        "jugador": "Jucător",
+        "pos": "Poz.",
+        "edad": "Vârstă",
+        "altura": "Înălțime",
+        "club": "Club",
+        "pj": "Meciuri Jucate",
+        "goles": "Goluri"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 POLLAMUNDIAL. Creat de popor și pentru popor.",
+    "calendario": "Calendar FIFA",
+    "simulador": "Simulator",
+    "rtve": "RTVE Play",
+    "alternativa": "Alternativă",
+    "simuladores": "Jocuri"
+  },
+  "notFound": {
+    "title": "Ofsaid!",
+    "desc": "Arbitrul a anulat această pagină sau meciul căutat nu mai există.",
+    "volver": "Înapoi pe teren"
+  },
+  "supuestos": {
+    "title": "Mondialul Meu Virtual",
+    "subtitle": "Cum ar arăta grupele conform predicțiilor tale",
+    "basado": "Bazat pe {n} din {total} predicții din faza grupelor",
+    "sinPrediccion0": "Meciurile fără predicție sunt contorizate ca 0 – 0",
+    "clasificacionDirecta": "Calificare directă (Locul 1 și 2)",
+    "mejorTercero": "Cel mai bun loc 3 (8 din 12)",
+    "noPartidos": "Nu există meciuri în faza grupelor disponibile.",
+    "grupo": "Grupa {letter}",
+    "mejor3": "Locul 3",
+    "mejoresTercerosTitle": "Clasamentul celor mai bune locuri 3",
+    "mejorTerceroPass": "Se califică (8 din 12)",
+    "mejorTerceroOut": "Nu se califică (4 din 12)",
+    "cols": {
+      "equipo": "Echipă",
+      "pts": "Puncte"
+    }
+  },
+  "reglas": {
+    "title": "Cum să joci",
+    "subtitle": "Tot ce trebuie să știi pentru a câștiga.",
+    "scoring": {
+      "title": "⚽ Sistem de punctare",
+      "exact":      { "label": "Scor exact",          "desc": "Nimeresti scorul exact al meciului. Ex: prezici 2–1 și rezultatul final este 2–1." },
+      "winnerDiff": { "label": "Câștigător și diferență exactă","desc": "Nimeresti echipa câștigătoare (sau egalul) și diferența exactă de goluri, dar greșești scorul. Ex: prezici 2–0, rezultatul este 3–1 (gazda a câștigat la 2 goluri)." },
+      "winner":     { "label": "Câștigător corect",           "desc": "Nimeresti cine câștigă (sau că va fi egal) dar nu scorul sau diferența. Ex: prezici 2–0, rezultatul este 3–0." },
+      "noAcierto":  { "label": "Fără puncte",                "desc": "Câștigătorul prezis nu coincide cu rezultatul real." },
+      "noPrediccion":{ "label": "Fără predicție",            "desc": "Dacă nu înregistrezi o predicție înainte de începerea meciului, nu primești puncte pentru acel meci." }
+    },
+    "examples": {
+      "title": "📋 Exemple — Faza Grupelor",
+      "predices": "Prezici",
+      "real": "Real:",
+      "localGana": "(gazda câștigă, dif. +{n})"
+    },
+    "knockout": {
+      "title": "⚡ Faze Eliminatorii",
+      "badge": "Șaisprezecimi și mai departe",
+      "intro": "În fazele eliminatorii se aplică regula Câștigătorului Absolut. Scara de puncte (+3, +2, +1) funcționează la fel ca în grupe, dar doar dacă nimerești cine merge mai departe.",
+      "ties":       { "title": "Egalitate după 120 min",                    "desc": "Dacă prezici un egal, aplicația îți va cere să alegi ce echipă avansează (ca la penaltiuri). Acea alegere face parte din predicția ta." },
+      "goldenRule": { "title": "Regula de Aur: cel calificat decide",  "desc1": "Dacă greșești echipa care se califică,", "penalty": "primești 0 puncte automat", "desc2": ", indiferent de câte goluri ai nimerit la scor." },
+      "ifCorrect":  { "title": "Dacă nimerești echipa calificată…",            "desc": "Se aplică scara normală (+3 exact · +2 diferență · +1 doar calificata) comparând golurile tale cu scorul real după 90/120 minute." },
+      "examples": {
+        "title": "Exemple",
+        "predices": "Prezici",
+        "real": "Real:",
+        "pasaEquipoA": "(se califică Echipa A)",
+        "pasaEquipoB": "(se califică Echipa B)",
+        "failNote": "Ai greșit echipa calificată → penalizare totală",
+        "plus2Note": "Calificată ✓ · diferență (0 = 0) ✓ · scor exact ✗"
+      }
+    },
+    "tiebreak": {
+      "title": "🏆 Criterii de departajare",
+      "intro": "Dacă doi sau mai mulți jucători au același punctaj, departajarea se face în următoarea ordine:",
+      "r1": { "title": "Număr mai mare de rezultate exacte (+3)",  "desc": "Cine a nimerit cele mai multe scoruri exacte de-a lungul turneului." },
+      "r2": { "title": "Număr mai mare de câștigători corecți (+1)", "desc": "Cine a nimerit cel mai des semnul meciului (1X2)." },
+      "r3": { "title": "Goluri prezise cel mai aproape de totalul real","desc": "Se adună diferența absolută dintre golurile prezise și cele reale în toate meciurile. Diferență mai mică = poziție mai bună." },
+      "r4": { "title": "Ordinea înscrierii",                     "desc": "La egalitate absolută, are prioritate cel care s-a înregistrat primul pe platformă." }
+    },
+    "seleccionesSection": {
+      "title": "🌍 Echipe",
+      "desc": "Consultă fișa fiecăreia dintre cele 48 de echipe de la Mondialul 2026: clasament FIFA, selecționer și rezultatul din Qatar 2022. Intră pe oricare echipă pentru a vedea lotul complet cu poziția, vârsta, clubul, selecțiile și golurile pentru echipa națională."
+    },
+    "phases": {
+      "title": "📅 Fazele turneului",
+      "disclaimer": "Termenul limită pentru a înregistra sau modifica o predicție expiră cu 1 oră înainte de începerea fiecărui meci.",
+      "p1": { "fase": "Faza Grupelor",              "desc": "Prezice câștigătorul sau egalul pentru cele 72 de meciuri din faza grupelor" },
+      "p2": { "fase": "Optimi de Finală și mai departe",             "desc": "Cele 32 de echipe calificate se înfruntă în runde eliminatorii." }
+    }
+  }
+}

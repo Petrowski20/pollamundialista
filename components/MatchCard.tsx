@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import { X } from 'lucide-react';
 import { toast } from 'sonner';
 import { savePredictionAction } from '@/app/(main)/actions';
 import { getFlagUrl } from '@/utils/getFlagUrl';
@@ -63,7 +64,11 @@ function PointsBadge({ pts }: { pts: number }) {
   return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700 border border-green-200 dark:bg-emerald-400/25 dark:text-emerald-300 dark:border-emerald-400/30">+{pts} pts</span>;
 }
 
-export default function MatchCard({
+export interface MatchCardHandle {
+  confirmSaved: () => void;
+}
+
+const MatchCard = forwardRef<MatchCardHandle, MatchCardProps>(function MatchCard({
   id,
   home,
   away,
@@ -84,7 +89,7 @@ export default function MatchCard({
   stadium,
   referee,
   onPendingChange,
-}: MatchCardProps) {
+}: MatchCardProps, ref) {
   const { t } = useLang();
 
   const initHome = homePrediction?.toString() ?? '';
@@ -100,6 +105,15 @@ export default function MatchCard({
 
   const isKnockout = matchStage !== 'GROUP';
   const isFinished = status === 'FINISHED';
+
+  // Permite a MatchGrid confirmar el guardado en esta tarjeta de forma inmediata
+  useImperativeHandle(ref, () => ({
+    confirmSaved: () => {
+      setSavedHome(localHome);
+      setSavedAway(localAway);
+      setSavedAdvancingId(localAdvancingId);
+    },
+  }), [localHome, localAway, localAdvancingId]);
 
   // Stable ref so the pending-change effect doesn't need onPendingChange in its deps
   const onPendingChangeRef = useRef(onPendingChange);
@@ -119,20 +133,30 @@ export default function MatchCard({
     if (!isNaN(h) && !isNaN(a) && h !== a) setLocalAdvancingId(null);
   }, [localHome, localAway, isKnockout]);
 
-  const isTied        = localHome !== '' && localAway !== '' && localHome === localAway;
+  const isTied         = localHome !== '' && localAway !== '' && localHome === localAway;
   const needsAdvancing = isKnockout && isTied;
-  const hasChanged    =
+  const isPartial      = (localHome === '') !== (localAway === '');
+  const hasChanged     =
     localHome !== savedHome ||
     localAway !== savedAway ||
     (isKnockout && localAdvancingId !== savedAdvancingId);
-  const canSave = hasChanged && !(needsAdvancing && localAdvancingId === null);
+  const canSave = hasChanged && !isPartial && !(needsAdvancing && localAdvancingId === null);
 
   // Notify parent of pending state so MatchGrid can show the "save all" button
   useEffect(() => {
+    if (!canSave || isLocked || isFinished) {
+      onPendingChangeRef.current?.(id, null);
+      return;
+    }
+    const bothEmpty = localHome === '' && localAway === '';
+    if (bothEmpty) {
+      // Borrador nulo: señaliza al padre que este partido tiene una eliminación pendiente
+      onPendingChangeRef.current?.(id, { homeGoals: null, awayGoals: null, advancingTeamId: null });
+      return;
+    }
     const h = parseInt(localHome, 10);
     const a = parseInt(localAway, 10);
-    const valid = !isNaN(h) && !isNaN(a) && h >= 0 && a >= 0;
-    if (canSave && valid && !isLocked && !isFinished) {
+    if (!isNaN(h) && !isNaN(a) && h >= 0 && a >= 0) {
       onPendingChangeRef.current?.(id, { homeGoals: h, awayGoals: a, advancingTeamId: isKnockout ? localAdvancingId : null });
     } else {
       onPendingChangeRef.current?.(id, null);
@@ -151,25 +175,33 @@ export default function MatchCard({
     ? t('matchCard.stages.finished')
     : (stageMap[matchStage] ?? matchStage);
 
+  const handleClear = () => {
+    setLocalHome('');
+    setLocalAway('');
+    setLocalAdvancingId(null);
+  };
+
   const handleSave = async () => {
-    if (localHome === '' || localAway === '') {
-      toast.error(t('matchCard.errors.rellenagoles'));
-      return;
-    }
-    if (needsAdvancing && localAdvancingId === null) {
+    const bothEmpty = localHome === '' && localAway === '';
+    if (!bothEmpty && needsAdvancing && localAdvancingId === null) {
       toast.error(t('matchCard.errors.seleccionapenaltis'));
       return;
     }
     setIsSaving(true);
     const res = await savePredictionAction(
       id,
-      parseInt(localHome),
-      parseInt(localAway),
-      isKnockout ? localAdvancingId : null,
+      bothEmpty ? null : parseInt(localHome),
+      bothEmpty ? null : parseInt(localAway),
+      bothEmpty ? null : (isKnockout ? localAdvancingId : null),
     );
     setIsSaving(false);
     if (res.error) {
       toast.error(t('matchCard.errors.errorPrefix') + res.error);
+    } else if (bothEmpty) {
+      toast.success(t('matchCard.cleared'));
+      setSavedHome('');
+      setSavedAway('');
+      setSavedAdvancingId(null);
     } else {
       toast.success(t('matchCard.success'));
       setSavedHome(localHome);
@@ -258,7 +290,18 @@ export default function MatchCard({
               </span>
             </div>
           ) : (
-            <div className="flex flex-col items-center gap-2">
+            <div className="group relative flex flex-col items-center gap-2">
+              {(localHome !== '' || localAway !== '') && (
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  disabled={isSaving}
+                  className="absolute -right-5 top-2 opacity-100 text-gray-400 sm:opacity-0 sm:group-hover:opacity-100 hover:text-red-500 transition-colors z-10"
+                  aria-label="Borrar predicción"
+                >
+                  <X size={14} />
+                </button>
+              )}
               <div className="bg-white dark:bg-slate-950 rounded-lg shadow-sm border border-white/50 dark:border-slate-800 px-2 py-2 flex items-center gap-1">
                 <input
                   type="number" min={0} max={99} value={localHome}
@@ -326,7 +369,11 @@ export default function MatchCard({
         <span className="text-[10px] text-gray-600 dark:text-emerald-300/60 tracking-wide">{date}</span>
 
         {!isFinished && !isLocked && (
-          canSave ? (
+          isPartial ? (
+            <span className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold italic">
+              {t('matchCard.errors.rellenagoles')}
+            </span>
+          ) : canSave ? (
             <button
               onClick={handleSave}
               disabled={isSaving}
@@ -363,4 +410,6 @@ export default function MatchCard({
 
     </div>
   );
-}
+});
+
+export default MatchCard;

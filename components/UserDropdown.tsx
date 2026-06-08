@@ -131,7 +131,7 @@ export default function UserDropdown({ avatarUrl, nickname, role }: Props) {
                 {t('dropdown.idioma')}
               </p>
               <div className="flex gap-1.5">
-                {(['es', 'en'] as Lang[]).map((l) => (
+                {(['es', 'en', 'ro'] as Lang[]).map((l) => (
                   <button
                     key={l}
                     onClick={() => setLang(l)}

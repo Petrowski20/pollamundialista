@@ -138,7 +138,8 @@
       "seleccionapenaltis": "Selecciona quién clasifica por penaltis",
       "errorPrefix": "Error: "
     },
-    "success": "¡Predicción guardada! ⚽"
+    "success": "¡Predicción guardada! ⚽",
+    "cleared": "Predicción eliminada"
   },
   "auth": {
     "email": "Correo Electrónico",
