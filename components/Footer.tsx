@@ -1,5 +1,11 @@
 import { getServerLang, tServer } from '@/utils/i18n-server'
 
+const SIMULATORS = [
+  { label: '7a0', url: 'https://7a0.com.br/es' },
+  { label: '101pts', url: 'https://101pts.com/' },
+  { label: '38-0', url: 'https://38-0.app/' },
+]
+
 export default async function Footer() {
   const lang = await getServerLang()
   const t = (key: string) => tServer(lang, key)
@@ -44,6 +50,25 @@ export default async function Footer() {
           >
             <span>🏴‍☠️</span> {t('footer.alternativa')}
           </a>
+
+          {/* Separador */}
+          <span className="text-gray-200 dark:text-slate-700 select-none">|</span>
+
+          {/* Simuladores */}
+          <span className="font-semibold text-gray-400 dark:text-slate-500 flex items-center gap-1">
+            🎮 {t('footer.simuladores')}:
+          </span>
+          {SIMULATORS.map(({ label, url }) => (
+            <a
+              key={url}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </div>
     </footer>

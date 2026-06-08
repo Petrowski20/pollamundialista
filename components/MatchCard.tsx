@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import { savePredictionAction } from '@/app/(main)/actions';
 import { getFlagUrl } from '@/utils/getFlagUrl';
@@ -32,6 +32,7 @@ interface MatchCardProps {
   isLocked?: boolean;
   stadium?: string | null;
   referee?: string | null;
+  onPendingChange?: (matchId: number, draft: { homeGoals: number; awayGoals: number; advancingTeamId: number | null } | null) => void;
 }
 
 function FlagImg({ flagEmoji, name, isoCode }: { flagEmoji: string; name: string; isoCode?: string }) {
@@ -82,6 +83,7 @@ export default function MatchCard({
   isLocked = false,
   stadium,
   referee,
+  onPendingChange,
 }: MatchCardProps) {
   const { t } = useLang();
 
@@ -99,6 +101,17 @@ export default function MatchCard({
   const isKnockout = matchStage !== 'GROUP';
   const isFinished = status === 'FINISHED';
 
+  // Stable ref so the pending-change effect doesn't need onPendingChange in its deps
+  const onPendingChangeRef = useRef(onPendingChange);
+  useEffect(() => { onPendingChangeRef.current = onPendingChange; }, [onPendingChange]);
+
+  // Sync saved state when props update (e.g. after saveAllPredictionsAction + router.refresh)
+  useEffect(() => {
+    setSavedHome(homePrediction?.toString() ?? '');
+    setSavedAway(awayPrediction?.toString() ?? '');
+    setSavedAdvancingId(predAdvancingTeamId ?? null);
+  }, [homePrediction, awayPrediction, predAdvancingTeamId]);
+
   useEffect(() => {
     if (!isKnockout) return;
     const h = parseInt(localHome, 10);
@@ -113,6 +126,18 @@ export default function MatchCard({
     localAway !== savedAway ||
     (isKnockout && localAdvancingId !== savedAdvancingId);
   const canSave = hasChanged && !(needsAdvancing && localAdvancingId === null);
+
+  // Notify parent of pending state so MatchGrid can show the "save all" button
+  useEffect(() => {
+    const h = parseInt(localHome, 10);
+    const a = parseInt(localAway, 10);
+    const valid = !isNaN(h) && !isNaN(a) && h >= 0 && a >= 0;
+    if (canSave && valid && !isLocked && !isFinished) {
+      onPendingChangeRef.current?.(id, { homeGoals: h, awayGoals: a, advancingTeamId: isKnockout ? localAdvancingId : null });
+    } else {
+      onPendingChangeRef.current?.(id, null);
+    }
+  }, [canSave, localHome, localAway, localAdvancingId, id, isKnockout, isLocked, isFinished]);
 
   const stageMap: Record<string, string> = {
     GROUP:        t('matchCard.stages.group', { group }),

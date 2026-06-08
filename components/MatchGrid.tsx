@@ -1,7 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 import MatchCard from './MatchCard';
+import { saveAllPredictionsAction } from '@/app/(main)/actions';
+import type { PredictionDraft } from '@/app/(main)/actions';
 
 // Extrae YYYY-MM-DD en UTC de un match_date ISO
 const toUtcDay = (isoDate: string) => isoDate.slice(0, 10);
@@ -12,8 +16,49 @@ const formatPill = (isoDay: string) =>
   });
 
 export default function MatchGrid({ matches }: { matches: any[] }) {
-  const [searchTerm, setSearchTerm]     = useState('');
-  const [selectedDay, setSelectedDay]   = useState<string | null>(null);
+  const router = useRouter();
+  const [searchTerm, setSearchTerm]   = useState('');
+  const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const [isSavingAll, setIsSavingAll] = useState(false);
+
+  // Pending predictions — useRef to avoid re-renders on every keystroke,
+  // useState only for the count (to show/hide the sticky button)
+  const pendingRef  = useRef<Map<number, PredictionDraft>>(new Map());
+  const [pendingCount, setPendingCount] = useState(0);
+
+  const handlePendingChange = useCallback((
+    matchId: number,
+    draft: { homeGoals: number; awayGoals: number; advancingTeamId: number | null } | null
+  ) => {
+    if (draft) {
+      pendingRef.current.set(matchId, { matchId, ...draft });
+    } else {
+      pendingRef.current.delete(matchId);
+    }
+    setPendingCount(pendingRef.current.size);
+  }, []);
+
+  const handleSaveAll = async () => {
+    const drafts = Array.from(pendingRef.current.values());
+    if (drafts.length === 0) return;
+
+    setIsSavingAll(true);
+    try {
+      const { saved, failed } = await saveAllPredictionsAction(drafts);
+      if (failed.length === 0) {
+        toast.success(`✅ ${saved} predicción${saved !== 1 ? 'es' : ''} guardada${saved !== 1 ? 's' : ''}`);
+      } else {
+        if (saved > 0) toast.success(`✅ ${saved} guardada${saved !== 1 ? 's' : ''}`);
+        toast.error(`❌ ${failed.length} no se pudieron guardar`);
+      }
+      // Refresh server data so saved/savedAway in MatchCards sync via the prop useEffect
+      router.refresh();
+    } catch {
+      toast.error('Error inesperado al guardar las predicciones');
+    } finally {
+      setIsSavingAll(false);
+    }
+  };
 
   // Días únicos ordenados, derivados de los partidos recibidos
   const uniqueDays = useMemo(() => {
@@ -36,11 +81,7 @@ export default function MatchGrid({ matches }: { matches: any[] }) {
   }, [matches, searchTerm, selectedDay]);
 
   const hasFilters = searchTerm !== '' || selectedDay !== null;
-
-  const clearFilters = () => {
-    setSearchTerm('');
-    setSelectedDay(null);
-  };
+  const clearFilters = () => { setSearchTerm(''); setSelectedDay(null); };
 
   return (
     <div className="flex flex-col gap-4">
@@ -167,9 +208,24 @@ export default function MatchGrid({ matches }: { matches: any[] }) {
               pointsEarned={match.myPred?.points_earned ?? 0}
               stadium={match.stadium}
               referee={match.referee}
+              onPendingChange={handlePendingChange}
             />
           );
         })
+      )}
+
+      {/* ── Botón sticky "Guardar todo" — aparece cuando hay ≥2 predicciones pendientes ── */}
+      {pendingCount >= 2 && (
+        <button
+          onClick={handleSaveAll}
+          disabled={isSavingAll}
+          className="fixed bottom-6 right-6 z-30 flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-xl hover:opacity-90 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-wait animate-in fade-in zoom-in-95 duration-200"
+        >
+          <span>💾</span>
+          {isSavingAll
+            ? 'Guardando…'
+            : `Guardar ${pendingCount} predicciones`}
+        </button>
       )}
     </div>
   );

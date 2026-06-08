@@ -3,6 +3,13 @@
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 
+export interface MatchResult {
+  matchId: number
+  homeGoals: number
+  awayGoals: number
+  advancingTeamId: number | null
+}
+
 export async function syncMatchesAction(): Promise<{ success: boolean; message: string }> {
   const supabase = await createClient()
 
@@ -160,4 +167,83 @@ export async function saveMatchResultAction(
   revalidatePath('/admin')
 
   return { success: true }
+}
+
+export async function saveAllMatchesAction(
+  results: MatchResult[]
+): Promise<{ saved: number; failed: { matchId: number; error: string }[] }> {
+  const supabase = await createClient()
+
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { saved: 0, failed: results.map(r => ({ matchId: r.matchId, error: 'No autenticado' })) }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single()
+
+  if (profile?.role !== 'ADMIN') {
+    return { saved: 0, failed: results.map(r => ({ matchId: r.matchId, error: 'Acceso denegado' })) }
+  }
+
+  const { data: matches } = await supabase
+    .from('matches')
+    .select('id, stage, home_team_id, away_team_id, status')
+    .in('id', results.map(r => r.matchId))
+
+  const matchMap = new Map((matches ?? []).map(m => [m.id, m]))
+
+  const outcomes = await Promise.allSettled(
+    results.map(async ({ matchId, homeGoals, awayGoals, advancingTeamId: clientAdvancingId }) => {
+      const match = matchMap.get(matchId)
+      if (!match) throw new Error('Partido no encontrado')
+      if (match.status === 'FINISHED') throw new Error('Ya finalizado')
+
+      let advancing_team_id: number | null = null
+      if (match.stage !== 'GROUP') {
+        if (homeGoals > awayGoals) {
+          advancing_team_id = match.home_team_id
+        } else if (awayGoals > homeGoals) {
+          advancing_team_id = match.away_team_id
+        } else {
+          if (!clientAdvancingId) throw new Error('Empate en eliminatoria sin clasificado')
+          if (clientAdvancingId !== match.home_team_id && clientAdvancingId !== match.away_team_id) {
+            throw new Error('El equipo seleccionado no pertenece al partido')
+          }
+          advancing_team_id = clientAdvancingId
+        }
+      }
+
+      if (advancing_team_id !== null) {
+        const { error: updateError } = await supabase
+          .from('matches')
+          .update({ advancing_team_id })
+          .eq('id', matchId)
+        if (updateError) throw new Error(updateError.message)
+      }
+
+      const { error: rpcError } = await supabase.rpc('calculate_match_points', {
+        p_match_id: matchId,
+        p_home_goals: homeGoals,
+        p_away_goals: awayGoals,
+      })
+      if (rpcError) throw new Error(rpcError.message)
+    })
+  )
+
+  revalidatePath('/')
+  revalidatePath('/predicciones')
+  revalidatePath('/clasificacion')
+  revalidatePath('/admin')
+
+  const failed = outcomes
+    .map((o, i) =>
+      o.status === 'rejected'
+        ? { matchId: results[i].matchId, error: (o.reason as Error).message }
+        : null
+    )
+    .filter(Boolean) as { matchId: number; error: string }[]
+
+  return { saved: outcomes.filter(o => o.status === 'fulfilled').length, failed }
 }

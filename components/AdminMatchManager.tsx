@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { toast } from 'sonner'
-import { saveMatchResultAction, createMatchAction } from '@/app/(main)/admin/actions'
+import { saveMatchResultAction, saveAllMatchesAction, createMatchAction } from '@/app/(main)/admin/actions'
+import type { MatchResult } from '@/app/(main)/admin/actions'
 import { getFlagUrl } from '@/utils/getFlagUrl'
 
-interface Team { name: string; flag_emoji: string }
+interface Team { name: string; flag_emoji: string; iso_code?: string }
 
 export interface TeamOption { id: number; name: string; flag_emoji: string }
 
@@ -25,6 +26,12 @@ export interface AdminMatch {
   away_team: Team | null
 }
 
+interface RowValues {
+  homeGoals: string
+  awayGoals: string
+  advancingTeamId: number | null
+}
+
 const STAGE_LABELS: Record<string, string> = {
   GROUP: 'Grupos',
   ROUND_OF_32: 'R32',
@@ -42,6 +49,18 @@ const fieldClass =
   'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 ' +
   'text-gray-900 dark:text-gray-100 ' +
   'focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-colors'
+
+function FlagImg({ flagEmoji, isoCode, name }: { flagEmoji: string; isoCode?: string; name: string }) {
+  const url = getFlagUrl(flagEmoji, isoCode)
+  if (!url) {
+    return (
+      <span className="text-sm leading-none flex-shrink-0" role="img" aria-label={name}>
+        {flagEmoji || '🏳'}
+      </span>
+    )
+  }
+  return <img src={url} alt={name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
+}
 
 function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () => void }) {
   const [homeTeamId, setHomeTeamId] = useState('')
@@ -88,7 +107,6 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 duration-200">
-        {/* Cabecera */}
         <div className="bg-gray-50 dark:bg-slate-800/60 px-5 py-4 border-b border-gray-100 dark:border-slate-800 flex justify-between items-center">
           <h3 className="font-bold text-gray-800 dark:text-gray-100">Añadir Partido</h3>
           <button
@@ -100,9 +118,7 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
           </button>
         </div>
 
-        {/* Formulario */}
         <form onSubmit={handleSubmit} className="p-5 space-y-4">
-          {/* Equipos */}
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
@@ -142,7 +158,6 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
             </div>
           </div>
 
-          {/* Fecha y Hora */}
           <div>
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
               Fecha y Hora *
@@ -156,7 +171,6 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
             />
           </div>
 
-          {/* Fase + Grupo */}
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
@@ -200,7 +214,6 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
             </div>
           </div>
 
-          {/* Estadio + Árbitro */}
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
@@ -228,7 +241,6 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
             </div>
           </div>
 
-          {/* Acciones */}
           <div className="flex gap-3 pt-1">
             <button
               type="button"
@@ -251,18 +263,35 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
   )
 }
 
-function MatchRow({ match }: { match: AdminMatch }) {
-  const [homeGoals, setHomeGoals]           = useState(match.home_goals?.toString() ?? '')
-  const [awayGoals, setAwayGoals]           = useState(match.away_goals?.toString() ?? '')
+function MatchRow({
+  match,
+  onRowChange,
+}: {
+  match: AdminMatch
+  onRowChange?: (id: number, data: RowValues | null) => void
+}) {
+  const [homeGoals, setHomeGoals]             = useState(match.home_goals?.toString() ?? '')
+  const [awayGoals, setAwayGoals]             = useState(match.away_goals?.toString() ?? '')
   const [advancingTeamId, setAdvancingTeamId] = useState<number | null>(match.advancing_team_id ?? null)
-  const [isSubmitting, setIsSubmitting]     = useState(false)
+  const [isSubmitting, setIsSubmitting]       = useState(false)
 
   const isFinished  = match.status === 'FINISHED'
   const isKnockout  = match.stage !== 'GROUP'
   const isTied      = homeGoals !== '' && awayGoals !== '' && homeGoals === awayGoals
   const needsAdvancing = isKnockout && isTied && !isFinished
 
-  // Auto-reset cuando los goles rompen el empate
+  const onRowChangeRef = useRef(onRowChange)
+  useEffect(() => { onRowChangeRef.current = onRowChange }, [onRowChange])
+
+  // Notify parent of current values whenever they change
+  useEffect(() => {
+    onRowChangeRef.current?.(
+      match.id,
+      isFinished ? null : { homeGoals, awayGoals, advancingTeamId }
+    )
+  }, [homeGoals, awayGoals, advancingTeamId, isFinished, match.id])
+
+  // Auto-reset advancing when scores break the tie
   useEffect(() => {
     if (!isKnockout) return
     const h = parseInt(homeGoals, 10)
@@ -325,9 +354,13 @@ function MatchRow({ match }: { match: AdminMatch }) {
       {/* Partido */}
       <td className="px-4 py-3">
         <div className="flex items-center gap-2 text-sm">
-          {match.home_team?.flag_emoji && getFlagUrl(match.home_team.flag_emoji)
-            ? <img src={getFlagUrl(match.home_team.flag_emoji)} alt={match.home_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
-            : null}
+          {match.home_team && (
+            <FlagImg
+              flagEmoji={match.home_team.flag_emoji}
+              isoCode={match.home_team.iso_code}
+              name={match.home_team.name}
+            />
+          )}
           <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
             {match.home_team?.name}
           </span>
@@ -335,9 +368,13 @@ function MatchRow({ match }: { match: AdminMatch }) {
           <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
             {match.away_team?.name}
           </span>
-          {match.away_team?.flag_emoji && getFlagUrl(match.away_team.flag_emoji)
-            ? <img src={getFlagUrl(match.away_team.flag_emoji)} alt={match.away_team.name} className="w-6 h-4 object-cover rounded-sm shadow-sm flex-shrink-0" />
-            : null}
+          {match.away_team && (
+            <FlagImg
+              flagEmoji={match.away_team.flag_emoji}
+              isoCode={match.away_team.iso_code}
+              name={match.away_team.name}
+            />
+          )}
         </div>
         <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
           {STAGE_LABELS[match.stage] ?? match.stage}
@@ -367,7 +404,6 @@ function MatchRow({ match }: { match: AdminMatch }) {
             ? 'Cancelado'
             : 'Pendiente'}
         </span>
-        {/* Ganador por penaltis — solo en eliminatorias finalizadas en empate */}
         {isFinished && isKnockout && match.home_goals === match.away_goals && match.advancing_team_id !== null && (
           <span className="block mt-1 text-[10px] font-semibold text-blue-600 dark:text-blue-400">
             🏆 Pen.: {match.advancing_team_id === match.home_team_id
@@ -408,7 +444,6 @@ function MatchRow({ match }: { match: AdminMatch }) {
             />
           </div>
 
-          {/* Selector de clasificado por penaltis — solo en eliminatorias empatadas */}
           {needsAdvancing && (
             <div className="flex flex-col items-center gap-1">
               <p className="text-[9px] uppercase tracking-widest font-bold text-amber-600 dark:text-amber-400">
@@ -468,7 +503,28 @@ export default function AdminMatchManager({
   teams: TeamOption[]
 }) {
   const [showAddModal, setShowAddModal] = useState(false)
-  const [isExporting, setIsExporting] = useState(false)
+  const [isExporting, setIsExporting]  = useState(false)
+  const [isSavingAll, setIsSavingAll]  = useState(false)
+
+  // Tracks current input values of every MatchRow without causing re-renders
+  const rowValuesRef = useRef<Record<number, RowValues | null>>(
+    Object.fromEntries(
+      initialMatches.map(m => [
+        m.id,
+        m.status !== 'FINISHED'
+          ? {
+              homeGoals: m.home_goals?.toString() ?? '',
+              awayGoals: m.away_goals?.toString() ?? '',
+              advancingTeamId: m.advancing_team_id ?? null,
+            }
+          : null,
+      ])
+    )
+  )
+
+  const handleRowChange = useCallback((id: number, data: RowValues | null) => {
+    rowValuesRef.current[id] = data
+  }, [])
 
   async function handleExport() {
     setIsExporting(true)
@@ -491,6 +547,36 @@ export default function AdminMatchManager({
       toast.error('Error inesperado al generar el reporte')
     } finally {
       setIsExporting(false)
+    }
+  }
+
+  async function handleSaveAll() {
+    const toSave: MatchResult[] = Object.entries(rowValuesRef.current).flatMap(([idStr, data]) => {
+      if (!data) return []
+      const homeGoals = parseInt(data.homeGoals, 10)
+      const awayGoals = parseInt(data.awayGoals, 10)
+      if (isNaN(homeGoals) || isNaN(awayGoals) || homeGoals < 0 || awayGoals < 0) return []
+      return [{ matchId: parseInt(idStr, 10), homeGoals, awayGoals, advancingTeamId: data.advancingTeamId }]
+    })
+
+    if (toSave.length === 0) {
+      toast.warning('No hay resultados válidos pendientes de guardar')
+      return
+    }
+
+    setIsSavingAll(true)
+    try {
+      const { saved, failed } = await saveAllMatchesAction(toSave)
+      if (failed.length === 0) {
+        toast.success(`✅ ${saved} resultado(s) guardados correctamente`)
+      } else {
+        if (saved > 0) toast.success(`✅ ${saved} guardados correctamente`)
+        toast.error(`❌ ${failed.length} fallaron: ${failed.map(f => `#${f.matchId} – ${f.error}`).join(', ')}`)
+      }
+    } catch {
+      toast.error('Error inesperado al guardar todos los resultados')
+    } finally {
+      setIsSavingAll(false)
     }
   }
 
@@ -522,6 +608,16 @@ export default function AdminMatchManager({
             <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{finished}</p>
             <p className="text-xs text-emerald-600 dark:text-emerald-500">Finalizados</p>
           </div>
+
+          {/* Botón Guardar Todos */}
+          <button
+            onClick={handleSaveAll}
+            disabled={isSavingAll}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+          >
+            <span>💾</span>
+            {isSavingAll ? 'Guardando todos…' : 'Guardar todos los resultados'}
+          </button>
 
           {/* Botón Descargar Reporte */}
           <button
@@ -567,13 +663,26 @@ export default function AdminMatchManager({
                 </td>
               </tr>
             ) : (
-              initialMatches.map((match) => <MatchRow key={match.id} match={match} />)
+              initialMatches.map((match) => (
+                <MatchRow key={match.id} match={match} onRowChange={handleRowChange} />
+              ))
             )}
           </tbody>
         </table>
       </div>
 
-      {/* Modal */}
+      {/* Barra de acción sticky — siempre visible al fondo mientras se edita */}
+      <div className="sticky bottom-4 flex justify-end pointer-events-none">
+        <button
+          onClick={handleSaveAll}
+          disabled={isSavingAll}
+          className="pointer-events-auto flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span>💾</span>
+          {isSavingAll ? 'Guardando todos…' : 'Guardar todos los resultados'}
+        </button>
+      </div>
+
       {showAddModal && (
         <AddMatchModal
           teams={teams}
