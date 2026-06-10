@@ -1,0 +1,130 @@
+[
+  {
+    "id": 74,
+    "side": "left",
+    "quadrant": 1,
+    "home": { "type": "first", "group": "E" },
+    "away": { "type": "third", "possible_groups": ["A", "B", "C", "D", "F"] },
+    "next_match_id": 89
+  },
+  {
+    "id": 77,
+    "side": "left",
+    "quadrant": 1,
+    "home": { "type": "first", "group": "I" },
+    "away": { "type": "third", "possible_groups": ["C", "D", "F", "G", "H"] },
+    "next_match_id": 89
+  },
+  {
+    "id": 73,
+    "side": "left",
+    "quadrant": 1,
+    "home": { "type": "second", "group": "A" },
+    "away": { "type": "second", "group": "B" },
+    "next_match_id": 90
+  },
+  {
+    "id": 75,
+    "side": "left",
+    "quadrant": 1,
+    "home": { "type": "first", "group": "F" },
+    "away": { "type": "second", "group": "C" },
+    "next_match_id": 90
+  },
+  {
+    "id": 83,
+    "side": "left",
+    "quadrant": 2,
+    "home": { "type": "second", "group": "K" },
+    "away": { "type": "second", "group": "L" },
+    "next_match_id": 91
+  },
+  {
+    "id": 84,
+    "side": "left",
+    "quadrant": 2,
+    "home": { "type": "first", "group": "H" },
+    "away": { "type": "second", "group": "J" },
+    "next_match_id": 91
+  },
+  {
+    "id": 81,
+    "side": "left",
+    "quadrant": 2,
+    "home": { "type": "first", "group": "D" },
+    "away": { "type": "third", "possible_groups": ["B", "E", "F", "I", "J"] },
+    "next_match_id": 92
+  },
+  {
+    "id": 82,
+    "side": "left",
+    "quadrant": 2,
+    "home": { "type": "first", "group": "G" },
+    "away": { "type": "third", "possible_groups": ["A", "E", "H", "I", "J"] },
+    "next_match_id": 92
+  },
+  {
+    "id": 76,
+    "side": "right",
+    "quadrant": 3,
+    "home": { "type": "first", "group": "C" },
+    "away": { "type": "second", "group": "F" },
+    "next_match_id": 93
+  },
+  {
+    "id": 78,
+    "side": "right",
+    "quadrant": 3,
+    "home": { "type": "second", "group": "E" },
+    "away": { "type": "second", "group": "I" },
+    "next_match_id": 93
+  },
+  {
+    "id": 79,
+    "side": "right",
+    "quadrant": 3,
+    "home": { "type": "first", "group": "A" },
+    "away": { "type": "third", "possible_groups": ["C", "E", "F", "H", "I"] },
+    "next_match_id": 94
+  },
+  {
+    "id": 80,
+    "side": "right",
+    "quadrant": 3,
+    "home": { "type": "first", "group": "L" },
+    "away": { "type": "third", "possible_groups": ["E", "H", "I", "J", "K"] },
+    "next_match_id": 94
+  },
+  {
+    "id": 86,
+    "side": "right",
+    "quadrant": 4,
+    "home": { "type": "first", "group": "J" },
+    "away": { "type": "second", "group": "H" },
+    "next_match_id": 95
+  },
+  {
+    "id": 88,
+    "side": "right",
+    "quadrant": 4,
+    "home": { "type": "second", "group": "D" },
+    "away": { "type": "second", "group": "G" },
+    "next_match_id": 95
+  },
+  {
+    "id": 85,
+    "side": "right",
+    "quadrant": 4,
+    "home": { "type": "first", "group": "B" },
+    "away": { "type": "third", "possible_groups": ["E", "F", "G", "I", "J"] },
+    "next_match_id": 96
+  },
+  {
+    "id": 87,
+    "side": "right",
+    "quadrant": 4,
+    "home": { "type": "first", "group": "K" },
+    "away": { "type": "third", "possible_groups": ["D", "E", "I", "J", "L"] },
+    "next_match_id": 96
+  }
+]
