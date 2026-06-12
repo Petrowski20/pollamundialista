@@ -58,12 +58,12 @@ function SmallFlag({ flagEmoji, name, isoCode }: { flagEmoji: string; name: stri
 
 function PointsBadge({ pts }: { pts: number }) {
   if (pts === 0)
-    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200 dark:bg-red-500/25 dark:text-red-300 dark:border-red-500/30">0 pts</span>;
+    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">0 pts</span>;
   if (pts === 1)
-    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 dark:bg-orange-500/25 dark:text-orange-300 dark:border-orange-500/30">+1 pt</span>;
+    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">+1 pt</span>;
   if (pts === 2)
-    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200 dark:bg-yellow-500/25 dark:text-yellow-300 dark:border-yellow-500/30">+2 pts</span>;
-  return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700 border border-green-200 dark:bg-emerald-400/25 dark:text-emerald-300 dark:border-emerald-400/30">+{pts} pts</span>;
+    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">+2 pts</span>;
+  return <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">+{pts} pts</span>;
 }
 
 export interface MatchCardHandle {
@@ -114,6 +114,14 @@ const MatchCard = forwardRef<MatchCardHandle, MatchCardProps>(function MatchCard
 
   const isKnockout = matchStage !== 'GROUP';
   const isFinished = status === 'FINISHED';
+
+  const scoreBoxClass = isFinished && homePrediction !== undefined
+    ? pointsEarned === 3
+      ? 'border-2 border-emerald-400 dark:border-emerald-500/70 bg-emerald-50/50 dark:bg-emerald-900/20 shadow-[0_0_15px_rgba(52,211,153,0.3)]'
+      : pointsEarned >= 1
+      ? 'border-2 border-amber-400 dark:border-amber-500/70 bg-amber-50/50 dark:bg-amber-900/20 shadow-[0_0_15px_rgba(251,191,36,0.3)]'
+      : 'border-2 border-red-400 dark:border-red-500/70 bg-red-50/50 dark:bg-red-900/20 shadow-[0_0_15px_rgba(248,113,113,0.3)]'
+    : 'bg-white dark:bg-slate-800 border-2 border-transparent shadow-sm';
 
   useImperativeHandle(ref, () => ({
     confirmSaved: () => {
@@ -266,12 +274,12 @@ const MatchCard = forwardRef<MatchCardHandle, MatchCardProps>(function MatchCard
         <div className="flex-shrink-0">
           {isFinished ? (
             <div className="flex flex-col items-center gap-1">
-              <div className="bg-white rounded-xl shadow-inner px-4 py-2 flex items-center gap-2">
-                <span className="text-3xl font-black text-slate-900 w-8 text-center tabular-nums">
+              <div className={`${scoreBoxClass} rounded-xl px-4 py-2 flex items-center gap-2`}>
+                <span className="text-3xl font-black text-slate-900 dark:text-white w-8 text-center tabular-nums">
                   {homeRealResult ?? '?'}
                 </span>
-                <span className="text-slate-400 font-black text-2xl">-</span>
-                <span className="text-3xl font-black text-slate-900 w-8 text-center tabular-nums">
+                <span className="text-slate-400 dark:text-slate-500 font-black text-2xl">-</span>
+                <span className="text-3xl font-black text-slate-900 dark:text-white w-8 text-center tabular-nums">
                   {awayRealResult ?? '?'}
                 </span>
               </div>
@@ -283,14 +291,16 @@ const MatchCard = forwardRef<MatchCardHandle, MatchCardProps>(function MatchCard
               )}
 
               {homePrediction !== undefined && (
-                <span className="text-[10px] text-gray-500 dark:text-emerald-300/70 tracking-wide">
-                  {t('matchCard.tuPred')} {homePrediction}-{awayPrediction}
-                  {predAdvancingTeamId !== null && (
-                    <> · {t('matchCard.pasa')} {predAdvancingTeamId === homeTeamId ? home.name : away.name}</>
-                  )}
-                </span>
+                <>
+                  <span className="text-[10px] tracking-wide font-medium text-slate-800 dark:text-white">
+                    {t('matchCard.tuPred')} {homePrediction}-{awayPrediction}
+                    {predAdvancingTeamId !== null && (
+                      <> · {t('matchCard.pasa')} {predAdvancingTeamId === homeTeamId ? home.name : away.name}</>
+                    )}
+                  </span>
+                  <PointsBadge pts={pointsEarned} />
+                </>
               )}
-              <PointsBadge pts={pointsEarned} />
             </div>
           ) : isLocked ? (
             <div className="flex flex-col items-center gap-1">
