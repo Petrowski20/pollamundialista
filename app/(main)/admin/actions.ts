@@ -293,9 +293,10 @@ export async function updatePlayerPredictionAction(
   if (match.home_goals === null || match.away_goals === null) {
     const { error: predErr } = await supabaseAdmin
       .from('predictions')
-      .update({ pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId })
-      .eq('profile_id', profileId)
-      .eq('match_id', matchId)
+      .upsert(
+        { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId },
+        { onConflict: 'profile_id,match_id' }
+      )
     if (predErr) return { error: predErr.message }
     revalidatePath(`/jugador/${profileId}`)
     revalidatePath('/admin/predicciones')
@@ -337,9 +338,10 @@ export async function updatePlayerPredictionAction(
 
   const { error: predErr } = await supabaseAdmin
     .from('predictions')
-    .update({ pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId, points_earned: pointsEarned })
-    .eq('profile_id', profileId)
-    .eq('match_id', matchId)
+    .upsert(
+      { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId, points_earned: pointsEarned },
+      { onConflict: 'profile_id,match_id' }
+    )
 
   if (predErr) return { error: predErr.message }
 

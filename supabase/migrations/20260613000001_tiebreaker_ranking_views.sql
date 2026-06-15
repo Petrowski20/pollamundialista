@@ -31,7 +31,7 @@ SELECT
   COALESCE(s.correct_signs, 0) AS correct_signs,
   COALESCE(s.goal_diff_sum, 0) AS goal_diff_sum
 FROM public.profiles p
-LEFT JOIN stats s ON s.profile_id = p.id
+LEFT JOIN stats s ON s.profile_id = p.id  
 ORDER BY
   p.total_points               DESC,
   COALESCE(s.exact_scores,  0) DESC,
