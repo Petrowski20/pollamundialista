@@ -30,6 +30,20 @@ export default function MatchGrid({ matches, activeLeagueId }: { matches: any[];
     return () => clearInterval(id);
   }, []);
 
+  const scrollTargetId = useMemo(
+    () => matches.find((m) => m.status !== 'FINISHED')?.id ?? null,
+    [matches],
+  );
+  const scrollTargetRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!scrollTargetRef.current) return;
+    const t = setTimeout(() => {
+      scrollTargetRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Pending predictions — useRef to avoid re-renders on every keystroke,
   // useState only for the count (to show/hide the sticky button)
   const pendingRef  = useRef<Map<number, PredictionDraft>>(new Map());
@@ -236,34 +250,35 @@ export default function MatchGrid({ matches, activeLeagueId }: { matches: any[];
             match.status === 'CANCELLED';
 
           return (
-            <MatchCard
-              key={match.id}
-              ref={(el) => {
-                if (el) cardRefs.current.set(match.id, el);
-                else cardRefs.current.delete(match.id);
-              }}
-              id={match.id}
-              home={match.home_team}
-              away={match.away_team}
-              homeTeamId={match.home_team_id}
-              awayTeamId={match.away_team_id}
-              group={match.group_letter ?? '?'}
-              matchStage={match.stage ?? 'GROUP'}
-              date={formattedDate}
-              status={status}
-              isLocked={isLocked}
-              homePrediction={match.myPred?.pred_home_goals}
-              awayPrediction={match.myPred?.pred_away_goals}
-              predAdvancingTeamId={match.myPred?.pred_advancing_team_id ?? null}
-              realAdvancingTeamId={match.advancing_team_id ?? null}
-              homeRealResult={match.home_goals}
-              awayRealResult={match.away_goals}
-              pointsEarned={match.myPred?.points_earned ?? 0}
-              stadium={match.stadium}
-              referee={match.referee}
-              activeLeagueId={activeLeagueId}
-              onPendingChange={handlePendingChange}
-            />
+            <div key={match.id} ref={match.id === scrollTargetId ? scrollTargetRef : undefined}>
+              <MatchCard
+                ref={(el) => {
+                  if (el) cardRefs.current.set(match.id, el);
+                  else cardRefs.current.delete(match.id);
+                }}
+                id={match.id}
+                home={match.home_team}
+                away={match.away_team}
+                homeTeamId={match.home_team_id}
+                awayTeamId={match.away_team_id}
+                group={match.group_letter ?? '?'}
+                matchStage={match.stage ?? 'GROUP'}
+                date={formattedDate}
+                status={status}
+                isLocked={isLocked}
+                homePrediction={match.myPred?.pred_home_goals}
+                awayPrediction={match.myPred?.pred_away_goals}
+                predAdvancingTeamId={match.myPred?.pred_advancing_team_id ?? null}
+                realAdvancingTeamId={match.advancing_team_id ?? null}
+                homeRealResult={match.home_goals}
+                awayRealResult={match.away_goals}
+                pointsEarned={match.myPred?.points_earned ?? 0}
+                stadium={match.stadium}
+                referee={match.referee}
+                activeLeagueId={activeLeagueId}
+                onPendingChange={handlePendingChange}
+              />
+            </div>
           );
         })
       )}
