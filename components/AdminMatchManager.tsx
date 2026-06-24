@@ -101,7 +101,6 @@ function PredictionsModal({ match, onClose }: { match: AdminMatch; onClose: () =
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200">
-        {/* Header */}
         <div className="bg-gray-50 dark:bg-slate-800/60 px-5 py-4 border-b border-gray-100 dark:border-slate-800 flex justify-between items-start">
           <div>
             <h3 className="font-bold text-gray-800 dark:text-gray-100">Predicciones del partido</h3>
@@ -116,22 +115,18 @@ function PredictionsModal({ match, onClose }: { match: AdminMatch; onClose: () =
           </button>
         </div>
 
-        {/* Body */}
         <div className="p-5">
           {!predictions && !fetchError && (
             <p className="text-center text-gray-400 dark:text-slate-500 text-sm py-10">Cargando…</p>
           )}
-
           {fetchError && (
             <p className="text-center text-red-500 dark:text-red-400 text-sm py-10">{fetchError}</p>
           )}
-
           {predictions && predictions.length === 0 && (
             <p className="text-center text-gray-400 dark:text-slate-500 text-sm py-10">
               Ningún usuario ha predicho este partido todavía.
             </p>
           )}
-
           {predictions && predictions.length > 0 && (
             <>
               <div className="space-y-2 max-h-[26rem] overflow-y-auto pr-1">
@@ -145,7 +140,6 @@ function PredictionsModal({ match, onClose }: { match: AdminMatch; onClose: () =
                   const pct = Math.round((group.nicknames.length / predictions.length) * 100)
                   return (
                     <div key={gi} className="rounded-xl border border-gray-100 dark:border-slate-800 overflow-hidden">
-                      {/* Cabecera del grupo */}
                       <div className="flex items-center justify-between px-3 py-2 bg-gray-50 dark:bg-slate-800">
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-gray-900 dark:text-gray-100 tabular-nums text-base">
@@ -159,26 +153,17 @@ function PredictionsModal({ match, onClose }: { match: AdminMatch; onClose: () =
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
                           <div className="w-16 h-1.5 rounded-full bg-gray-200 dark:bg-slate-700 overflow-hidden">
-                            <div
-                              className="h-full rounded-full bg-indigo-500 dark:bg-indigo-400"
-                              style={{ width: `${pct}%` }}
-                            />
+                            <div className="h-full rounded-full bg-indigo-500 dark:bg-indigo-400" style={{ width: `${pct}%` }} />
                           </div>
-                          <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 tabular-nums w-6 text-right">
-                            {pct}%
-                          </span>
+                          <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 tabular-nums w-6 text-right">{pct}%</span>
                           <span className="text-xs font-semibold bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded-full tabular-nums">
                             {group.nicknames.length}
                           </span>
                         </div>
                       </div>
-                      {/* Nicknames */}
                       <div className="px-3 py-2 flex flex-wrap gap-1.5">
                         {group.nicknames.map((nick, ni) => (
-                          <span
-                            key={ni}
-                            className="text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-700/60 px-2 py-0.5 rounded-md"
-                          >
+                          <span key={ni} className="text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-700/60 px-2 py-0.5 rounded-md">
                             {nick}
                           </span>
                         ))}
@@ -257,47 +242,27 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
         <form onSubmit={handleSubmit} className="p-5 space-y-4">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Equipo Local *
-              </label>
-              <select
-                value={homeTeamId}
-                onChange={(e) => setHomeTeamId(e.target.value)}
-                required
-                className={fieldClass}
-              >
+              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Equipo Local *</label>
+              <select value={homeTeamId} onChange={(e) => setHomeTeamId(e.target.value)} required className={fieldClass}>
                 <option value="">Seleccionar…</option>
                 {teams.map((t) => (
-                  <option key={t.id} value={t.id}>
-                    {t.flag_emoji} {t.name}
-                  </option>
+                  <option key={t.id} value={t.id}>{t.flag_emoji} {t.name}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Equipo Visitante *
-              </label>
-              <select
-                value={awayTeamId}
-                onChange={(e) => setAwayTeamId(e.target.value)}
-                required
-                className={fieldClass}
-              >
+              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Equipo Visitante *</label>
+              <select value={awayTeamId} onChange={(e) => setAwayTeamId(e.target.value)} required className={fieldClass}>
                 <option value="">Seleccionar…</option>
                 {teams.map((t) => (
-                  <option key={t.id} value={t.id}>
-                    {t.flag_emoji} {t.name}
-                  </option>
+                  <option key={t.id} value={t.id}>{t.flag_emoji} {t.name}</option>
                 ))}
               </select>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-              Fecha y Hora *
-            </label>
+            <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Fecha y Hora *</label>
             <input
               type="datetime-local"
               value={matchDate}
@@ -309,30 +274,15 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Fase *
-              </label>
-              <select
-                value={stage}
-                onChange={(e) => setStage(e.target.value)}
-                required
-                className={fieldClass}
-              >
+              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Fase *</label>
+              <select value={stage} onChange={(e) => setStage(e.target.value)} required className={fieldClass}>
                 {Object.entries(STAGE_LABELS).map(([value, label]) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
+                  <option key={value} value={value}>{label}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label
-                className={`block text-xs font-semibold mb-1 transition-colors ${
-                  stage === 'GROUP'
-                    ? 'text-gray-500 dark:text-gray-400'
-                    : 'text-gray-300 dark:text-slate-600'
-                }`}
-              >
+              <label className={`block text-xs font-semibold mb-1 transition-colors ${stage === 'GROUP' ? 'text-gray-500 dark:text-gray-400' : 'text-gray-300 dark:text-slate-600'}`}>
                 Grupo {stage === 'GROUP' ? '*' : '(N/A)'}
               </label>
               <select
@@ -342,9 +292,7 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
                 className={`${fieldClass} ${stage !== 'GROUP' ? 'opacity-40 cursor-not-allowed' : ''}`}
               >
                 {GROUPS.map((g) => (
-                  <option key={g} value={g}>
-                    Grupo {g}
-                  </option>
+                  <option key={g} value={g}>Grupo {g}</option>
                 ))}
               </select>
             </div>
@@ -352,9 +300,7 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Estadio
-              </label>
+              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Estadio</label>
               <input
                 type="text"
                 value={stadium}
@@ -364,9 +310,7 @@ function AddMatchModal({ teams, onClose }: { teams: TeamOption[]; onClose: () =>
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
-                Árbitro
-              </label>
+              <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Árbitro</label>
               <input
                 type="text"
                 value={referee}
@@ -421,7 +365,6 @@ function MatchRow({
   const onRowChangeRef = useRef(onRowChange)
   useEffect(() => { onRowChangeRef.current = onRowChange }, [onRowChange])
 
-  // Notify parent of current values whenever they change
   useEffect(() => {
     onRowChangeRef.current?.(
       match.id,
@@ -429,7 +372,6 @@ function MatchRow({
     )
   }, [homeGoals, awayGoals, advancingTeamId, isFinished, match.id])
 
-  // Auto-reset advancing when scores break the tie
   useEffect(() => {
     if (!isKnockout) return
     const h = parseInt(homeGoals, 10)
@@ -473,151 +415,111 @@ function MatchRow({
   const timeStr = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
 
   const inputBase =
-    'w-14 text-center border rounded-lg px-2 py-1.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-colors ' +
+    'w-12 text-center border rounded-lg px-1.5 py-1.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-colors ' +
     'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-600 text-gray-900 dark:text-gray-100 ' +
     'disabled:opacity-50 disabled:bg-gray-50 dark:disabled:bg-slate-700'
 
+  const statusBadgeCls = isFinished
+    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400'
+    : match.status === 'IN_PROGRESS'
+    ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400'
+    : match.status === 'CANCELLED'
+    ? 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400'
+    : 'bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-slate-400'
+
+  const statusLabel = isFinished
+    ? `${match.home_goals} – ${match.away_goals}`
+    : match.status === 'IN_PROGRESS'
+    ? 'En curso'
+    : match.status === 'CANCELLED'
+    ? 'Cancelado'
+    : 'Pendiente'
+
+  const advancingName = match.advancing_team_id === match.home_team_id
+    ? match.home_team?.name
+    : match.away_team?.name
+
   return (
-    <tr
-      className={`transition-colors hover:bg-gray-50/60 dark:hover:bg-slate-800/40 ${
-        isFinished ? 'bg-emerald-50/40 dark:bg-emerald-950/20' : ''
+    <div
+      className={`rounded-xl border p-4 transition-colors ${
+        isFinished
+          ? 'bg-emerald-50/30 dark:bg-emerald-950/20 border-emerald-100 dark:border-emerald-900/30'
+          : 'bg-white dark:bg-slate-900 border-gray-100 dark:border-slate-800'
       }`}
     >
-      {/* Fecha */}
-      <td className="px-4 py-3 whitespace-nowrap">
-        <span className="font-medium text-gray-800 dark:text-gray-200 text-sm">{dateStr}</span>
-        <span className="block text-xs text-gray-400 dark:text-gray-500">{timeStr}</span>
-      </td>
-
-      {/* Partido */}
-      <td className="px-4 py-3">
-        <div className="flex items-center gap-2 text-sm">
-          {match.home_team && (
-            <FlagImg
-              flagEmoji={match.home_team.flag_emoji}
-              isoCode={match.home_team.iso_code}
-              name={match.home_team.name}
-            />
-          )}
-          <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
-            {match.home_team?.name}
-          </span>
-          <span className="text-gray-300 dark:text-slate-600 text-xs font-medium">vs</span>
-          <span className="font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
-            {match.away_team?.name}
-          </span>
-          {match.away_team && (
-            <FlagImg
-              flagEmoji={match.away_team.flag_emoji}
-              isoCode={match.away_team.iso_code}
-              name={match.away_team.name}
-            />
-          )}
-        </div>
-        <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+      {/* Stage + date */}
+      <div className="flex items-center justify-between mb-2.5">
+        <span className="text-[11px] font-medium text-gray-400 dark:text-slate-500 uppercase tracking-wide">
           {STAGE_LABELS[match.stage] ?? match.stage}
           {match.group_letter && ` · Grupo ${match.group_letter}`}
           {match.matchday && ` · J${match.matchday}`}
-        </div>
-      </td>
-
-      {/* Estado */}
-      <td className="px-4 py-3 text-center whitespace-nowrap">
-        <span
-          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${
-            isFinished
-              ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400'
-              : match.status === 'IN_PROGRESS'
-              ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400'
-              : match.status === 'CANCELLED'
-              ? 'bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400'
-              : 'bg-gray-100 text-gray-600 dark:bg-slate-700 dark:text-slate-400'
-          }`}
-        >
-          {isFinished
-            ? `${match.home_goals} – ${match.away_goals}`
-            : match.status === 'IN_PROGRESS'
-            ? 'En curso'
-            : match.status === 'CANCELLED'
-            ? 'Cancelado'
-            : 'Pendiente'}
         </span>
-        {isFinished && isKnockout && match.home_goals === match.away_goals && match.advancing_team_id !== null && (
-          <span className="block mt-1 text-[10px] font-semibold text-blue-600 dark:text-blue-400">
-            🏆 Pen.: {match.advancing_team_id === match.home_team_id
-              ? match.home_team?.name
-              : match.away_team?.name}
-          </span>
-        )}
-      </td>
+        <span className="text-[11px] text-gray-400 dark:text-slate-500 shrink-0 ml-2">
+          {dateStr} · {timeStr}
+        </span>
+      </div>
 
-      {/* Inputs resultado */}
-      <td className="px-4 py-3">
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex items-center justify-center gap-2">
+      {/* Teams row + controls */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        {/* Teams */}
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          {match.home_team && (
+            <FlagImg flagEmoji={match.home_team.flag_emoji} isoCode={match.home_team.iso_code} name={match.home_team.name} />
+          )}
+          <span className="font-semibold text-sm text-gray-900 dark:text-gray-100 truncate">
+            {match.home_team?.name ?? '?'}
+          </span>
+          <span className="text-gray-300 dark:text-slate-600 text-xs shrink-0 mx-0.5">vs</span>
+          <span className="font-semibold text-sm text-gray-900 dark:text-gray-100 truncate">
+            {match.away_team?.name ?? '?'}
+          </span>
+          {match.away_team && (
+            <FlagImg flagEmoji={match.away_team.flag_emoji} isoCode={match.away_team.iso_code} name={match.away_team.name} />
+          )}
+        </div>
+
+        {/* Status + inputs + actions */}
+        <div className="flex flex-wrap items-center gap-2 sm:shrink-0">
+          {/* Status badge */}
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold shrink-0 ${statusBadgeCls}`}>
+            {statusLabel}
+          </span>
+          {isFinished && isKnockout && match.home_goals === match.away_goals && match.advancing_team_id !== null && (
+            <span className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 shrink-0">
+              🏆 Pen.: {advancingName}
+            </span>
+          )}
+
+          {/* Score inputs */}
+          <div className="flex items-center gap-1.5 shrink-0">
             <input
-              type="number"
-              min={0}
-              max={99}
+              type="number" min={0} max={99}
               value={homeGoals}
               onChange={(e) => setHomeGoals(e.target.value)}
-              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
-              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
+              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault() }}
+              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2) }}
               disabled={isSubmitting}
               placeholder="—"
               className={inputBase}
             />
             <span className="text-gray-300 dark:text-slate-600 font-bold text-sm select-none">–</span>
             <input
-              type="number"
-              min={0}
-              max={99}
+              type="number" min={0} max={99}
               value={awayGoals}
               onChange={(e) => setAwayGoals(e.target.value)}
-              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault(); }}
-              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2); }}
+              onKeyDown={(e) => { if (['e', 'E', '+', '-', '.', ','].includes(e.key)) e.preventDefault() }}
+              onInput={(e) => { if (e.currentTarget.value.length > 2) e.currentTarget.value = e.currentTarget.value.slice(0, 2) }}
               disabled={isSubmitting}
               placeholder="—"
               className={inputBase}
             />
           </div>
 
-          {needsAdvancing && (
-            <div className="flex flex-col items-center gap-1">
-              <p className="text-[9px] uppercase tracking-widest font-bold text-amber-600 dark:text-amber-400">
-                ¿Quién avanza?
-              </p>
-              <div className="flex gap-1.5">
-                {([
-                  { tid: match.home_team_id, name: match.home_team?.name ?? '?' },
-                  { tid: match.away_team_id, name: match.away_team?.name ?? '?' },
-                ] as const).map(({ tid, name }) => (
-                  <button
-                    key={tid}
-                    onClick={() => tid !== null && setAdvancingTeamId(tid)}
-                    disabled={isSubmitting || tid === null}
-                    className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border-2 transition-all ${
-                      advancingTeamId === tid
-                        ? 'border-blue-600 bg-blue-600 text-white'
-                        : 'border-gray-200 dark:border-slate-600 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500'
-                    }`}
-                  >
-                    {name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </td>
-
-      {/* Acción */}
-      <td className="px-4 py-3 text-center">
-        <div className="flex flex-col items-center gap-1.5">
+          {/* Save button */}
           <button
             onClick={handleSave}
             disabled={isSubmitting || isFinished || (needsAdvancing && advancingTeamId === null)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all active:scale-95 whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all active:scale-95 shrink-0 whitespace-nowrap ${
               isFinished
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-slate-700 dark:text-slate-500'
                 : needsAdvancing && advancingTeamId === null
@@ -627,17 +529,47 @@ function MatchRow({
                 : 'bg-gradient-to-r from-brand-blue to-brand-teal text-white hover:opacity-90 shadow-sm'
             }`}
           >
-            {isSubmitting ? 'Calculando…' : isFinished ? '✓ Listo' : '💾 Guardar y Calcular'}
+            {isSubmitting ? 'Calculando…' : isFinished ? '✓ Listo' : '💾 Guardar'}
           </button>
+
+          {/* View predictions */}
           <button
             onClick={() => onViewPredictions?.(match)}
-            className="text-xs text-indigo-500 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 transition-colors"
+            className="text-xs text-indigo-500 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 transition-colors shrink-0"
           >
             👁 Ver predicciones
           </button>
         </div>
-      </td>
-    </tr>
+      </div>
+
+      {/* Advancing team selector (knockout tie) */}
+      {needsAdvancing && (
+        <div className="mt-3 pt-3 border-t border-amber-100 dark:border-amber-900/30 flex flex-wrap items-center justify-center gap-2">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-amber-600 dark:text-amber-400 w-full text-center">
+            ¿Quién avanza?
+          </p>
+          <div className="flex gap-2">
+            {([
+              { tid: match.home_team_id, name: match.home_team?.name ?? '?' },
+              { tid: match.away_team_id, name: match.away_team?.name ?? '?' },
+            ] as const).map(({ tid, name }) => (
+              <button
+                key={tid}
+                onClick={() => tid !== null && setAdvancingTeamId(tid)}
+                disabled={isSubmitting || tid === null}
+                className={`px-3 py-1 rounded-full text-xs font-semibold border-2 transition-all ${
+                  advancingTeamId === tid
+                    ? 'border-blue-600 bg-blue-600 text-white'
+                    : 'border-gray-200 dark:border-slate-600 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500'
+                }`}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -653,7 +585,6 @@ export default function AdminMatchManager({
   const [isSavingAll, setIsSavingAll]  = useState(false)
   const [predModal, setPredModal]      = useState<AdminMatch | null>(null)
 
-  // Tracks current input values of every MatchRow without causing re-renders
   const rowValuesRef = useRef<Record<number, RowValues | null>>(
     Object.fromEntries(
       initialMatches.map(m => [
@@ -731,100 +662,75 @@ export default function AdminMatchManager({
   const finished = initialMatches.filter(m => m.status === 'FINISHED').length
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full space-y-5">
       {/* Cabecera */}
-      <div className="flex items-start justify-between flex-wrap gap-4">
+      <div className="space-y-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-            Panel de Administración
-          </h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Panel de Administración</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
             Introduce los resultados reales para calcular puntos automáticamente.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 flex-wrap">
-          {/* Stat: Pendientes */}
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/40 rounded-xl px-4 py-2 text-center min-w-[68px]">
-            <p className="text-xl font-bold text-amber-700 dark:text-amber-400">{pending}</p>
-            <p className="text-xs text-amber-600 dark:text-amber-500">Pendientes</p>
+        {/* Stats + acciones */}
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Estadísticas */}
+          <div className="flex gap-2 shrink-0">
+            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/40 rounded-xl px-4 py-2 text-center min-w-[64px]">
+              <p className="text-xl font-bold text-amber-700 dark:text-amber-400">{pending}</p>
+              <p className="text-xs text-amber-600 dark:text-amber-500">Pendientes</p>
+            </div>
+            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40 rounded-xl px-4 py-2 text-center min-w-[64px]">
+              <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{finished}</p>
+              <p className="text-xs text-emerald-600 dark:text-emerald-500">Finalizados</p>
+            </div>
           </div>
 
-          {/* Stat: Finalizados */}
-          <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40 rounded-xl px-4 py-2 text-center min-w-[68px]">
-            <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{finished}</p>
-            <p className="text-xs text-emerald-600 dark:text-emerald-500">Finalizados</p>
+          {/* Botones de acción */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={handleSaveAll}
+              disabled={isSavingAll}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+            >
+              <span>💾</span>
+              {isSavingAll ? 'Guardando…' : 'Guardar todos'}
+            </button>
+            <button
+              onClick={handleExport}
+              disabled={isExporting}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all active:scale-95 disabled:opacity-60 disabled:cursor-wait"
+            >
+              <span>📊</span>
+              {isExporting ? 'Generando…' : 'Reporte JSON'}
+            </button>
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-blue to-brand-teal text-white hover:opacity-90 transition-all active:scale-95 shadow-sm"
+            >
+              <span>➕</span>
+              Añadir Partido
+            </button>
           </div>
-
-          {/* Botón Guardar Todos */}
-          <button
-            onClick={handleSaveAll}
-            disabled={isSavingAll}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:opacity-90 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
-          >
-            <span>💾</span>
-            {isSavingAll ? 'Guardando todos…' : 'Guardar todos los resultados'}
-          </button>
-
-          {/* Botón Descargar Reporte */}
-          <button
-            onClick={handleExport}
-            disabled={isExporting}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all active:scale-95 disabled:opacity-60 disabled:cursor-wait"
-          >
-            <span>📊</span>
-            {isExporting ? 'Generando…' : 'Descargar Reporte JSON'}
-          </button>
-
-          {/* Botón Añadir Partido */}
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-blue to-brand-teal text-white hover:opacity-90 transition-all active:scale-95 shadow-sm"
-          >
-            <span>➕</span>
-            Añadir Partido
-          </button>
         </div>
       </div>
 
-      {/* Tabla */}
-      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-200 dark:border-slate-800 overflow-x-auto">
-        <table className="w-full text-sm min-w-[680px]">
-          <thead>
-            <tr className="bg-gray-50 dark:bg-slate-800/60 border-b border-gray-100 dark:border-slate-800">
-              {['Fecha', 'Partido', 'Estado', 'Resultado real', 'Acción'].map((h) => (
-                <th
-                  key={h}
-                  className="px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide first:text-left text-center last:text-center"
-                >
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-50 dark:divide-slate-800">
-            {initialMatches.length === 0 ? (
-              <tr>
-                <td colSpan={5} className="px-4 py-14 text-center text-gray-400 dark:text-slate-500">
-                  No hay partidos en la base de datos.
-                </td>
-              </tr>
-            ) : (
-              initialMatches.map((match) => (
-                <MatchRow key={match.id} match={match} onRowChange={handleRowChange} onViewPredictions={setPredModal} />
-              ))
-            )}
-          </tbody>
-        </table>
+      {/* Lista de partidos */}
+      <div className="space-y-3">
+        {initialMatches.length === 0 ? (
+          <p className="text-center text-gray-400 dark:text-slate-500 text-sm py-14">
+            No hay partidos en la base de datos.
+          </p>
+        ) : (
+          initialMatches.map((match) => (
+            <MatchRow key={match.id} match={match} onRowChange={handleRowChange} onViewPredictions={setPredModal} />
+          ))
+        )}
       </div>
 
       {showAddModal && (
-        <AddMatchModal
-          teams={teams}
-          onClose={() => setShowAddModal(false)}
-        />
+        <AddMatchModal teams={teams} onClose={() => setShowAddModal(false)} />
       )}
-
       {predModal && (
         <PredictionsModal match={predModal} onClose={() => setPredModal(null)} />
       )}
