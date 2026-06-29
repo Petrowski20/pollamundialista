@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import AdminMatchManager from '@/components/AdminMatchManager'
 import type { AdminMatch, TeamOption } from '@/components/AdminMatchManager'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export default async function AdminPage() {
   const supabase = await createClient()
@@ -43,6 +44,7 @@ export default async function AdminPage() {
 
   return (
     <div className="w-full">
+      <ScrollToTopButton />
       <AdminMatchManager
         initialMatches={(matches ?? []) as unknown as AdminMatch[]}
         teams={(teams ?? []) as TeamOption[]}

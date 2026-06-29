@@ -1,6 +1,7 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import RemindersView, { type MatchWithVoters } from '@/components/RemindersView'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export default async function RecordatoriosPage() {
   const supabase = await createClient()
@@ -67,5 +68,10 @@ export default async function RecordatoriosPage() {
     }
   })
 
-  return <RemindersView matches={matchesWithVoters} />
+  return (
+    <>
+      <ScrollToTopButton />
+      <RemindersView matches={matchesWithVoters} />
+    </>
+  )
 }

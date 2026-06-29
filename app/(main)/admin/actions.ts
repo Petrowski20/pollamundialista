@@ -297,12 +297,30 @@ export async function updatePlayerPredictionAction(
 
   if (matchErr || !match) return { error: 'Partido no encontrado' }
 
+  // Inferir el clasificado de la predicción igual que savePredictionAction
+  let effectiveAdvancingId: number | null = null
+  if (match.stage !== 'GROUP') {
+    if (predHomeGoals > predAwayGoals) {
+      effectiveAdvancingId = match.home_team_id
+    } else if (predAwayGoals > predHomeGoals) {
+      effectiveAdvancingId = match.away_team_id
+    } else {
+      if (
+        !predAdvancingTeamId ||
+        (predAdvancingTeamId !== match.home_team_id && predAdvancingTeamId !== match.away_team_id)
+      ) {
+        return { error: 'En eliminatoria con empate debes seleccionar quién clasifica por penaltis' }
+      }
+      effectiveAdvancingId = predAdvancingTeamId
+    }
+  }
+
   // Partido sin resultado aún: guardar la predicción sin tocar points_earned
   if (match.home_goals === null || match.away_goals === null) {
     const { error: predErr } = await supabaseAdmin
       .from('predictions')
       .upsert(
-        { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId },
+        { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: effectiveAdvancingId },
         { onConflict: 'profile_id,match_id' }
       )
     if (predErr) return { error: predErr.message }
@@ -319,7 +337,7 @@ export async function updatePlayerPredictionAction(
 
   let pointsEarned: number
   if (isKnockout && isRealTie && advancing !== null) {
-    if (predAdvancingTeamId !== advancing) {
+    if (effectiveAdvancingId !== advancing) {
       pointsEarned = 0
     } else if (predHomeGoals === realHome && predAwayGoals === realAway) {
       pointsEarned = 3
@@ -347,7 +365,7 @@ export async function updatePlayerPredictionAction(
   const { error: predErr } = await supabaseAdmin
     .from('predictions')
     .upsert(
-      { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: predAdvancingTeamId, points_earned: pointsEarned },
+      { profile_id: profileId, match_id: matchId, pred_home_goals: predHomeGoals, pred_away_goals: predAwayGoals, pred_advancing_team_id: effectiveAdvancingId, points_earned: pointsEarned },
       { onConflict: 'profile_id,match_id' }
     )
 

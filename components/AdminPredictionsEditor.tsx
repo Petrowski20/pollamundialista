@@ -132,9 +132,8 @@ export default function AdminPredictionsEditor({ profiles, matches, predictions,
     }
 
     const isKnockout = match.stage !== 'GROUP'
-    const isTie = match.home_goals === match.away_goals
-    if (isKnockout && isTie && home === away && row.advancing === null) {
-      toast.error('Debes seleccionar el equipo que clasifica')
+    if (isKnockout && home === away && row.advancing === null) {
+      toast.error('Debes seleccionar el equipo que clasifica por penaltis')
       return
     }
 
@@ -197,8 +196,10 @@ export default function AdminPredictionsEditor({ profiles, matches, predictions,
             const currentPoints = pred?.points_earned ?? null
             const isFinished = match.status === 'FINISHED'
             const isKnockout = match.stage !== 'GROUP'
-            const isRealTie = isFinished && match.home_goals === match.away_goals
-            const showAdvancing = isKnockout && isRealTie && match.advancing_team_id !== null
+            const predHome = parseInt(row.home, 10)
+            const predAway = parseInt(row.away, 10)
+            const isPredTie = !isNaN(predHome) && !isNaN(predAway) && predHome === predAway
+            const showAdvancing = isKnockout && isPredTie
             const hasPred = pred !== undefined
 
             return (
@@ -238,9 +239,31 @@ export default function AdminPredictionsEditor({ profiles, matches, predictions,
                   </div>
 
                   <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <GoalInput value={row.home} onChange={v => setRow(match.id, { home: v })} />
+                    <GoalInput
+                      value={row.home}
+                      onChange={v => {
+                        const patch: Partial<RowState> = { home: v }
+                        if (match.stage !== 'GROUP') {
+                          const h = parseInt(v, 10)
+                          const a = parseInt(row.away, 10)
+                          if (!isNaN(h) && !isNaN(a) && h !== a) patch.advancing = null
+                        }
+                        setRow(match.id, patch)
+                      }}
+                    />
                     <span className="text-gray-400 dark:text-slate-500 font-bold text-sm">–</span>
-                    <GoalInput value={row.away} onChange={v => setRow(match.id, { away: v })} />
+                    <GoalInput
+                      value={row.away}
+                      onChange={v => {
+                        const patch: Partial<RowState> = { away: v }
+                        if (match.stage !== 'GROUP') {
+                          const h = parseInt(row.home, 10)
+                          const a = parseInt(v, 10)
+                          if (!isNaN(h) && !isNaN(a) && h !== a) patch.advancing = null
+                        }
+                        setRow(match.id, patch)
+                      }}
+                    />
                   </div>
 
                   {/* Away */}

@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { createClient as createSVClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 import AdminPredictionsEditor from '@/components/AdminPredictionsEditor'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export default async function AdminPredictionesPage({
   searchParams,
@@ -51,11 +52,14 @@ export default async function AdminPredictionesPage({
   }
 
   return (
-    <AdminPredictionsEditor
+    <>
+      <ScrollToTopButton />
+      <AdminPredictionsEditor
       profiles={(profiles ?? []) as { id: string; nickname: string }[]}
       matches={(matches ?? []) as any[]}
       predictions={predictions}
       selectedPlayerId={selectedPlayerId ?? null}
     />
+    </>
   )
 }

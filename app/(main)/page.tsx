@@ -3,6 +3,7 @@ import MatchGrid from '@/components/MatchGrid';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getServerLang, tServer } from '@/utils/i18n-server';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 export default async function HomePage() {
   const supabase = await createClient();
@@ -96,6 +97,7 @@ export default async function HomePage() {
 
   return (
     <div className="w-full">
+      <ScrollToTopButton />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
         {/* Calendario de Partidos */}
